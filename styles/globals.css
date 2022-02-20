@@ -1,16 +1,28 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply text-white bg-body font-poppins;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.secondary-title {
+  @apply text-3xl font-bold;
 }
 
-* {
-  box-sizing: border-box;
+.secondary-title::before {
+  content: '';
+  @apply block w-12 h-2 mb-1 rounded-full bg-theme;
+}
+
+.section-paragraph {
+  @apply w-full max-w-3xl my-6 text-lg text-secondary;
+}
+
+.badge {
+  @apply px-4 py-2 text-sm rounded bg-badge;
 }

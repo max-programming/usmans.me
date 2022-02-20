@@ -1,18 +1,20 @@
-import Hero from '@/components/Hero';
+import AboutMe from '@/components/AboutMe';
+import Technologies from '@/components/Technologies';
 import Layout from '@/components/Layout';
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
   return (
-    <div>
+    <>
       <Layout
         title='Usman Sabuwala - Web Developer'
         description='Web Developer, Content Creator and Learner'
       >
-        <Hero />
+        <AboutMe />
+        <Technologies />
       </Layout>
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default About;

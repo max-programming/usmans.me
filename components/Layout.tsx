@@ -42,6 +42,7 @@ const Layout = ({ children, title, description }: PropsWithChildren<Props>) => (
       exit='exit'
       variants={variants}
       transition={{ type: 'linear' }}
+      className='my-10'
     >
       {children}
     </motion.main>

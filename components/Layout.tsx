@@ -15,25 +15,11 @@ const variants = {
 };
 
 const Layout = ({ children, title, description }: PropsWithChildren<Props>) => (
-  <div>
+  <>
     <NextSeo
       title={title}
       description={description}
       openGraph={{ title, description }}
-      additionalLinkTags={[
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap',
-        },
-      ]}
     />
     <Navbar />
     <motion.main
@@ -42,11 +28,10 @@ const Layout = ({ children, title, description }: PropsWithChildren<Props>) => (
       exit='exit'
       variants={variants}
       transition={{ type: 'linear' }}
-      className='my-10'
     >
       {children}
     </motion.main>
-  </div>
+  </>
 );
 
 export default Layout;

@@ -1,6 +1,6 @@
 export default function AboutMe() {
   return (
-    <div className='container flex items-center justify-between mx-auto mt-16 md:px-24'>
+    <div className='container flex items-center justify-between w-full px-8 mx-auto mt-3 md:mt-16 md:px-24'>
       <section className='w-full'>
         <h2 id='work' className='secondary-title'>
           About me

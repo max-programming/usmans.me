@@ -9,4 +9,8 @@ export const chakraTheme = extendTheme({
     gradLeft: '#F29492',
     gradRight: '#114357',
   },
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  },
 });

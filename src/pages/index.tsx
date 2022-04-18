@@ -15,14 +15,7 @@ interface Props {
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Main
-      meta={
-        <Meta
-          title="Next.js Boilerplate Presentation"
-          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
-        />
-      }
-    >
+    <Main meta={<Meta title="Usman Sabuwala" description="my online home" />}>
       <Nav />
       <Container maxW="4xl">
         <Hero />

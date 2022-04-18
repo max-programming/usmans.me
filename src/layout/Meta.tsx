@@ -58,6 +58,11 @@ const Meta = (props: IMetaProps) => {
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
         }}
+        twitter={{
+          cardType: 'summary',
+          handle: '@MaxProgramming1',
+          site: 'https://usman-s.me',
+        }}
       />
     </>
   );

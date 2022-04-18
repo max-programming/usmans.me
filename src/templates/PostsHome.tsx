@@ -19,9 +19,10 @@ const PostsHome = ({ posts }: IPostsHomeProps) => {
             key={post.cuid}
             as={motion.a}
             href={`https://blog.usman-s.me/${post.slug}`}
+            target="_blank"
             initial={{ textDecoration: 'none' }}
             whileHover={{
-              translateX: 10,
+              translateX: 20,
               textDecoration: 'none',
             }}
           >

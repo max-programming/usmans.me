@@ -3,7 +3,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-module.exports = withBundleAnalyzer({
+const config = withBundleAnalyzer({
   eslint: {
     dirs: ['.'],
   },
@@ -14,4 +14,15 @@ module.exports = withBundleAnalyzer({
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/youtube',
+        destination: 'https://youtube.com/MaxProgramming',
+        permanent: true,
+      },
+    ];
+  },
 });
+
+module.exports = config;

@@ -1,24 +1,44 @@
-/** @type import('tailwindcss/tailwind-config').TailwindConfig */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+    },
     extend: {
       colors: {
-        body: '#17171f',
-        'selected-text': '#a3a3ff',
-        theme: '#3f3fff',
-        nav: '#404053',
-        secondary: '#9191A4',
-        badge: '#3f3f51',
-        'input-border': '#565666',
-        input: '#2a2a35',
-      },
-      fontFamily: {
-        poppins: ["'Poppins'", 'sans-serif'],
+        gray: {
+          100: '#f7fafc',
+          200: '#edf2f7',
+          300: '#e2e8f0',
+          400: '#cbd5e0',
+          500: '#a0aec0',
+          600: '#718096',
+          700: '#4a5568',
+          800: '#2d3748',
+          900: '#1a202c',
+        },
+        blue: {
+          100: '#ebf8ff',
+          200: '#bee3f8',
+          300: '#90cdf4',
+          400: '#63b3ed',
+          500: '#4299e1',
+          600: '#3182ce',
+          700: '#2b6cb0',
+          800: '#2c5282',
+          900: '#2a4365',
+        },
       },
     },
   },
+  plugins: [],
 };

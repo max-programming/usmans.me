@@ -29,9 +29,12 @@ const PostsHome = ({ posts }: IPostsHomeProps) => {
               gap={10}
               justify="center"
               rounded="md"
-              direction={index % 2 === 0 ? 'row' : 'row-reverse'}
               align="center"
               p="4"
+              direction={{
+                base: 'column',
+                md: index % 2 === 0 ? 'row' : 'row-reverse',
+              }}
             >
               <Image
                 src={post.coverImage}
@@ -42,25 +45,27 @@ const PostsHome = ({ posts }: IPostsHomeProps) => {
               />
               <Flex direction="column" gap={3}>
                 <SectionHeading size="lg">{post.title}</SectionHeading>
-                <Text
-                  fontSize="xl"
-                  title={`${post.totalReactions} Reactions`}
-                  display="flex"
-                  gap={1}
-                  alignItems="center"
-                >
-                  <FaThumbsUp />
-                  {post.totalReactions}
-                </Text>
-                <Text
-                  fontSize="xl"
-                  title={`${post.totalReactions} Reactions`}
-                  display="flex"
-                  gap={1}
-                  alignItems="center"
-                >
-                  {new Date(post.dateAdded).toDateString()} <br />
-                </Text>
+                <Flex gap={5}>
+                  <Text
+                    fontSize="xl"
+                    title={`${post.totalReactions} Reactions`}
+                    display="flex"
+                    gap={1}
+                    alignItems="center"
+                  >
+                    <FaThumbsUp />
+                    {post.totalReactions}
+                  </Text>
+                  <Text
+                    fontSize="xl"
+                    title={`${post.totalReactions} Reactions`}
+                    display="flex"
+                    gap={1}
+                    alignItems="center"
+                  >
+                    {new Date(post.dateAdded).toDateString()} <br />
+                  </Text>
+                </Flex>
               </Flex>
             </Flex>
           </Link>

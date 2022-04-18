@@ -6,7 +6,12 @@ import { SectionHeading } from '@/layout/SectionHeading';
 const Hero = () => {
   return (
     <Box mt="16">
-      <Flex align="center" gap={3}>
+      <Flex
+        align="center"
+        gap={3}
+        justify="center"
+        direction={{ base: 'column-reverse', md: 'row' }}
+      >
         <Flex direction="column" gap={5}>
           <SectionHeading>
             Hi, I am{' '}

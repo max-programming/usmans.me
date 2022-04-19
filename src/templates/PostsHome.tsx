@@ -59,7 +59,9 @@ const PostsHome = ({ posts }: IPostsHomeProps) => {
                   </Text>
                   <Text
                     fontSize="xl"
-                    title={`Published on ${new Date(post.dateAdded).toDateString()}`}
+                    title={`Published on ${new Date(
+                      post.dateAdded
+                    ).toDateString()}`}
                     display="flex"
                     gap={1}
                     alignItems="center"

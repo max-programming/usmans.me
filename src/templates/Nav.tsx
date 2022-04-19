@@ -1,10 +1,8 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
 
-import useMediaQuery from '@/hooks/useMediaQuery';
 import { MyLink } from '@/layout/Link';
 
 const Nav = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <Box w="100%" bgGradient="linear(to-l, #114357, #F29492)">
       <Box p="5">
@@ -12,7 +10,7 @@ const Nav = () => {
           <Heading textAlign="center" fontSize="4xl">
             Usman Sabuwala
           </Heading>
-          <Flex gap={5} hidden={isMobile}>
+          <Flex gap={5} display={{ base: 'none', md: 'flex' }}>
             <MyLink
               href="https://blog.usman-s.me"
               target="_blank"

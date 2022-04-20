@@ -1,1 +1,3 @@
-## MY Personal Site
+# 🌐 my online home
+
+README coming soon 😉

@@ -46,6 +46,12 @@ const Meta = (props: IMetaProps) => {
           href={`${router.basePath}/favicon.ico`}
           key="favicon"
         />
+        <script
+          async
+          defer
+          data-website-id="fb6e8164-b366-4658-b48b-21ab3e8173ab"
+          src="https://umami-production-5aff.up.railway.app/umami.js"
+        ></script>
       </Head>
       <NextSeo
         title={props.title}

@@ -15,7 +15,7 @@ interface Props {
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Main meta={<Meta title="Usman Sabuwala" description="my online home" />}>
+    <Main meta={<Meta title="Usman Sabuwala" description="🌐 my online home" />}>
       <Nav />
       <Container maxW="4xl">
         <Hero />

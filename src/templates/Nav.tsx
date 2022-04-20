@@ -18,9 +18,9 @@ const Nav = () => {
             >
               Blog
             </MyLink>
-            <MyLink href="/contact" fontSize="xl">
+            {/* <MyLink href="/contact" fontSize="xl">
               Contact
-            </MyLink>
+            </MyLink> */}
           </Flex>
         </Flex>
       </Box>

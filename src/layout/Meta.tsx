@@ -65,7 +65,7 @@ const Meta = (props: IMetaProps) => {
           site_name: AppConfig.site_name,
           images: [
             {
-              url: 'https://usman-s.me/profilePic.jpg',
+              url: '/profilePic.jpg',
               width: 800,
               height: 600,
               alt: 'Profile Picture',

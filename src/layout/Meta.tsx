@@ -50,7 +50,7 @@ const Meta = (props: IMetaProps) => {
           async
           defer
           data-website-id="fb6e8164-b366-4658-b48b-21ab3e8173ab"
-          src="https://umami-production-5aff.up.railway.app/umami.js"
+          src="https://analytics.usman-s.me/umami.js"
         ></script>
       </Head>
       <NextSeo

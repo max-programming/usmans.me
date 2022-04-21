@@ -70,7 +70,12 @@ const Hero = () => {
           </SectionHeading>
         </Flex>
         <Flex>
-          <Image src="/profilePic.jpg" alt="Profile Pic" rounded="full" />
+          <Image
+            src="/profilePic.jpg"
+            alt="Profile Pic"
+            rounded="full"
+            w={['xs', 'xs', 'xl', 'xl']}
+          />
         </Flex>
       </Flex>
     </Box>

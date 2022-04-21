@@ -21,7 +21,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Nav />
       <Container maxW="4xl">
         <Hero />
-        <Box w="full" h="1px" bgColor="white" my="6" />
+        <Box w="xl" h="1px" my="7" mx="auto" bgColor="whiteAlpha.500" />
         <SectionHeading size="2xl" my="4">
           What do I do?
         </SectionHeading>

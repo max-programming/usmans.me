@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Link, Text } from '@chakra-ui/react';
 import { motion, TargetAndTransition } from 'framer-motion';
-import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 import { MyLink } from '@/layout/Link';
 import { SectionHeading } from '@/layout/SectionHeading';
@@ -36,6 +36,16 @@ const Hero = () => {
           <SectionHeading display="flex" alignItems="center" gap={3}>
             Catch me at:
             <Flex gap={5}>
+              <Link
+                href="https://discord.com/users/691360911440609290"
+                target="_blank"
+                as={motion.a}
+                initial={{ translateY: 1000 }}
+                animate={{ translateY: 0 }}
+                whileHover={linkHover}
+              >
+                <FaDiscord color="#5865F2" />
+              </Link>
               <Link
                 href="https://github.com/max-programming"
                 target="_blank"

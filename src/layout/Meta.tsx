@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
@@ -53,7 +54,6 @@ const Meta = (props: IMetaProps) => {
           src="https://analytics.usman-s.me/umami.js"
         ></script>
         <script
-          async
           data-name="BMC-Widget"
           data-cfasync="false"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"

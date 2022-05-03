@@ -52,6 +52,19 @@ const Meta = (props: IMetaProps) => {
           data-website-id="fb6e8164-b366-4658-b48b-21ab3e8173ab"
           src="https://analytics.usman-s.me/umami.js"
         ></script>
+        <script
+          async
+          data-name="BMC-Widget"
+          data-cfasync="false"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="usmansabuwala"
+          data-description="Support me on Buy me a coffee!"
+          data-message=""
+          data-color="#BD5FFF"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="18"
+        ></script>
       </Head>
       <NextSeo
         title={props.title}

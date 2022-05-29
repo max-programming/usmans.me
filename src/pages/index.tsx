@@ -1,12 +1,12 @@
 import { Box, Container } from '@chakra-ui/react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import { Meta } from '@/layout/Meta';
-import { SectionHeading } from '@/layout/SectionHeading';
-import { Hero } from '@/templates/Hero';
-import { Main } from '@/templates/Main';
-import { Nav } from '@/templates/Nav';
-import { PostsHome } from '@/templates/PostsHome';
+import { Hero } from '@/components/Hero';
+import { Main } from '@/components/Main';
+import { Meta } from '@/components/Meta';
+import { Nav } from '@/components/Nav';
+import { PostsHome } from '@/components/PostsHome';
+import { SectionHeading } from '@/components/SectionHeading';
 import { getPosts, Post } from '@/utils/fetchPosts';
 
 interface Props {

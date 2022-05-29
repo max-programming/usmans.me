@@ -2,7 +2,7 @@ import { Box, Flex, Image, Link, Stack, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { FaThumbsUp } from 'react-icons/fa';
 
-import { SectionHeading } from '@/layout/SectionHeading';
+import { SectionHeading } from '@/components/SectionHeading';
 import { Post } from '@/utils/fetchPosts';
 
 interface IPostsHomeProps {

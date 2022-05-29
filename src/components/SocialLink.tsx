@@ -11,8 +11,6 @@ const SocialLink = (props: { link: string; icon: ReactNode }) => {
       href={props.link}
       target="_blank"
       as={motion.a}
-      initial={{ translateY: 1000 }}
-      animate={{ translateY: 0 }}
       whileHover={linkHover}
     >
       {props.icon}

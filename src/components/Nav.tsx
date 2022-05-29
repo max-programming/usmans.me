@@ -1,6 +1,6 @@
 import { Box, Flex, Heading } from '@chakra-ui/react';
 
-import { MyLink } from '@/layout/Link';
+import { MyLink } from '@/components/Link';
 
 const Nav = () => {
   return (

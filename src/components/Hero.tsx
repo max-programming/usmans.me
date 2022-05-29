@@ -15,7 +15,7 @@ const Hero = () => {
         justify="center"
         direction={{ base: 'column-reverse', md: 'row' }}
       >
-        <SlideFade offsetX={-1000} in transition={{ enter: { duration: 3 } }}>
+        <SlideFade offsetX={-1000} in transition={{ enter: { duration: 2 } }}>
           <Flex direction="column" gap={5}>
             <SectionHeading>
               Hi, I am{' '}

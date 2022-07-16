@@ -23,13 +23,9 @@ const Hero = () => {
                 as={Player}
                 loop
                 autoplay
-                src="/waving_hand.json"
+                src="/lotties/waving_hand.json"
                 w={{ base: '8', md: '10' }}
                 h={{ base: '8', md: '10' }}
-                // style={{
-                //   width: theme.fontSizes['5xl'],
-                //   height: theme.fontSizes['5xl'],
-                // }}
               />
               <SectionHeading ml="2">
                 Hi, I am{' '}

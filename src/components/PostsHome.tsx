@@ -1,4 +1,5 @@
 import { Box, Flex, Image, Link, Stack, Text } from '@chakra-ui/react';
+import { Player } from '@lottiefiles/react-lottie-player';
 import { motion } from 'framer-motion';
 import { FaThumbsUp } from 'react-icons/fa';
 
@@ -68,7 +69,17 @@ const PostCard = ({ post, isEven }: { post: Post; isEven: boolean }) => (
 const PostsHome = ({ posts }: IPostsHomeProps) => {
   return (
     <Box>
-      <SectionHeading>My recent blog posts 👇</SectionHeading>
+      <Flex>
+        <Text
+          as={Player}
+          loop
+          autoplay
+          src="/point_down.json"
+          w={{ base: '10', md: '16' }}
+          h={{ base: '10', md: '16' }}
+        />
+        <SectionHeading>My recent blog posts</SectionHeading>
+      </Flex>
       <Flex gap={5} direction="column" mt="5">
         {posts.map((post, index) => (
           <PostCard key={post.cuid} post={post} isEven={index % 2 === 0} />

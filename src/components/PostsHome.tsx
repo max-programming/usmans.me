@@ -74,7 +74,7 @@ const PostsHome = ({ posts }: IPostsHomeProps) => {
           as={Player}
           loop
           autoplay
-          src="/point_down.json"
+          src="lotties/point_down.json"
           w={{ base: '10', md: '16' }}
           h={{ base: '10', md: '16' }}
         />

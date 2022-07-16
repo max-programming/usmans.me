@@ -1,4 +1,5 @@
 import { Box, Flex, Image, SlideFade, Text } from '@chakra-ui/react';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 import { MyLink } from '@/components/Link';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -17,13 +18,27 @@ const Hero = () => {
       >
         <SlideFade offsetX={-1000} in transition={{ enter: { duration: 2 } }}>
           <Flex direction="column" gap={5}>
-            <SectionHeading>
-              Hi, I am{' '}
-              <Text as="span" color="gradLeft">
-                Usman
-              </Text>
-              !
-            </SectionHeading>
+            <Flex>
+              <Text
+                as={Player}
+                loop
+                autoplay
+                src="/waving_hand.json"
+                w={{ base: '8', md: '10' }}
+                h={{ base: '8', md: '10' }}
+                // style={{
+                //   width: theme.fontSizes['5xl'],
+                //   height: theme.fontSizes['5xl'],
+                // }}
+              />
+              <SectionHeading ml="2">
+                Hi, I am{' '}
+                <Text as="span" color="gradLeft">
+                  Usman
+                </Text>
+                !
+              </SectionHeading>
+            </Flex>
             <Text fontSize="xl">
               Hey all! My name is Usman! I am 17 years old and learning web
               development and programming. I also have a{' '}

@@ -35,7 +35,7 @@ const PostCard = ({ post, isEven }: { post: Post; isEven: boolean }) => (
           md: isEven ? 'row' : 'row-reverse',
         }}
       >
-        <Image src={post.coverImage} alt={post.title} rounded="md" w="lg" />
+        <Image src={post.coverImage} alt={post.title} rounded="md" w="xs" />
         <Stack>
           <SectionHeading size="lg">{post.title}</SectionHeading>
           <Flex gap={5}>

@@ -43,6 +43,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const SECONDS_IN_A_DAY = 86400;
   const allPosts = await getPosts();
 
   const posts = allPosts.slice(0, 4);
@@ -51,6 +52,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       posts,
     },
+    revalidate: SECONDS_IN_A_DAY,
   };
 };
 

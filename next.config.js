@@ -22,6 +22,11 @@ const config = withBundleAnalyzer({
         destination: 'https://youtube.com/MaxProgramming',
         permanent: true,
       },
+      {
+        source: '/discord',
+        destination: 'https://discord.com/users/691360911440609290',
+        permanent: true,
+      },
     ];
   },
 });

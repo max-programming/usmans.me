@@ -8,9 +8,11 @@ import { Nav } from '@/components/Nav';
 import { PostsHome } from '@/components/PostsHome';
 import { SectionHeading } from '@/components/SectionHeading';
 import { getPosts, Post } from '@/utils/fetchPosts';
+import { getVideos, Video } from '@/utils/fetchVideos';
 
 interface Props {
   posts: Post[];
+  videos: Video[];
 }
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -45,12 +47,14 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const SECONDS_IN_A_DAY = 86400;
   const allPosts = await getPosts();
+  const videos = await getVideos();
 
   const posts = allPosts.slice(0, 4);
 
   return {
     props: {
       posts,
+      videos,
     },
     revalidate: SECONDS_IN_A_DAY,
   };

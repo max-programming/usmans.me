@@ -26,7 +26,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       }
     >
       <Nav />
-      <Container maxW="container.lg">
+      <Container overflow="hidden" maxW="container.lg">
         <Hero />
         <Box
           w={['xs', 'md', null, 'xl']}

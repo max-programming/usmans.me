@@ -50,8 +50,8 @@ const Meta = (props: IMetaProps) => {
         <script
           async
           defer
-          data-website-id="fb6e8164-b366-4658-b48b-21ab3e8173ab"
-          src="https://analytics.usman-s.me/umami.js"
+          data-website-id="b52533ff-5df3-42fd-8247-8ce626759b8a"
+          src="https://insights.usman-s.me/umami.js"
         ></script>
         <script
           data-name="BMC-Widget"

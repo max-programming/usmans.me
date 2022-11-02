@@ -88,7 +88,7 @@ const Meta = (props: IMetaProps) => {
         twitter={{
           cardType: 'summary',
           handle: '@MaxProgramming1',
-          site: 'https://usman-s.me',
+          site: 'https://usmans.me',
         }}
       />
     </>

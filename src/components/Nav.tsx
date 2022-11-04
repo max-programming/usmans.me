@@ -12,7 +12,7 @@ const Nav = () => {
           </Heading>
           <Flex gap={5} display={{ base: 'none', md: 'flex' }}>
             <MyLink
-              href="https://blog.usman-s.me"
+              href="https://blog.usmans.me"
               target="_blank"
               fontSize="xl"
             >

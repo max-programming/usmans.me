@@ -1,30 +1,72 @@
-import { Box, Flex, Heading } from '@chakra-ui/react';
-
-import { MyLink } from '@/components/Link';
+import { FaDiscord } from 'react-icons/fa';
+import { MdArticle } from 'react-icons/md';
 
 const Nav = () => {
   return (
-    <Box w="100%" bgGradient="linear(to-l, #114357, #F29492)">
-      <Box p="5">
-        <Flex align="center" justify={{ base: 'center', md: 'space-between' }}>
-          <Heading textAlign="center" fontSize="4xl">
-            Usman Sabuwala
-          </Heading>
-          <Flex gap={5} display={{ base: 'none', md: 'flex' }}>
-            <MyLink
-              href="https://blog.usmans.me"
-              target="_blank"
-              fontSize="xl"
+    <div className="navbar bg-base-100 p-5">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Blog
-            </MyLink>
-            {/* <MyLink href="/contact" fontSize="xl">
-              Contact
-            </MyLink> */}
-          </Flex>
-        </Flex>
-      </Box>
-    </Box>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          {/* <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a>Item 1</a>
+            </li>
+            <li>
+              <a>Item 3</a>
+            </li>
+          </ul> */}
+        </div>
+        <a className="btn btn-ghost normal-case text-2xl">Usman S.</a>
+      </div>
+      {/* <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal p-0">
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <a>Item 3</a>
+          </li>
+        </ul>
+      </div> */}
+      <div className="navbar-end gap-5">
+        <a
+          className="btn btn-primary gap-2"
+          href="https://blog.usmans.me"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <MdArticle />
+          Blog
+        </a>
+        <a
+          className="btn btn-primary gap-2"
+          href="https://blog.usmans.me"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaDiscord />
+          Let&apos;s Chat
+        </a>
+      </div>
+    </div>
   );
 };
 

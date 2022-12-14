@@ -51,6 +51,7 @@ const Hero = () => {
                     key={socialLink.link}
                     link={socialLink.link}
                     icon={socialLink.icon}
+                    name={socialLink.name}
                   />
                 ))}
               </Flex>

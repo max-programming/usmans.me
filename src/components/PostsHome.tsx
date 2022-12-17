@@ -20,7 +20,7 @@ const PostCard = ({ post, isEven }: { post: Post; isEven: boolean }) => (
     p={6}
   >
     <Link
-      href={`https://blog.usman-s.me/${post.slug}`}
+      href={`https://blog.usmans.me/${post.slug}`}
       target="_blank"
       _hover={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}

@@ -1,10 +1,11 @@
+import { env } from '@/env/server.mjs';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function sendDiscordMessage(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await fetch(process.env.DISCORD_WEBHOOK_URL!, {
+  const response = await fetch(env.DISCORD_WEBHOOK_URL!, {
     method: 'POST',
     body: JSON.stringify({
       content: `${req.query.name} button was clicked.`,

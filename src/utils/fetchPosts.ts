@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import axios from 'axios';
 
 import { client } from './apolloClient';
 
@@ -19,9 +20,18 @@ interface Data {
   };
 }
 
-export async function getPosts() {
-  const hashnodeClient = client('https://api.hashnode.com');
+async function getDevToPosts() {
+  const { data } = await axios.get(
+    'https://dev.to/api/articles?username=maxprogramming&per_page=5'
+  );
+  return (data as any[]).map((d: any) => ({
+    url: d.url,
+    canonicalUrl: d.canonical_url,
+  }));
+}
 
+async function getHashnodePosts() {
+  const hashnodeClient = client('https://api.hashnode.com');
   const { data } = await hashnodeClient.query<Data>({
     query: gql`
       query GetPosts {
@@ -40,8 +50,16 @@ export async function getPosts() {
       }
     `,
   });
+  return data;
+}
 
-  const { posts } = data.user.publication;
+export async function getPosts() {
+  const [hashnodePosts, devToPosts] = await Promise.all([
+    getHashnodePosts(),
+    getDevToPosts(),
+  ]);
+
+  const { posts } = hashnodePosts.user.publication;
 
   return posts;
 }

@@ -1,3 +1,5 @@
+import { env } from '@/env/server.mjs';
+
 const CHANNEL_ID = 'UC7LE4pbfb4e2voEASj3RscA';
 
 interface Thumbnail {
@@ -19,7 +21,7 @@ export interface Video {
 
 export async function getVideos(): Promise<Array<Video>> {
   const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=5`
+    `https://www.googleapis.com/youtube/v3/search?key=${env.YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=5`
   );
   const { items } = await res.json();
   const videos: Array<Video> = items.map(({ id, snippet }: any) => {

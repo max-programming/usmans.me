@@ -8,9 +8,13 @@
 # testing
 /coverage
 
+# database
+/prisma/db.sqlite
+/prisma/db.sqlite-journal
+
 # next.js
-/.next
-/out
+/.next/
+/out/
 
 # production
 /build
@@ -18,19 +22,19 @@
 # misc
 .DS_Store
 *.pem
-Thumbs.db
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# dotenv local files
-.env*.local
+# local env files
 .env
-
-# local folder
-local
+.env*.local
 
 # vercel
 .vercel
+
+# typescript
+*.tsbuildinfo

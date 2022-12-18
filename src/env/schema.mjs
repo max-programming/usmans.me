@@ -7,6 +7,8 @@ import { z } from "zod";
  */
 export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
+  DISCORD_WEBHOOK_URL: z.string(),
+  YOUTUBE_API_KEY: z.string()
 });
 
 /**

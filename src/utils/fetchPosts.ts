@@ -10,6 +10,8 @@ export interface Post {
   dateAdded: string;
   slug: string;
   title: string;
+  responseCount: number;
+  responseCount: number;
 }
 
 interface Data {
@@ -44,6 +46,8 @@ async function getHashnodePosts() {
               totalReactions
               coverImage
               dateAdded
+              responseCount
+              replyCount
             }
           }
         }

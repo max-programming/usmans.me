@@ -11,7 +11,7 @@ export interface Post {
   slug: string;
   title: string;
   responseCount: number;
-  responseCount: number;
+  replyCount: number;
 }
 
 interface Data {

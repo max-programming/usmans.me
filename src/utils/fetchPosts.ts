@@ -14,6 +14,12 @@ export interface Post {
   replyCount: number;
 }
 
+export interface LikesAndComments {
+  totalReactions: number;
+  responseCount: number;
+  replyCount: number;
+}
+
 interface Data {
   user: {
     publication: {
@@ -30,6 +36,27 @@ async function getDevToPosts() {
     url: d.url,
     canonicalUrl: d.canonical_url,
   }));
+}
+
+export async function getPostLikesAndComments() {
+  const hashnodeClient = client('https://api.hashnode.com');
+  const { data } = await hashnodeClient.query<any>({
+    query: gql`
+      query GetPosts {
+        user(username: "usmanwrites") {
+          publication {
+            posts {
+              totalReactions
+              responseCount
+              replyCount
+            }
+          }
+        }
+      }
+    `,
+  });
+  const likesAndComments: LikesAndComments[] = data.user.publication.posts;
+  return likesAndComments;
 }
 
 async function getHashnodePosts() {

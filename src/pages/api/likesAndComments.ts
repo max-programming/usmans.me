@@ -1,12 +1,11 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 import { getPostLikesAndComments } from '@/utils/fetchPosts';
-import { NextResponse } from 'next/server';
 
-export default async function sendDiscordMessage() {
+export default async function sendDiscordMessage(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
   const likesAndComments = await getPostLikesAndComments();
 
-  return NextResponse.json(likesAndComments);
+  return res.send(likesAndComments);
 }
-
-export const config = {
-  runtime: 'experimental-edge',
-};

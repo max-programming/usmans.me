@@ -45,7 +45,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const SECONDS_IN_A_DAY = 86400;
+  const SECONDS_IN_TWO_HOURS = 7200;
   const allPosts = await getPosts();
   const videos = await getVideos();
 
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       posts,
       videos,
     },
-    revalidate: SECONDS_IN_A_DAY,
+    revalidate: SECONDS_IN_TWO_HOURS,
   };
 };
 

@@ -4,13 +4,24 @@ import { motion } from 'framer-motion';
 import { FaThumbsUp, FaComment } from 'react-icons/fa';
 
 import { SectionHeading } from '@/components/SectionHeading';
-import { Post } from '@/utils/fetchPosts';
+import { LikesAndComments, Post } from '@/utils/fetchPosts';
 
 interface IPostsHomeProps {
   posts: Post[];
+  likesAndComments?: LikesAndComments[];
 }
 
-const PostCard = ({ post, isEven }: { post: Post; isEven: boolean }) => (
+const PostCard = ({
+  post,
+  isEven,
+  index,
+  likesAndComments,
+}: {
+  post: Post;
+  isEven: boolean;
+  index: number;
+  likesAndComments?: LikesAndComments[];
+}) => (
   <Box
     as={motion.div}
     whileHover={{ scale: 1.05 }}
@@ -40,26 +51,34 @@ const PostCard = ({ post, isEven }: { post: Post; isEven: boolean }) => (
         <Stack>
           <SectionHeading size='lg'>{post.title}</SectionHeading>
           <Flex gap={5}>
-            <Text
-              fontSize='xl'
-              title={`${post.totalReactions} Reactions`}
-              display='flex'
-              gap={1}
-              alignItems='center'
-            >
-              <FaThumbsUp />
-              {post.totalReactions}
-            </Text>
-            <Text
-              fontSize='xl'
-              title={`${post.responseCount + post.replyCount} Comments`}
-              display='flex'
-              gap={1}
-              alignItems='center'
-            >
-              <FaComment />
-              {post.responseCount + post.replyCount}
-            </Text>
+            {likesAndComments && (
+              <>
+                <Text
+                  fontSize='xl'
+                  title={`${likesAndComments[index]!.totalReactions} Reactions`}
+                  display='flex'
+                  gap={1}
+                  alignItems='center'
+                >
+                  <FaThumbsUp />
+                  {likesAndComments[index]!.totalReactions}
+                </Text>
+                <Text
+                  fontSize='xl'
+                  title={`${
+                    likesAndComments[index]!.responseCount +
+                    likesAndComments[index]!.replyCount
+                  } Comments`}
+                  display='flex'
+                  gap={1}
+                  alignItems='center'
+                >
+                  <FaComment />
+                  {likesAndComments[index]!.responseCount +
+                    likesAndComments[index]!.replyCount}
+                </Text>
+              </>
+            )}
             <Text
               fontSize='xl'
               title={`Published on ${new Date(post.dateAdded).toDateString()}`}
@@ -76,7 +95,7 @@ const PostCard = ({ post, isEven }: { post: Post; isEven: boolean }) => (
   </Box>
 );
 
-const PostsHome = ({ posts }: IPostsHomeProps) => {
+const PostsHome = ({ posts, likesAndComments }: IPostsHomeProps) => {
   return (
     <Box>
       <Flex>
@@ -92,7 +111,13 @@ const PostsHome = ({ posts }: IPostsHomeProps) => {
       </Flex>
       <Flex gap={5} direction='column' mt='5'>
         {posts.map((post, index) => (
-          <PostCard key={post.cuid} post={post} isEven={index % 2 === 0} />
+          <PostCard
+            key={post.cuid}
+            post={post}
+            isEven={index % 2 === 0}
+            index={index}
+            likesAndComments={likesAndComments}
+          />
         ))}
       </Flex>
     </Box>

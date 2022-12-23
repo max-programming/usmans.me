@@ -1,5 +1,6 @@
 import { Box, Container } from '@chakra-ui/react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import useSWR from 'swr';
 
 import { Hero } from '@/components/Hero';
 import { Main } from '@/components/Main';
@@ -7,7 +8,7 @@ import { Meta } from '@/components/Meta';
 import { Nav } from '@/components/Nav';
 import { PostsHome } from '@/components/PostsHome';
 import { SectionHeading } from '@/components/SectionHeading';
-import { getPosts, Post } from '@/utils/fetchPosts';
+import { getPosts, LikesAndComments, Post } from '@/utils/fetchPosts';
 import { getVideos, Video } from '@/utils/fetchVideos';
 
 interface Props {
@@ -16,29 +17,33 @@ interface Props {
 }
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { data: likesAndComments } = useSWR<LikesAndComments[]>(
+    '/api/likesAndComments',
+    url => fetch(url).then(res => res.json())
+  );
   return (
     <Main
       meta={
         <Meta
-          title="Usman Sabuwala - Web Developer in India."
-          description="🌐 my online home"
+          title='Usman Sabuwala - Web Developer in India.'
+          description='🌐 my online home'
         />
       }
     >
       <Nav />
-      <Container overflow="hidden" maxW="container.lg">
+      <Container overflow='hidden' maxW='container.lg'>
         <Hero />
         <Box
           w={['xs', 'md', null, 'xl']}
-          h="1px"
-          my="7"
-          mx="auto"
-          bgColor="whiteAlpha.500"
+          h='1px'
+          my='7'
+          mx='auto'
+          bgColor='whiteAlpha.500'
         />
-        <SectionHeading size="2xl" my="4">
+        <SectionHeading size='2xl' my='4'>
           What do I do?
         </SectionHeading>
-        <PostsHome posts={posts} />
+        <PostsHome posts={posts} likesAndComments={likesAndComments} />
       </Container>
     </Main>
   );

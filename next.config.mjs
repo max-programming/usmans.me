@@ -38,6 +38,12 @@ export default defineNextConfig({
         destination: 'https://discord.com/users/691360911440609290',
         permanent: true,
       },
+      
+      {
+        source: '/gists',
+        destination: 'https://gist.github.com/max-programming',
+        permanent: true,
+      },
     ];
   },
 });

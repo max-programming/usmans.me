@@ -31,7 +31,7 @@ const PostCard = ({
     p={6}
   >
     <Link
-      href={`https://blog.usmans.me/${post.slug}`}
+      href={`https://blog.usmans.me/${post.slug}?ref=usmansme`}
       target='_blank'
       _hover={{ textDecoration: 'none' }}
       _focus={{ boxShadow: 'none' }}

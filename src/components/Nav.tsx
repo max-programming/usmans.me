@@ -18,6 +18,13 @@ const Nav = () => {
             >
               Blog
             </MyLink>
+            <MyLink
+              href="/gists"
+              target="_blank"
+              fontSize="xl"
+            >
+              Gists
+            </MyLink>
             {/* <MyLink href="/contact" fontSize="xl">
               Contact
             </MyLink> */}

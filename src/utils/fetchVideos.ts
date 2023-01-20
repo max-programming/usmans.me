@@ -8,10 +8,18 @@ interface Thumbnail {
   height: number;
 }
 
+interface Stats {
+  viewCount: string;
+  likeCount: string;
+  favoriteCount: string;
+  commentCount: string;
+}
+
 export interface Video {
   id: string;
   title: string;
   description: string;
+  stats: Stats;
   thumbnails: {
     default: Thumbnail;
     medium: Thumbnail;
@@ -21,18 +29,32 @@ export interface Video {
 
 export async function getVideos(): Promise<Array<Video>> {
   const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${env.YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=5`
+    `https://www.googleapis.com/youtube/v3/search?key=${env.YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6`
   );
   const { items } = await res.json();
-  const videos: Array<Video> = items.map(({ id, snippet }: any) => {
-    return {
-      id: id.videoId,
-      title: snippet.title,
-      description: snippet.description,
-      thumbnails: snippet.thumbnails,
-    } as Video;
-  });
-  return videos;
+  const videos: Array<Omit<Video, 'stats'>> = items.map(
+    ({ id, snippet }: any) => {
+      return {
+        id: id.videoId,
+        title: snippet.title,
+        description: snippet.description,
+        thumbnails: snippet.thumbnails,
+      } as Video;
+    }
+  );
+
+  const finalVideos: Array<Video> = await Promise.all(
+    videos.map(async video => {
+      const res = await fetch(
+        `https://www.googleapis.com/youtube/v3/videos?id=${video.id}&key=${env.YOUTUBE_API_KEY}&part=statistics`
+      );
+      const { items } = await res.json();
+      return { ...video, stats: items[0].statistics };
+    })
+  );
+
+  console.log(videos[0]);
+  return finalVideos;
 }
 // import Youtube from 'youtube.ts';
 

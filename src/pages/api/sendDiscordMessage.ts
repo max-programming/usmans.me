@@ -8,7 +8,7 @@ export default async function sendDiscordMessage(
   const response = await fetch(env.DISCORD_WEBHOOK_URL!, {
     method: 'POST',
     body: JSON.stringify({
-      content: `${req.query.name} button was clicked.`,
+      content: `**${req.query.name}** button was clicked.`,
     }),
     headers: {
       'Content-Type': 'application/json',

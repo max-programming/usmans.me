@@ -30,85 +30,91 @@ const PostCard = ({
   isEven: boolean;
   index: number;
   likesAndComments?: LikesAndComments[];
-}) => (
-  <GridItem h='full'>
-    <Box
-      as={motion.div}
-      whileHover={{ scale: 1.05 }}
-      boxShadow={'2xl'}
-      borderWidth={1}
-      rounded={'md'}
-      p={6}
-      h='full'
-    >
-      <Link
-        href={`https://blog.usmans.me/${post.slug}?ref=usmansme`}
-        target='_blank'
-        _hover={{ textDecoration: 'none' }}
-        _focus={{ boxShadow: 'none' }}
+}) => {
+  async function sendBlogClickMessage() {
+    await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
+  }
+  return (
+    <GridItem h='full'>
+      <Box
+        as={motion.div}
+        whileHover={{ scale: 1.05 }}
+        boxShadow={'2xl'}
+        borderWidth={1}
+        rounded={'md'}
+        p={6}
+        h='full'
       >
-        <Flex
-          gap={10}
-          justify='center'
-          rounded='md'
-          align='center'
-          p='4'
-          direction='column'
+        <Link
+          onClick={sendBlogClickMessage}
+          href={`https://blog.usmans.me/${post.slug}?ref=usmansme`}
+          target='_blank'
+          _hover={{ textDecoration: 'none' }}
+          _focus={{ boxShadow: 'none' }}
         >
-          <Image src={post.coverImage} alt={post.title} rounded='md' w='xs' />
-          <Stack justify='space-between'>
-            <Text fontWeight='bold' fontSize='2xl'>
-              {post.title}
-            </Text>
-            <Flex gap={5} flex='2'>
-              {likesAndComments && (
-                <>
-                  <Text
-                    fontSize='xl'
-                    title={`${
-                      likesAndComments[index]!.totalReactions
-                    } Reactions`}
-                    display='flex'
-                    gap={1}
-                    alignItems='center'
-                  >
-                    <FaThumbsUp />
-                    {likesAndComments[index]!.totalReactions}
-                  </Text>
-                  <Text
-                    fontSize='xl'
-                    title={`${
-                      likesAndComments[index]!.responseCount +
-                      likesAndComments[index]!.replyCount
-                    } Comments`}
-                    display='flex'
-                    gap={1}
-                    alignItems='center'
-                  >
-                    <FaComment />
-                    {likesAndComments[index]!.responseCount +
-                      likesAndComments[index]!.replyCount}
-                  </Text>
-                </>
-              )}
-              <Text
-                fontSize='xl'
-                title={`Published on ${new Date(
-                  post.dateAdded
-                ).toDateString()}`}
-                display='flex'
-                gap={1}
-                alignItems='center'
-              >
-                {new Date(post.dateAdded).toDateString()} <br />
+          <Flex
+            gap={10}
+            justify='center'
+            rounded='md'
+            align='center'
+            p='4'
+            direction='column'
+          >
+            <Image src={post.coverImage} alt={post.title} rounded='md' w='xs' />
+            <Stack justify='space-between'>
+              <Text fontWeight='bold' fontSize='2xl'>
+                {post.title}
               </Text>
-            </Flex>
-          </Stack>
-        </Flex>
-      </Link>
-    </Box>
-  </GridItem>
-);
+              <Flex gap={5} flex='2'>
+                {likesAndComments && (
+                  <>
+                    <Text
+                      fontSize='xl'
+                      title={`${
+                        likesAndComments[index]!.totalReactions
+                      } Reactions`}
+                      display='flex'
+                      gap={1}
+                      alignItems='center'
+                    >
+                      <FaThumbsUp />
+                      {likesAndComments[index]!.totalReactions}
+                    </Text>
+                    <Text
+                      fontSize='xl'
+                      title={`${
+                        likesAndComments[index]!.responseCount +
+                        likesAndComments[index]!.replyCount
+                      } Comments`}
+                      display='flex'
+                      gap={1}
+                      alignItems='center'
+                    >
+                      <FaComment />
+                      {likesAndComments[index]!.responseCount +
+                        likesAndComments[index]!.replyCount}
+                    </Text>
+                  </>
+                )}
+                <Text
+                  fontSize='xl'
+                  title={`Published on ${new Date(
+                    post.dateAdded
+                  ).toDateString()}`}
+                  display='flex'
+                  gap={1}
+                  alignItems='center'
+                >
+                  {new Date(post.dateAdded).toDateString()} <br />
+                </Text>
+              </Flex>
+            </Stack>
+          </Flex>
+        </Link>
+      </Box>
+    </GridItem>
+  );
+};
 
 const PostsHome = ({ posts, likesAndComments }: IPostsHomeProps) => {
   return (

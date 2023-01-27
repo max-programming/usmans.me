@@ -37,9 +37,9 @@ function YouTubeCard({ thumbnail, title, id, stats }: Props) {
       >
         <Image src={thumbnail} alt={title} title={title} w='full' />
         <Box p='6'>
-          <Text fontWeight='bold' fontSize='xl'>
-            {title}
-          </Text>
+          <Text fontWeight='bold' fontSize='xl' dangerouslySetInnerHTML={{ __html: title }} />
+
+
           <Text color='gray.500' fontSize={'lg'} mt='2'>
             <Flex align='center' gap={2}>
               <MdInsights /> {millify(+stats.viewCount)} Views

@@ -85,7 +85,7 @@ const Index = ({
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const SECONDS_IN_TWO_HOURS = 7200;
+  const SECONDS_IN_ONE_HOUR = 3600;
   const allPosts = await getPosts();
   const videos = await getVideos();
 
@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       posts,
       videos,
     },
-    revalidate: SECONDS_IN_TWO_HOURS,
+    revalidate: SECONDS_IN_ONE_HOUR,
   };
 };
 

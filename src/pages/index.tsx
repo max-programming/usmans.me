@@ -74,6 +74,7 @@ const Index = ({
               key={video.id}
               id={video.id}
               stats={video.stats}
+              duration={video.duration}
             />
           ))}
         </Grid>

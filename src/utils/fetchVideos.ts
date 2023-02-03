@@ -20,6 +20,7 @@ export interface Video {
   title: string;
   description: string;
   stats: Stats;
+  duration: string;
   thumbnails: {
     default: Thumbnail;
     medium: Thumbnail;
@@ -46,14 +47,17 @@ export async function getVideos(): Promise<Array<Video>> {
   const finalVideos: Array<Video> = await Promise.all(
     videos.map(async video => {
       const res = await fetch(
-        `https://www.googleapis.com/youtube/v3/videos?id=${video.id}&key=${env.YOUTUBE_API_KEY}&part=statistics`
+        `https://www.googleapis.com/youtube/v3/videos?id=${video.id}&key=${env.YOUTUBE_API_KEY}&part=statistics,contentDetails`
       );
       const { items } = await res.json();
-      return { ...video, stats: items[0].statistics };
+      return {
+        ...video,
+        stats: items[0].statistics,
+        duration: items[0].contentDetails.duration.slice(2),
+      };
     })
   );
 
-  console.log(videos[0]);
   return finalVideos;
 }
 // import Youtube from 'youtube.ts';

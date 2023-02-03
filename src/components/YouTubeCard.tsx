@@ -9,16 +9,21 @@ interface Props {
   title: string;
   id: string;
   stats: Video['stats'];
+  duration: string;
 }
 
-function YouTubeCard({ thumbnail, title, id, stats }: Props) {
+function YouTubeCard({ thumbnail, title, id, stats, duration }: Props) {
   async function sendYouTubeClickMessage() {
     await fetch(`/api/sendDiscordMessage?name=YouTube - ${title}`);
   }
   return (
     <GridItem
       as='a'
-      href={`https://youtube.com/watch?v=${id}`}
+      href={
+        duration.length < 4
+          ? `https://youtube.com/shorts/${id}`
+          : `https://youtu.be/${id}`
+      }
       target='_blank'
       h='full'
       onClick={sendYouTubeClickMessage}

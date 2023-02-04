@@ -14,7 +14,8 @@ interface Props {
 
 function YouTubeCard({ thumbnail, title, id, stats, duration }: Props) {
   async function sendYouTubeClickMessage() {
-    await fetch(`/api/sendDiscordMessage?name=YouTube - ${title}`);
+    console.log('Removing because of so much spam');
+    // await fetch(`/api/sendDiscordMessage?name=YouTube - ${title}`);
   }
   return (
     <GridItem

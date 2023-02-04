@@ -4,7 +4,8 @@ import { ReactNode } from 'react';
 
 const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
   const sendMessage = async () => {
-    await fetch(`/api/sendDiscordMessage?name=${props.name}`);
+    console.log('Removing because of so much spam');
+    // await fetch(`/api/sendDiscordMessage?name=${props.name}`);
   };
   const linkHover: TargetAndTransition = {
     scale: 1.2,

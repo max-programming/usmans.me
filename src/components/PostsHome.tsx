@@ -32,7 +32,8 @@ const PostCard = ({
   likesAndComments?: LikesAndComments[];
 }) => {
   async function sendBlogClickMessage() {
-    await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
+    console.log('Removing because of so much spam');
+    // await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
   }
   return (
     <GridItem h='full'>

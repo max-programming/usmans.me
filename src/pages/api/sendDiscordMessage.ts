@@ -5,6 +5,8 @@ export default async function sendDiscordMessage(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log('Removing because of so much spam');
+  /*
   const response = await fetch(env.DISCORD_WEBHOOK_URL!, {
     method: 'POST',
     body: JSON.stringify({
@@ -18,4 +20,5 @@ export default async function sendDiscordMessage(
     return res.send('Message sent');
   }
   return res.send('Could not send message');
+  */
 }

@@ -31,7 +31,7 @@ const Index = ({
     <Main
       meta={
         <Meta
-          title='Usman Sabuwala - Web Developer in India.'
+          title='Usman Sabuwala - Full Stack Web Developer in India.'
           description='🌐 my online home'
         />
       }

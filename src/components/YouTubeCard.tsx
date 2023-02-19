@@ -1,36 +1,16 @@
-import { Video } from '@/utils/fetchVideos';
-import { Player } from '@lottiefiles/react-lottie-player';
-import millify from 'millify';
+import type { Video } from '../types';
 import { FiThumbsUp } from 'react-icons/fi';
 import { MdInsights } from 'react-icons/md';
-import { SectionHeading } from './SectionHeading';
+import millify from 'millify';
 
-function YouTubeHome({ videos }: { videos: Video[] }) {
-  return (
-    <div>
-      <SectionHeading>What do I do?</SectionHeading>
-      <div className='mt-5 flex items-center gap-2'>
-        <Player
-          src='/lotties/youtube.json'
-          autoplay
-          loop
-          className='h-16 w-16'
-        />
-        <h3 className='text-3xl font-semibold text-white'>
-          I Make YouTube Videos
-        </h3>
-      </div>
-      <div className='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'>
-        {videos.map(video => (
-          <YouTubeCard
-            key={video.id}
-            {...video}
-            thumbnail={video.thumbnails.medium.url}
-          />
-        ))}
-      </div>
-    </div>
-  );
+export default function YouTubeCards({ videos }: { videos: Video[] }) {
+  return videos.map(video => (
+    <YouTubeCard
+      key={video.id}
+      {...video}
+      thumbnail={video.thumbnails.medium.url}
+    />
+  ));
 }
 
 interface YouTubeCardProps {
@@ -83,4 +63,3 @@ function YouTubeCard(props: YouTubeCardProps) {
     </a>
   );
 }
-export default YouTubeHome;

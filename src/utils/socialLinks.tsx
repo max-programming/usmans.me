@@ -1,5 +1,6 @@
 import {
   FaDiscord,
+  FaEnvelope,
   FaGithub,
   FaLinkedinIn,
   FaTwitter,
@@ -7,6 +8,11 @@ import {
 } from 'react-icons/fa';
 
 export const socialLinks = [
+  {
+    link: 'mailto:ui.sabuwala@gmail.com',
+    icon: <FaEnvelope color='#C2F970' />,
+    name: 'Email',
+  },
   {
     link: 'https://discord.com/users/691360911440609290',
     icon: <FaDiscord color='#5865F2' />,

@@ -32,8 +32,8 @@ const PostCard = ({
   likesAndComments?: LikesAndComments[];
 }) => {
   async function sendBlogClickMessage() {
-    console.log('Removing because of so much spam');
-    // await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
+    // console.log('Removing because of so much spam');
+    await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
   }
   return (
     <GridItem h='full'>
@@ -61,7 +61,15 @@ const PostCard = ({
             p='4'
             direction='column'
           >
-            <Image src={post.coverImage} alt={post.title} rounded='md' w='xs' />
+            <Image
+              src={
+                'https://res.cloudinary.com/demo/image/fetch/w_1280,h_720,c_fill,e_fill_light:0,f_auto/' +
+                post.coverImage
+              }
+              alt={post.title}
+              rounded='md'
+              w='xs'
+            />
             <Stack justify='space-between'>
               <Text fontWeight='bold' fontSize='2xl'>
                 {post.title}

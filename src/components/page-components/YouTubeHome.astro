@@ -1,0 +1,25 @@
+---
+import type { Video } from '../../types';
+import { YouTubePlayer } from '../Players';
+import SectionHeading from '../SectionHeading.astro';
+import YouTubeCards from '../YouTubeCard';
+
+interface Props {
+  videos: Video[];
+}
+
+const { videos } = Astro.props;
+---
+
+<div>
+  <SectionHeading>What do I do?</SectionHeading>
+  <div class='mt-5 flex items-center gap-2'>
+    <YouTubePlayer client:visible />
+    <h3 class='text-3xl font-semibold text-white'>I Make YouTube Videos</h3>
+  </div>
+  <div
+    class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'
+  >
+    <YouTubeCards videos={videos} client:visible />
+  </div>
+</div>

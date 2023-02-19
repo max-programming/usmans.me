@@ -1,0 +1,25 @@
+---
+import type { Post } from '../../types';
+import { PostsPlayer } from '../Players';
+import PostCards from '../PostCard';
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div>
+  <div class='flex items-center gap-2'>
+    <div class='mt-5 flex items-center gap-2'>
+      <PostsPlayer client:visible />
+      <h3 class='text-3xl font-semibold text-white'>I Write Articles</h3>
+    </div>
+  </div>
+  <div
+    class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'
+  >
+    <PostCards posts={posts} client:visible />
+  </div>
+</div>

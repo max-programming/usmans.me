@@ -31,6 +31,7 @@ const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
       rel='noreferrer'
       className='text-4xl'
     >
+      {/* <img src={'/icons/' + props.name.toLowerCase() + '.svg'} alt='' /> */}
       {props.icon}
     </motion.a>
   );

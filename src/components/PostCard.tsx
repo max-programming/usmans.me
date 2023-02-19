@@ -1,6 +1,11 @@
 import millify from 'millify';
-import { FiThumbsUp } from 'react-icons/fi';
-import { MdComment } from 'react-icons/md';
+import {
+  HandThumbUpIcon,
+  ChatBubbleBottomCenterIcon,
+} from '@heroicons/react/24/outline';
+import { Chat, ThumbsUp } from 'phosphor-react';
+// import { FiThumbsUp } from 'react-icons/fi/index';
+// import { MdComment } from 'react-icons/md/index';
 import type { Post } from '../types';
 
 export default function PostCards({ posts }: { posts: Post[] }) {
@@ -34,11 +39,13 @@ function PostCard({ post }: { post: Post }) {
           <h4 className='text-xl font-semibold text-white'>{post.title}</h4>
           <p className='mt-2 text-lg '>
             <p className='flex items-center gap-2 text-gray-300'>
-              <MdComment /> {post.replyCount + post.responseCount} Comments
+              <Chat weight='duotone' />
+              {post.replyCount + post.responseCount} Comments
             </p>
 
             <p className='flex items-center gap-2 text-gray-300'>
-              <FiThumbsUp /> {millify(post.totalReactions)} Likes
+              <ThumbsUp weight='duotone' />
+              {millify(post.totalReactions)} Likes
             </p>
           </p>
         </div>

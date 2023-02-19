@@ -18,6 +18,7 @@ const posts = await fetchPosts();
       title='Usman Sabuwala - Full Stack Web Developer in India.'
       description='🌐 my online home'
       openGraph={{
+        image: { url: '/profilePic.jpg' },
         basic: {
           title: 'Usman Sabuwala - Full Stack Web Developer in India',
           image: '/profilePic.jpg',
@@ -53,29 +54,19 @@ const posts = await fetchPosts();
       data-website-id='b52533ff-5df3-42fd-8247-8ce626759b8a'
       src='https://insights.usmans.me/umami.js'
     ></script>
-    <script
-      data-name='BMC-Widget'
-      data-cfasync='false'
-      src='https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js'
-      data-id='usmansabuwala'
-      data-description='Support me on Buy me a coffee!'
-      data-message=''
-      data-color='#BD5FFF'
-      data-position='Right'
-      data-x_margin='18'
-      data-y_margin='18'
-    ></script>
   </head>
-  <body>
+  <body class='bg-primary-darker'>
     <div class='flex flex-col'>
       <Nav />
-      <div class='flex-1 bg-primary-darker'>
-        <div class='container mx-auto max-w-screen-lg overflow-hidden'>
-          <Hero />
-          <Separator />
-          <YouTubeHome videos={videos} />
-          <Separator />
-          <PostsHome posts={posts} />
+      <div class='container mx-auto px-5'>
+        <div class='flex-1'>
+          <div class='container mx-auto max-w-screen-lg overflow-hidden'>
+            <Hero />
+            <Separator />
+            <YouTubeHome videos={videos} />
+            <Separator />
+            <PostsHome posts={posts} />
+          </div>
         </div>
       </div>
     </div>

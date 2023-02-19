@@ -1,10 +1,9 @@
 import type { Video } from '../types';
-import { FiThumbsUp } from 'react-icons/fi';
-import { MdInsights } from 'react-icons/md';
 import millify from 'millify';
+import { Chat, Activity } from 'phosphor-react';
 
 export default function YouTubeCards({ videos }: { videos: Video[] }) {
-  return videos.map(video => (
+  return videos.map((video: any) => (
     <YouTubeCard
       key={video.id}
       {...video}
@@ -51,11 +50,12 @@ function YouTubeCard(props: YouTubeCardProps) {
           />
           <p className='mt-2 text-lg text-gray-300'>
             <p className='flex items-center gap-2'>
-              <MdInsights /> {millify(+props.stats.viewCount)} Views
+              <Activity weight='duotone' /> {millify(+props.stats.viewCount)}{' '}
+              Views
             </p>
 
             <p className='flex items-center gap-2'>
-              <FiThumbsUp /> {millify(+props.stats.likeCount)} Likes
+              <Chat weight='duotone' /> {millify(+props.stats.likeCount)} Likes
             </p>
           </p>
         </div>

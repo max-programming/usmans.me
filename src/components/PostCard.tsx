@@ -1,11 +1,5 @@
 import millify from 'millify';
-import {
-  HandThumbUpIcon,
-  ChatBubbleBottomCenterIcon,
-} from '@heroicons/react/24/outline';
 import { Chat, ThumbsUp } from 'phosphor-react';
-// import { FiThumbsUp } from 'react-icons/fi/index';
-// import { MdComment } from 'react-icons/md/index';
 import type { Post } from '../types';
 
 export default function PostCards({ posts }: { posts: Post[] }) {

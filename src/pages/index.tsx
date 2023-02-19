@@ -1,17 +1,14 @@
-import { Box, Container, Text, Grid, Flex } from '@chakra-ui/react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import useSWR from 'swr';
 
 import { Hero } from '@/components/Hero';
 import { Main } from '@/components/Main';
 import { Meta } from '@/components/Meta';
 import { Nav } from '@/components/Nav';
-import YouTubeCard from '@/components/YouTubeCard';
-import { PostsHome } from '@/components/PostsHome';
-import { SectionHeading } from '@/components/SectionHeading';
-import { getPosts, LikesAndComments, Post } from '@/utils/fetchPosts';
+import { getPosts, Post } from '@/utils/fetchPosts';
 import { getVideos, Video } from '@/utils/fetchVideos';
-import { Player } from '@lottiefiles/react-lottie-player';
+import { Separator } from '@/components/Separator';
+import YouTubeHome from '@/components/YouTubeHome';
+import { PostsHome } from '@/components/PostsHome';
 
 interface Props {
   posts: Post[];
@@ -22,11 +19,6 @@ const Index = ({
   posts,
   videos,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { data: likesAndComments } = useSWR<LikesAndComments[]>(
-    '/api/likesAndComments',
-    url => fetch(url).then(res => res.json())
-  );
-
   return (
     <Main
       meta={
@@ -36,8 +28,18 @@ const Index = ({
         />
       }
     >
-      <Nav />
-      <Container overflow='hidden' maxW='container.lg'>
+      <div className='flex flex-col'>
+        <Nav />
+        <div className='flex-1 bg-primary-darker'>
+          <div className='container mx-auto max-w-screen-lg overflow-hidden'>
+            <Hero />
+            <Separator />
+            <YouTubeHome videos={videos} />
+            <PostsHome posts={posts} />
+          </div>
+        </div>
+      </div>
+      {/* <Container overflow='hidden' maxW='container.lg'>
         <Hero />
         <Box
           w={['xs', 'md', null, 'xl']}
@@ -79,7 +81,7 @@ const Index = ({
           ))}
         </Grid>
         <PostsHome posts={posts} likesAndComments={likesAndComments} />
-      </Container>
+      </Container> */}
     </Main>
   );
 };

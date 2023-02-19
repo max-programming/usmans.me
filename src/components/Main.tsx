@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 interface IMainProps {
@@ -7,7 +6,7 @@ interface IMainProps {
 }
 
 const Main = (props: IMainProps) => (
-  <Box mb="10">
+  <div>
     {props.meta}
     {props.children}
     {/*
@@ -16,7 +15,7 @@ const Main = (props: IMainProps) => (
      * The link doesn't need to appear on every pages, one link on one page is enough.
      * Thank you for your support it'll mean a lot for us.
      */}
-  </Box>
+  </div>
 );
 
 export { Main };

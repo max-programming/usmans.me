@@ -4,7 +4,7 @@ export const socialLinks = [
     icon: (
       <svg
         role='img'
-        className='w-6 h-6'
+        className='w-8 h-8'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
         fill='#EA4335'
@@ -20,7 +20,7 @@ export const socialLinks = [
     icon: (
       <svg
         role='img'
-        className='w-6 h-6'
+        className='w-8 h-8'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
         fill='#5865F2'
@@ -36,7 +36,7 @@ export const socialLinks = [
     icon: (
       <svg
         role='img'
-        className='w-6 h-6'
+        className='w-8 h-8'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
         fill='white'
@@ -52,7 +52,7 @@ export const socialLinks = [
     icon: (
       <svg
         role='img'
-        className='w-6 h-6'
+        className='w-8 h-8'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
         fill='#FF0000'
@@ -68,7 +68,7 @@ export const socialLinks = [
     icon: (
       <svg
         role='img'
-        className='w-6 h-6'
+        className='w-8 h-8'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
         fill='#1DA1F2'
@@ -84,7 +84,7 @@ export const socialLinks = [
     icon: (
       <svg
         role='img'
-        className='w-6 h-6'
+        className='w-8 h-8'
         viewBox='0 0 24 24'
         xmlns='http://www.w3.org/2000/svg'
         fill='#0A66C2'

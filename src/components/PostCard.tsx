@@ -39,7 +39,8 @@ function PostCard({ post }: { post: Post }) {
 
             <p className='flex items-center gap-2 text-gray-300'>
               <ThumbsUp weight='duotone' />
-              {millify(post.totalReactions)} Likes
+              {/* {millify(post.totalReactions)} Likes */}
+              {post.totalReactions} Likes
             </p>
           </p>
         </div>

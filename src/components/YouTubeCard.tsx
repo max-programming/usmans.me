@@ -50,12 +50,14 @@ function YouTubeCard(props: YouTubeCardProps) {
           />
           <p className='mt-2 text-lg text-gray-300'>
             <p className='flex items-center gap-2'>
-              <Activity weight='duotone' /> {millify(+props.stats.viewCount)}{' '}
+              <Activity weight='duotone' />
+              {/* {millify(+props.stats.viewCount)}{' '} */}
+              {props.stats.viewCount}
               Views
             </p>
 
             <p className='flex items-center gap-2'>
-              <Chat weight='duotone' /> {millify(+props.stats.likeCount)} Likes
+              <Chat weight='duotone' /> {props.stats.likeCount} Likes
             </p>
           </p>
         </div>

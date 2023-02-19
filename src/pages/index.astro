@@ -8,6 +8,8 @@ import fetchPosts from '../utils/fetchPosts';
 import PostsHome from '../components/page-components/PostsHome.astro';
 import { SEO } from 'astro-seo';
 
+export const prerender = true;
+
 const videos = await fetchVideos();
 const posts = await fetchPosts();
 ---

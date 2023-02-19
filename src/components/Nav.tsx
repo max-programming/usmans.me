@@ -1,38 +1,30 @@
-import { Box, Flex, Heading } from '@chakra-ui/react';
-
-import { MyLink } from '@/components/Link';
-
-const Nav = () => {
+function Nav() {
   return (
-    <Box w="100%" bgGradient="linear(to-l, #114357, #F29492)">
-      <Box p="5">
-        <Flex align="center" justify={{ base: 'center', md: 'space-between' }}>
-          <Heading textAlign="center" fontSize="4xl">
+    <div className='w-full bg-primary-dark'>
+      <div className='p-5'>
+        <div className='flex items-center justify-center md:justify-between'>
+          <h1 className='text-center text-4xl font-semibold text-primary-light'>
             Usman Sabuwala
-          </Heading>
-          <Flex gap={5} display={{ base: 'none', md: 'flex' }}>
-            <MyLink
-              href="https://blog.usmans.me"
-              target="_blank"
-              fontSize="xl"
+          </h1>
+          <div className='hidden gap-5 md:flex'>
+            <a
+              className='text-xl text-primary-light no-underline'
+              href='https://blog.usmans.me'
             >
               Blog
-            </MyLink>
-            <MyLink
-              href="/gists"
-              target="_blank"
-              fontSize="xl"
+            </a>
+
+            <a
+              className='text-xl text-primary-light no-underline'
+              href='/gists'
             >
               Gists
-            </MyLink>
-            {/* <MyLink href="/contact" fontSize="xl">
-              Contact
-            </MyLink> */}
-          </Flex>
-        </Flex>
-      </Box>
-    </Box>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export { Nav };

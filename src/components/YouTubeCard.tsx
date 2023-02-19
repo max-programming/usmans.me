@@ -14,8 +14,8 @@ interface Props {
 
 function YouTubeCard({ thumbnail, title, id, stats, duration }: Props) {
   async function sendYouTubeClickMessage() {
-    console.log('Removing because of so much spam');
-    // await fetch(`/api/sendDiscordMessage?name=YouTube - ${title}`);
+    // console.log('Removing because of so much spam');
+    await fetch(`/api/sendDiscordMessage?name=YouTube - ${title}`);
   }
   return (
     <GridItem
@@ -41,10 +41,21 @@ function YouTubeCard({ thumbnail, title, id, stats, duration }: Props) {
           bg: 'whiteAlpha.100',
         }}
       >
-        <Image src={thumbnail} alt={title} title={title} w='full' />
+        <Image
+          src={
+            'https://res.cloudinary.com/demo/image/fetch/w_1280,h_720,c_fill,e_fill_light:0,f_auto/' +
+            thumbnail
+          }
+          alt={title}
+          title={title}
+          w='full'
+        />
         <Box p='6'>
-          <Text fontWeight='bold' fontSize='xl' dangerouslySetInnerHTML={{ __html: title }} />
-
+          <Text
+            fontWeight='bold'
+            fontSize='xl'
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
 
           <Text color='gray.500' fontSize={'lg'} mt='2'>
             <Flex align='center' gap={2}>

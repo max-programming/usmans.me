@@ -52,8 +52,7 @@ function YouTubeCard(props: YouTubeCardProps) {
             <p className='flex items-center gap-2'>
               <Activity weight='duotone' />
               {/* {millify(+props.stats.viewCount)}{' '} */}
-              {props.stats.viewCount}
-              Views
+              {props.stats.viewCount} Views
             </p>
 
             <p className='flex items-center gap-2'>

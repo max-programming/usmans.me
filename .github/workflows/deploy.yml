@@ -3,7 +3,7 @@ name: Trigger Site Rebuild on a CRON Schedule
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 */2 * * *'
 
 jobs:
   build:

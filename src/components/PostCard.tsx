@@ -1,12 +1,21 @@
-import millify from 'millify';
+import { Cloudinary } from '@cloudinary/url-gen';
 import { Chat, ThumbsUp } from 'phosphor-react';
 import type { Post } from '../types';
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'demo',
+  },
+});
 
 export default function PostCards({ posts }: { posts: Post[] }) {
   return posts.map(post => <PostCard key={post.cuid} post={post} />);
 }
 
 function PostCard({ post }: { post: Post }) {
+  // @ts-ignore
+  const cldSrc = cld.image(post.coverImage).format('auto').delivery('q_auto');
+  cldSrc.setDeliveryType('fetch');
   async function sendBlogClickMessage() {
     await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
   }
@@ -21,10 +30,8 @@ function PostCard({ post }: { post: Post }) {
     >
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <img
-          src={
-            'https://res.cloudinary.com/demo/image/fetch/f_auto/' +
-            post.coverImage
-          }
+          loading='lazy'
+          src={cldSrc.toURL()}
           alt={post.title}
           title={post.title}
           className='w-full'

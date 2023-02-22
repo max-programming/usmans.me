@@ -38,6 +38,7 @@ function YouTubeCard(props: YouTubeCardProps) {
     >
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <img
+          loading='lazy'
           src={props.thumbnail}
           alt={props.title}
           title={props.title}

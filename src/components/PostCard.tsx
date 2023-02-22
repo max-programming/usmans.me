@@ -1,7 +1,9 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { Chat, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
-import useMediaQuery from '../utils/useMediaQuery';
+// import useMediaQuery from '../utils/useMediaQuery';
+
+import { useMediaQuery } from 'usehooks-ts';
 import type { Post } from '../types';
 
 const cld = new Cloudinary({

@@ -9,6 +9,7 @@ import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 import image from '@astrojs/image';
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,4 +17,7 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   site: 'https://usmans.me',
+  vite: {
+    plugins: [viteCommonjs()],
+  },
 });

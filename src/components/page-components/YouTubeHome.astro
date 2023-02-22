@@ -1,5 +1,7 @@
 ---
+import { ArrowUpRight } from 'phosphor-react';
 import type { Video } from '../../types';
+import Link from '../Link.astro';
 import { YouTubePlayer } from '../Players';
 import SectionHeading from '../SectionHeading.astro';
 import YouTubeCards from '../YouTubeCard';
@@ -15,9 +17,14 @@ const { videos } = Astro.props;
   <SectionHeading>What do I do?</SectionHeading>
   <div class='mt-5 flex items-center gap-2'>
     <YouTubePlayer client:visible />
-    <h3 class='md:text-3xl text-2xl font-semibold text-white'>
-      I Make YouTube Videos
-    </h3>
+
+    <Link
+      href='https://youtube.com/@MaxProgramming'
+      className='flex items-center gap-2'
+    >
+      My YouTube Videos
+      <ArrowUpRight />
+    </Link>
   </div>
   <div
     class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'

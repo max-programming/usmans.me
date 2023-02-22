@@ -9,9 +9,9 @@ import PostsHome from '../components/page-components/PostsHome.astro';
 import { SEO } from 'astro-seo';
 
 export const prerender = true;
-// const videos: any[] = [];
-const [videos, posts] = await Promise.all([fetchVideos(), fetchPosts()]);
-// const posts = await fetchPosts();
+const videos: any[] = [];
+// const [videos, posts] = await Promise.all([fetchVideos(), fetchPosts()]);
+const posts = await fetchPosts();
 ---
 
 <html lang='en'>
@@ -58,9 +58,9 @@ const [videos, posts] = await Promise.all([fetchVideos(), fetchPosts()]);
     ></script>
   </head>
   <body class='bg-primary-darker'>
-    <div class='flex flex-col w-screen overflow-hidden'>
+    <div class='flex flex-col overflow-hidden'>
       <Nav />
-      <div class='flex-1'>
+      <div class='flex-1 px-5'>
         <div class='container max-w-screen-lg'>
           <Hero />
           <Separator />

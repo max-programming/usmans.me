@@ -1,9 +1,17 @@
 import type { Video } from '../types';
 import millify from 'millify';
 import { Chat, Activity } from 'phosphor-react';
+import { useMediaQuery } from 'usehooks-ts';
+import { useMemo } from 'react';
 
 export default function YouTubeCards({ videos }: { videos: Video[] }) {
-  return videos.map((video: any) => (
+  const showAllContent = useMediaQuery('(min-width: 768px)');
+  const filteredContent = useMemo(
+    () => (showAllContent ? videos : videos.slice(0, 3)),
+    [showAllContent, videos]
+  );
+
+  return filteredContent.map((video: any) => (
     <YouTubeCard
       key={video.id}
       {...video}

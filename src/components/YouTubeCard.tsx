@@ -48,7 +48,7 @@ function YouTubeCard(props: YouTubeCardProps) {
             dangerouslySetInnerHTML={{ __html: props.title }}
             className='text-xl font-semibold text-white'
           />
-          <p className='mt-2 text-lg text-gray-300'>
+          <div className='mt-2 text-lg text-gray-300'>
             <p className='flex items-center gap-2'>
               <Activity weight='duotone' />
               {/* {millify(+props.stats.viewCount)}{' '} */}
@@ -58,7 +58,7 @@ function YouTubeCard(props: YouTubeCardProps) {
             <p className='flex items-center gap-2'>
               <Chat weight='duotone' /> {props.stats.likeCount} Likes
             </p>
-          </p>
+          </div>
         </div>
       </div>
     </a>

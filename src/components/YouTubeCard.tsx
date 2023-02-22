@@ -1,10 +1,8 @@
 import type { Video } from '../types';
 import millify from 'millify';
+import useMediaQuery from '../utils/useMediaQuery';
 import { Chat, Activity } from 'phosphor-react';
-import * as hooks from 'usehooks-ts';
 import { useMemo } from 'react';
-
-const { useMediaQuery } = hooks;
 
 export default function YouTubeCards({ videos }: { videos: Video[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');

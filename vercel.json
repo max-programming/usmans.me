@@ -1,12 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
-  "crons": [
-    {
-      "path": "/api/sendDiscordMessage?name=testing cron",
-      "schedule": "* * * * *"
-    }
-  ],
   "redirects": [
     {
       "source": "/youtube",

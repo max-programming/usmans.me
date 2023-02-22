@@ -8,7 +8,7 @@ const Nav = () => {
       <Box p="5">
         <Flex align="center" justify={{ base: 'center', md: 'space-between' }}>
           <Heading textAlign="center" fontSize="4xl">
-            Usman Sabuwala
+            <a href="https://www.usmans.me/">Usman Sabuwala</a>
           </Heading>
           <Flex gap={5} display={{ base: 'none', md: 'flex' }}>
             <MyLink

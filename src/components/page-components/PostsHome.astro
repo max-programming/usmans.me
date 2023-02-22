@@ -1,5 +1,7 @@
 ---
+import { ArrowUpRight } from 'phosphor-react';
 import type { Post } from '../../types';
+import Link from '../Link.astro';
 import { PostsPlayer } from '../Players';
 import PostCards from '../PostCard';
 
@@ -14,9 +16,10 @@ const { posts } = Astro.props;
   <div class='flex items-center gap-2'>
     <div class='mt-5 flex items-center gap-2'>
       <PostsPlayer client:visible />
-      <h3 class='md:text-3xl text-2xl font-semibold text-white'>
-        I Write Articles
-      </h3>
+      <Link href='https://blog.usmans.me' className='flex items-center gap-2'>
+        My Blog Articles
+        <ArrowUpRight />
+      </Link>
     </div>
   </div>
   <div

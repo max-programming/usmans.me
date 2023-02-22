@@ -1,5 +1,7 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { Chat, ThumbsUp } from 'phosphor-react';
+import { useMemo } from 'react';
+import { useMediaQuery } from 'usehooks-ts';
 import type { Post } from '../types';
 
 const cld = new Cloudinary({
@@ -9,7 +11,13 @@ const cld = new Cloudinary({
 });
 
 export default function PostCards({ posts }: { posts: Post[] }) {
-  return posts.map(post => <PostCard key={post.cuid} post={post} />);
+  const showAllContent = useMediaQuery('(min-width: 768px)');
+  const filteredContent = useMemo(
+    () => (showAllContent ? posts : posts.slice(0, 3)),
+    [showAllContent, posts]
+  );
+
+  return filteredContent.map(post => <PostCard key={post.cuid} post={post} />);
 }
 
 function PostCard({ post }: { post: Post }) {

@@ -1,0 +1,30 @@
+---
+import { ArrowUpRight } from 'phosphor-react';
+import type { Post } from '../../types';
+import Link from '../Link.astro';
+import { PostsPlayer } from '../Players';
+import PostCards from '../PostCard';
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div>
+  <div class='flex items-center gap-2'>
+    <div class='mt-5 flex items-center gap-2'>
+      <PostsPlayer client:visible />
+      <Link href='https://blog.usmans.me' className='flex items-center gap-2'>
+        My Blog Articles
+        <ArrowUpRight />
+      </Link>
+    </div>
+  </div>
+  <div
+    class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'
+  >
+    <PostCards posts={posts} client:load />
+  </div>
+</div>

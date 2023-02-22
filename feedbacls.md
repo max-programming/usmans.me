@@ -1,4 +1,4 @@
-## Feedbacks to work on 
+## Feedbacks to work on
 
 1. beginning animation with the logos are a bit distracting, consider using a horizontal fly-in with opacity fade in
 1. title font and content font sizes should be consistent
@@ -24,6 +24,6 @@
 1. watch horizontal overflow on your mobile view. This will lead to an awful UI experience
 1. disable hover on mobile. It will cause problems when people actually use it on their phone (unless it's intentional)
 1. good mobile card layouts
-1. get a dedicated social section for mobile, so that it's easier to view and click on 
+1. get a dedicated social section for mobile, so that it's easier to view and click on
 1. better twitter cards
 1. Link hover without `inline-block` [reference](https://github.com/genicsblog/theme-files/pull/26)

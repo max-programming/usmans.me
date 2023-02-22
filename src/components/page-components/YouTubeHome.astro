@@ -1,0 +1,34 @@
+---
+import { ArrowUpRight } from 'phosphor-react';
+import type { Video } from '../../types';
+import Link from '../Link.astro';
+import { YouTubePlayer } from '../Players';
+import SectionHeading from '../SectionHeading.astro';
+import YouTubeCards from '../YouTubeCard';
+
+interface Props {
+  videos: Video[];
+}
+
+const { videos } = Astro.props;
+---
+
+<div>
+  <SectionHeading>What do I do?</SectionHeading>
+  <div class='mt-5 flex items-center gap-2'>
+    <YouTubePlayer client:visible />
+
+    <Link
+      href='https://youtube.com/@MaxProgramming'
+      className='flex items-center gap-2'
+    >
+      My YouTube Videos
+      <ArrowUpRight />
+    </Link>
+  </div>
+  <div
+    class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'
+  >
+    <YouTubeCards videos={videos} client:load />
+  </div>
+</div>

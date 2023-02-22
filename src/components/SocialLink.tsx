@@ -1,26 +1,44 @@
-import { Link } from '@chakra-ui/react';
 import { motion, TargetAndTransition } from 'framer-motion';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { socialLinks } from '../utils/socialLinks';
+
+function SocialLinks() {
+  return (
+    <div className='flex gap-3 md:gap-5'>
+      {socialLinks.map(socialLink => (
+        <SocialLink
+          key={socialLink.link}
+          link={socialLink.link}
+          icon={socialLink.icon}
+          name={socialLink.name}
+        />
+      ))}
+    </div>
+  );
+}
 
 const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
   const sendMessage = async () => {
-    console.log('Removing because of so much spam');
-    // await fetch(`/api/sendDiscordMessage?name=${props.name}`);
+    await fetch(`/api/sendDiscordMessage?name=${props.name}`);
   };
+
   const linkHover: TargetAndTransition = {
     scale: 1.2,
   };
+
   return (
-    <Link
-      href={props.link}
-      target="_blank"
-      onClick={sendMessage}
-      as={motion.a}
+    <motion.a
       whileHover={linkHover}
+      href={props.link}
+      target='_blank'
+      onClick={sendMessage}
+      rel='noreferrer'
+      className='text-4xl'
     >
+      {/* <img src={'/icons/' + props.name.toLowerCase() + '.svg'} alt='' /> */}
       {props.icon}
-    </Link>
+    </motion.a>
   );
 };
 
-export { SocialLink };
+export { SocialLinks };

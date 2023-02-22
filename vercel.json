@@ -1,0 +1,41 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "redirects": [
+    {
+      "source": "/youtube",
+      "destination": "https://youtube.com/MaxProgramming",
+      "permanent": true
+    },
+    {
+      "source": "/discord",
+      "destination": "https://discord.com/users/691360911440609290",
+      "permanent": true
+    },
+    {
+      "source": "/gists",
+      "destination": "https://gist.github.com/max-programming",
+      "permanent": true
+    },
+    {
+      "source": "/gists/dfs",
+      "destination": "https://gist.github.com/max-programming/bcb5151c0241f83c14ada9ff555afa7c",
+      "permanent": true
+    },
+    {
+      "source": "/gists/java",
+      "destination": "https://gist.github.com/max-programming/03aeb57468f0aee8dffb077da8c77382",
+      "permanent": true
+    },
+    {
+      "source": "/gists/wd",
+      "destination": "https://gist.github.com/max-programming/1c90d04b22d2aa2f90ec2b9ea3ae0057",
+      "permanent": true
+    },
+    {
+      "source": "/gists/mi",
+      "destination": "https://gist.github.com/max-programming/f30691fe784542ebad4f7eaf47cfa78d",
+      "permanent": true
+    }
+  ]
+}

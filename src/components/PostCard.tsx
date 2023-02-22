@@ -31,7 +31,7 @@ function PostCard({ post }: { post: Post }) {
         />
         <div className='h-full p-6 '>
           <h4 className='text-xl font-semibold text-white'>{post.title}</h4>
-          <p className='mt-2 text-lg '>
+          <div className='mt-2 text-lg '>
             <p className='flex items-center gap-2 text-gray-300'>
               <Chat weight='duotone' />
               {post.replyCount + post.responseCount} Comments
@@ -42,7 +42,7 @@ function PostCard({ post }: { post: Post }) {
               {/* {millify(post.totalReactions)} Likes */}
               {post.totalReactions} Likes
             </p>
-          </p>
+          </div>
         </div>
       </div>
     </a>

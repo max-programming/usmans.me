@@ -3,14 +3,18 @@ import type { ReactNode } from 'react';
 import { socialLinks } from '../utils/socialLinks';
 
 function SocialLinks() {
-  return socialLinks.map(socialLink => (
-    <SocialLink
-      key={socialLink.link}
-      link={socialLink.link}
-      icon={socialLink.icon}
-      name={socialLink.name}
-    />
-  ));
+  return (
+    <div className='flex gap-3 md:gap-5'>
+      {socialLinks.map(socialLink => (
+        <SocialLink
+          key={socialLink.link}
+          link={socialLink.link}
+          icon={socialLink.icon}
+          name={socialLink.name}
+        />
+      ))}
+    </div>
+  );
 }
 
 const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {

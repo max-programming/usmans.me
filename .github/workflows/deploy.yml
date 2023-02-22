@@ -1,0 +1,12 @@
+name: Trigger Site Rebuild on a CRON Schedule
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  build:
+    name: Trigger Site Rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        run: curl -X POST ${{ secrets.VERCEL_WEBHOOK }}

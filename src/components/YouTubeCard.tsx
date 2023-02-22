@@ -1,7 +1,6 @@
 import type { Video } from '../types';
 import millify from 'millify';
-// import useMediaQuery from '../utils/useMediaQuery';
-import { useMediaQuery } from 'usehooks-ts';
+import useMediaQuery from '../utils/useMediaQuery';
 import { Chat, Activity } from 'phosphor-react';
 import { useMemo } from 'react';
 

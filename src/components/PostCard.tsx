@@ -3,6 +3,7 @@ import { Chat, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
 import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
+import { sendMessage } from '../utils/sendMessage';
 
 const cld = new Cloudinary({
   cloud: {
@@ -25,7 +26,7 @@ function PostCard({ post }: { post: Post }) {
   const cldSrc = cld.image(post.coverImage).format('auto').delivery('q_auto');
   cldSrc.setDeliveryType('fetch');
   async function sendBlogClickMessage() {
-    await fetch(`/api/sendDiscordMessage?name=Blog - ${post.title}`);
+    await sendMessage(post.title);
   }
 
   return (

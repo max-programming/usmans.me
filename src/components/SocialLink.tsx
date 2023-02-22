@@ -1,5 +1,6 @@
 import { motion, TargetAndTransition } from 'framer-motion';
 import type { ReactNode } from 'react';
+import { sendMessage } from '../utils/sendMessage';
 import { socialLinks } from '../utils/socialLinks';
 
 function SocialLinks() {
@@ -18,8 +19,8 @@ function SocialLinks() {
 }
 
 const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
-  const sendMessage = async () => {
-    await fetch(`/api/sendDiscordMessage?name=${props.name}`);
+  const sendSocialLinkMessage = async () => {
+    await sendMessage(props.name);
   };
 
   const linkHover: TargetAndTransition = {
@@ -31,7 +32,7 @@ const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
       whileHover={linkHover}
       href={props.link}
       target='_blank'
-      onClick={sendMessage}
+      onClick={sendSocialLinkMessage}
       rel='noreferrer'
       className='text-4xl'
     >

@@ -3,6 +3,7 @@ import millify from 'millify';
 import useMediaQuery from '../utils/useMediaQuery';
 import { Chat, Activity } from 'phosphor-react';
 import { useMemo } from 'react';
+import { sendMessage } from '../utils/sendMessage';
 
 export default function YouTubeCards({ videos }: { videos: Video[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');
@@ -30,7 +31,7 @@ interface YouTubeCardProps {
 
 function YouTubeCard(props: YouTubeCardProps) {
   async function sendYouTubeClickMessage() {
-    await fetch(`/api/sendDiscordMessage?name=YouTube - ${props.title}`);
+    await sendMessage(props.title);
   }
   return (
     <a

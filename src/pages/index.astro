@@ -9,8 +9,9 @@ import PostsHome from '../components/page-components/PostsHome.astro';
 import { SEO } from 'astro-seo';
 
 export const prerender = true;
-
+// const videos: any[] = [];
 const [videos, posts] = await Promise.all([fetchVideos(), fetchPosts()]);
+// const posts = await fetchPosts();
 ---
 
 <html lang='en'>

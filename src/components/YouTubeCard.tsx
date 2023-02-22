@@ -1,10 +1,26 @@
-import { Video } from '@/utils/fetchVideos';
-import { Box, Flex, GridItem, Image, Text } from '@chakra-ui/react';
+import type { Video } from '../types';
 import millify from 'millify';
-import { MdInsights } from 'react-icons/md';
-import { FiThumbsUp } from 'react-icons/fi';
+import useMediaQuery from '../utils/useMediaQuery';
+import { Chat, Activity } from 'phosphor-react';
+import { useMemo } from 'react';
 
-interface Props {
+export default function YouTubeCards({ videos }: { videos: Video[] }) {
+  const showAllContent = useMediaQuery('(min-width: 768px)');
+  const filteredContent = useMemo(
+    () => (showAllContent ? videos : videos.slice(0, 3)),
+    [showAllContent, videos]
+  );
+
+  return filteredContent.map((video: any) => (
+    <YouTubeCard
+      key={video.id}
+      {...video}
+      thumbnail={video.thumbnails.medium.url}
+    />
+  ));
+}
+
+interface YouTubeCardProps {
   thumbnail: string;
   title: string;
   id: string;
@@ -12,63 +28,48 @@ interface Props {
   duration: string;
 }
 
-function YouTubeCard({ thumbnail, title, id, stats, duration }: Props) {
+function YouTubeCard(props: YouTubeCardProps) {
   async function sendYouTubeClickMessage() {
-    // console.log('Removing because of so much spam');
-    await fetch(`/api/sendDiscordMessage?name=YouTube - ${title}`);
+    await fetch(`/api/sendDiscordMessage?name=YouTube - ${props.title}`);
   }
   return (
-    <GridItem
-      as='a'
+    <a
+      onClick={sendYouTubeClickMessage}
       href={
-        duration.length < 4
-          ? `https://youtube.com/shorts/${id}`
-          : `https://youtu.be/${id}`
+        props.duration.length < 4
+          ? `https://youtube.com/shorts/${props.id}`
+          : `https://youtu.be/${props.id}`
       }
       target='_blank'
-      h='full'
-      onClick={sendYouTubeClickMessage}
+      rel='noreferrer'
+      className='h-full'
     >
-      <Box
-        maxW='sm'
-        borderWidth='1px'
-        h='full'
-        rounded='lg'
-        overflow='hidden'
-        cursor='pointer'
-        transition='200ms ease-in-out'
-        _hover={{
-          bg: 'whiteAlpha.100',
-        }}
-      >
-        <Image
-          src={
-            'https://res.cloudinary.com/demo/image/fetch/w_1280,h_720,c_fill,e_fill_light:0,f_auto/' +
-            thumbnail
-          }
-          alt={title}
-          title={title}
-          w='full'
+      <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
+        <img
+          loading='lazy'
+          src={props.thumbnail}
+          alt={props.title}
+          title={props.title}
+          className='w-full'
         />
-        <Box p='6'>
-          <Text
-            fontWeight='bold'
-            fontSize='xl'
-            dangerouslySetInnerHTML={{ __html: title }}
+        <div className='h-full p-6'>
+          <h4
+            dangerouslySetInnerHTML={{ __html: props.title }}
+            className='text-xl font-semibold text-white'
           />
+          <div className='mt-2 text-lg text-gray-300'>
+            <p className='flex items-center gap-2'>
+              <Activity weight='duotone' />
+              {/* {millify(+props.stats.viewCount)}{' '} */}
+              {props.stats.viewCount} Views
+            </p>
 
-          <Text color='gray.500' fontSize={'lg'} mt='2'>
-            <Flex align='center' gap={2}>
-              <MdInsights /> {millify(+stats.viewCount)} Views
-            </Flex>
-            <Flex align='center' gap={2}>
-              <FiThumbsUp /> {millify(+stats.likeCount)} Likes
-            </Flex>
-          </Text>
-        </Box>
-      </Box>
-    </GridItem>
+            <p className='flex items-center gap-2'>
+              <Chat weight='duotone' /> {props.stats.likeCount} Likes
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>
   );
 }
-
-export default YouTubeCard;

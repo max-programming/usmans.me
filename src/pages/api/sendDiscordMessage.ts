@@ -1,22 +1,20 @@
-import { env } from '@/env/server.mjs';
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { APIRoute } from 'astro';
 
-export default async function sendDiscordMessage(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // console.log('Removing because of so much spam');
-  const response = await fetch(env.DISCORD_WEBHOOK_URL!, {
+export const get: APIRoute = async ({ params, request }) => {
+  const { searchParams } = new URL(request.url);
+  const name = searchParams.get('name');
+
+  const response = await fetch(import.meta.env.DISCORD_WEBHOOK_URL, {
     method: 'POST',
     body: JSON.stringify({
-      content: `**${req.query.name}** button was clicked.`,
+      content: `**${name}** button was clicked.`,
     }),
     headers: {
       'Content-Type': 'application/json',
     },
   });
   if (response.ok) {
-    return res.send('Message sent');
+    return new Response('ok', { status: 200 });
   }
-  return res.send('Could not send message');
-}
+  return new Response('notok', { status: 500 });
+};

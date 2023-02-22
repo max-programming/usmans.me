@@ -1,0 +1,74 @@
+---
+import Hero from '../components/page-components/Hero.astro';
+import Nav from '../components/Nav.astro';
+import Separator from '../components/Separator.astro';
+import YouTubeHome from '../components/page-components/YouTubeHome.astro';
+import fetchVideos from '../utils/fetchVideos';
+import fetchPosts from '../utils/fetchPosts';
+import PostsHome from '../components/page-components/PostsHome.astro';
+import { SEO } from 'astro-seo';
+
+export const prerender = true;
+// const videos: any[] = [];
+const [videos, posts] = await Promise.all([fetchVideos(), fetchPosts()]);
+// const posts = await fetchPosts();
+---
+
+<html lang='en'>
+  <head>
+    <SEO
+      title='Usman Sabuwala - Full Stack Web Developer in India.'
+      description='🌐 my online home'
+      openGraph={{
+        image: { url: '/profilePic.jpg' },
+        basic: {
+          title: 'Usman Sabuwala - Full Stack Web Developer in India',
+          image: '/profilePic.jpg',
+          type: 'website',
+          url: 'https://usmans.me',
+        },
+      }}
+      twitter={{
+        creator: '@MaxProgramming1',
+        card: 'summary',
+      }}
+      extend={{
+        link: [{ rel: 'icon', href: '/profilePic.jpg' }],
+        meta: [
+          {
+            name: 'twitter:image',
+            content: '/profilePic.jpg',
+          },
+          {
+            name: 'twitter:title',
+            content: 'Usman Sabuwala - Full Stack Web Developer in India',
+          },
+          { name: 'twitter:description', content: '🌐 my online home' },
+        ],
+      }}
+    />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <script
+      async
+      defer
+      data-website-id='b52533ff-5df3-42fd-8247-8ce626759b8a'
+      src='https://insights.usmans.me/umami.js'
+    ></script>
+  </head>
+  <body class='bg-primary-darker'>
+    <div class='flex flex-col overflow-hidden'>
+      <Nav />
+      <div class='flex-1 px-5'>
+        <div class='container max-w-screen-lg'>
+          <Hero />
+          <Separator />
+          <YouTubeHome videos={videos} />
+          <Separator />
+          <PostsHome posts={posts} />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

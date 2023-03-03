@@ -1,6 +1,6 @@
 export const socialLinks = [
   {
-    link: 'mailto:ui.sabuwala@gmail.com',
+    link: 'mailto:contact@usmans.me',
     icon: (
       <svg
         role='img'

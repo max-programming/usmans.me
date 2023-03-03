@@ -1,7 +1,7 @@
 import type { Video } from '../types';
 import millify from 'millify';
 import useMediaQuery from '../utils/useMediaQuery';
-import { Chat, Activity } from 'phosphor-react';
+import { Activity, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
 import { sendMessage } from '../utils/sendMessage';
 
@@ -66,7 +66,8 @@ function YouTubeCard(props: YouTubeCardProps) {
             </p>
 
             <p className='flex items-center gap-2'>
-              <Chat weight='duotone' /> {props.stats.likeCount} Likes
+              <ThumbsUp weight='duotone' />
+              {props.stats.likeCount} Likes
             </p>
           </div>
         </div>

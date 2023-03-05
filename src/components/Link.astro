@@ -1,16 +1,17 @@
 ---
 interface Props {
   className?: string;
+  isPage?: boolean;
   href: string;
 }
-const { className, href } = Astro.props;
+const { className, href, isPage } = Astro.props;
 ---
 
 <a
   class={'hover:text-primary-light md:text-3xl text-xl font-semibold text-white transition-all border-primary-light hover:underline underline-offset-8 ' +
     className}
   href={href}
-  target='_blank'
+  target={isPage ? '_self' : '_blank'}
 >
   <slot />
 </a>

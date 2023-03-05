@@ -7,17 +7,13 @@ import { sendMessage } from '../utils/sendMessage';
 
 export default function YouTubeCards({ videos }: { videos: Video[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');
-  const filteredContent = useMemo(
-    () => (showAllContent ? videos : videos.slice(0, 3)),
-    [showAllContent, videos]
-  );
+  const filteredContent = useMemo(() => {
+    if (showAllContent) return videos;
+    else return videos.slice(0, 3);
+  }, [showAllContent, videos]);
 
-  return filteredContent.map((video: any) => (
-    <YouTubeCard
-      key={video.id}
-      {...video}
-      thumbnail={video.thumbnails.medium.url}
-    />
+  return filteredContent.map(video => (
+    <YouTubeCard {...video} key={video.id} thumbnail={video.thumbnailUrl} />
   ));
 }
 
@@ -27,6 +23,7 @@ interface YouTubeCardProps {
   id: string;
   stats: Video['stats'];
   duration: string;
+  isPremiere: boolean;
 }
 
 function YouTubeCard(props: YouTubeCardProps) {
@@ -43,8 +40,14 @@ function YouTubeCard(props: YouTubeCardProps) {
       }
       target='_blank'
       rel='noreferrer'
-      className='h-full'
+      className='h-full relative'
     >
+      {props.isPremiere && (
+        <span className='bg-blue-200 text-xs font-medium text-blue-800 text-center p-0.5 leading-none rounded-full px-2 dark:bg-blue-900 dark:text-blue-200 absolute -translate-y-1/2 translate-x-1/2 left-auto top-0 right-5'>
+          Premiere
+        </span>
+      )}
+
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <img
           loading='lazy'
@@ -61,8 +64,8 @@ function YouTubeCard(props: YouTubeCardProps) {
           <div className='mt-2 text-lg text-gray-300'>
             <p className='flex items-center gap-2'>
               <Activity weight='duotone' />
-              {/* {millify(+props.stats.viewCount)}{' '} */}
-              {props.stats.viewCount} Views
+              {millify(+props.stats.viewCount)} {/* {props.stats.viewCount}  */}
+              Views
             </p>
 
             <p className='flex items-center gap-2'>

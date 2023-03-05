@@ -1,6 +1,7 @@
 ---
+import millify from 'millify';
 import { ArrowUpRight } from 'phosphor-react';
-import type { Video } from '../../types';
+import type { ChannelStats, Video } from '../../types';
 import Link from '../Link.astro';
 import { YouTubePlayer } from '../Players';
 import SectionHeading from '../SectionHeading.astro';
@@ -8,9 +9,10 @@ import YouTubeCards from '../YouTubeCard';
 
 interface Props {
   videos: Video[];
+  channelStats: ChannelStats;
 }
 
-const { videos } = Astro.props;
+const { videos, channelStats } = Astro.props;
 ---
 
 <div>
@@ -25,6 +27,11 @@ const { videos } = Astro.props;
       My YouTube Videos
       <ArrowUpRight />
     </Link>
+  </div>
+  <div class='flex gap-7 mb-3 text-white ml-2 text-xs md:text-xl font-semibold'>
+    <h2>{millify(+channelStats.subscriberCount)} subscribers</h2>
+    <h2>{millify(+channelStats.viewCount)} views</h2>
+    <h2>{millify(+channelStats.videoCount)} videos</h2>
   </div>
   <div
     class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'

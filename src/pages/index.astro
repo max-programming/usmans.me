@@ -8,6 +8,11 @@ import fetchPosts from '../utils/fetchPosts';
 import PostsHome from '../components/page-components/PostsHome.astro';
 import { SEO } from 'astro-seo';
 
+Astro.response.headers.set(
+  'Cache-Control',
+  'public, max-age=120, s-maxage=120, stale-while-revalidate=120'
+);
+
 export const prerender = true;
 // const videos: any[] = [];
 const [videos, posts, channelStats] = await Promise.all([
@@ -79,7 +84,7 @@ const [videos, posts, channelStats] = await Promise.all([
         <div class='container max-w-screen-lg'>
           <Hero />
           <Separator />
-          <YouTubeHome videos={videos} />
+          <YouTubeHome channelStats={channelStats} videos={videos} />
           <Separator />
           <PostsHome posts={posts} />
         </div>

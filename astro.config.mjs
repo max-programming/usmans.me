@@ -14,7 +14,7 @@ export default defineConfig({
   site: 'https://usmans.me',
   vite: {
     ssr: {
-      noExternal: ['millify'],
+      noExternal: import.meta.env.MODE === 'development' ? [] : ['millify'],
     },
   },
 });

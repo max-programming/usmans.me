@@ -61,18 +61,21 @@ function YouTubeCard(props: YouTubeCardProps) {
             dangerouslySetInnerHTML={{ __html: props.title }}
             className='text-xl font-semibold text-white'
           />
-          <div className='mt-2 text-lg text-gray-300'>
-            <p className='flex items-center gap-2'>
-              <Activity weight='duotone' />
-              {millify(+props.stats.viewCount)} {/* {props.stats.viewCount}  */}
-              Views
-            </p>
+          {!props.isPremiere && (
+            <div className='mt-2 text-lg text-gray-300'>
+              <p className='flex items-center gap-2'>
+                <Activity weight='duotone' />
+                {millify(+props.stats.viewCount)}{' '}
+                {/* {props.stats.viewCount}  */}
+                Views
+              </p>
 
-            <p className='flex items-center gap-2'>
-              <ThumbsUp weight='duotone' />
-              {props.stats.likeCount} Likes
-            </p>
-          </div>
+              <p className='flex items-center gap-2'>
+                <ThumbsUp weight='duotone' />
+                {props.stats.likeCount} Likes
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </a>

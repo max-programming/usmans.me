@@ -11,17 +11,20 @@ interface Stats {
   commentCount: string;
 }
 
+export interface ChannelStats {
+  viewCount: string;
+  subscriberCount: string;
+  videoCount: string;
+}
+
 export interface Video {
   id: string;
   title: string;
   description: string;
   stats: Stats;
   duration: string;
-  thumbnails: {
-    default: Thumbnail;
-    medium: Thumbnail;
-    high: Thumbnail;
-  };
+  isPremiere: boolean;
+  thumbnailUrl: string;
 }
 
 export interface Post {

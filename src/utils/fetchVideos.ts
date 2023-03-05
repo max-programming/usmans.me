@@ -1,8 +1,19 @@
-import type { Video } from '../types';
+import type { ChannelStats, Video } from '../types';
+
+const CHANNEL_ID = 'UC7LE4pbfb4e2voEASj3RscA';
+
+export async function fetchChannelStats() {
+  const URL = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${
+    import.meta.env.YOUTUBE_API_KEY
+  }`;
+  const res = await fetch(URL);
+  const { items } = await res.json();
+  const stats: ChannelStats = items[0].statistics;
+  console.log(stats);
+  return stats;
+}
 
 export default async function fetchVideos() {
-  const CHANNEL_ID = 'UC7LE4pbfb4e2voEASj3RscA';
-
   const res = await fetch(
     `https://www.googleapis.com/youtube/v3/search?key=${
       import.meta.env.YOUTUBE_API_KEY
@@ -18,7 +29,8 @@ export default async function fetchVideos() {
         id: id.videoId,
         title: snippet.title,
         description: snippet.description,
-        thumbnails: snippet.thumbnails,
+        thumbnailUrl: `https://i.ytimg.com/vi/${id.videoId}/mqdefault.jpg`,
+        isPremiere: snippet.liveBroadcastContent === 'upcoming',
       } as Video;
     }
   );

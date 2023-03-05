@@ -1,9 +1,10 @@
 import type { Video } from '../types';
-import millify from 'millify';
 import useMediaQuery from '../utils/useMediaQuery';
 import { Activity, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
 import { sendMessage } from '../utils/sendMessage';
+
+const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 export default function YouTubeCards({ videos }: { videos: Video[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');
@@ -65,14 +66,14 @@ function YouTubeCard(props: YouTubeCardProps) {
             <div className='mt-2 text-lg text-gray-300'>
               <p className='flex items-center gap-2'>
                 <Activity weight='duotone' />
-                {millify(+props.stats.viewCount)}{' '}
+                {formatter.format(+props.stats.viewCount)}{' '}
                 {/* {props.stats.viewCount}  */}
                 Views
               </p>
 
               <p className='flex items-center gap-2'>
                 <ThumbsUp weight='duotone' />
-                {props.stats.likeCount} Likes
+                {formatter.format(+props.stats.likeCount)} Likes
               </p>
             </div>
           )}

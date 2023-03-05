@@ -78,6 +78,16 @@ export default function Tabs() {
             Mobile
           </a>
         </li>
+        <li onClick={() => setCurrentTab('others')} className='mr-2'>
+          <a
+            href='#'
+            className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
+              currentTab === 'others' ? classes.active : classes.inactive
+            }`}
+          >
+            Others
+          </a>
+        </li>
       </ul>
       <div className='flex flex-wrap justify-center gap-12 w-full my-10'>
         {skills[currentTab].map(item => (
@@ -91,6 +101,7 @@ export default function Tabs() {
 export function Skill({ name, color, icon, url }: SkillItem) {
   const hoverRef = useRef<HTMLImageElement>(null);
   const isHover = useHover(hoverRef);
+
   return (
     <a href={url} target='_blank'>
       <img

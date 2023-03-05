@@ -80,6 +80,14 @@ const mobile: SkillItem[] = [
     url: 'https://flutter.dev',
   },
 ];
+const others: SkillItem[] = [
+  {
+    name: 'puppeteer',
+    icon: '/icons/puppeteer.svg',
+    color: '#40B5A4',
+    url: 'https://pptr.dev/',
+  },
+];
 
 export interface SkillItem {
   name: string;
@@ -90,10 +98,18 @@ export interface SkillItem {
 }
 
 export const skills: { [k: string]: SkillItem[] } = {
-  all: [...languages, ...frontend, ...backend, ...databases, ...mobile],
+  all: [
+    ...languages,
+    ...frontend,
+    ...backend,
+    ...databases,
+    ...mobile,
+    ...others,
+  ],
   languages,
   backend,
   frontend,
   databases,
   mobile,
+  others,
 };

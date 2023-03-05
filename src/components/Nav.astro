@@ -1,4 +1,5 @@
 ---
+import Hamburger from './Hamburger';
 import Link from './Link.astro';
 ---
 
@@ -6,7 +7,7 @@ import Link from './Link.astro';
   <div class='p-5'>
     <div class='flex items-center justify-center md:justify-between'>
       <a href='/' class='text-center text-4xl font-semibold text-primary-light'>
-        Usman Sabuwala
+        Usman S.
       </a>
       <div class='hidden gap-5 md:flex'>
         <Link isPage href='/skills' className='md:text-xl'>Skills</Link>
@@ -19,5 +20,6 @@ import Link from './Link.astro';
         <Link href='/gists' className='md:text-xl'>Gists</Link>
       </div>
     </div>
+    <Hamburger client:load />
   </div>
 </div>

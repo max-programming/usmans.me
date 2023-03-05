@@ -13,6 +13,11 @@ interface Props {
 }
 
 const { videos, channelStats } = Astro.props;
+const displayStats = {
+  subs: millify(+channelStats.subscriberCount),
+  views: millify(+channelStats.viewCount),
+  vids: millify(+channelStats.videoCount),
+};
 ---
 
 <div>
@@ -29,9 +34,9 @@ const { videos, channelStats } = Astro.props;
     </Link>
   </div>
   <div class='flex gap-7 mb-3 text-white ml-2 text-xs md:text-xl font-semibold'>
-    <h2>{millify(+channelStats.subscriberCount)} subscribers</h2>
-    <h2>{millify(+channelStats.viewCount)} views</h2>
-    <h2>{millify(+channelStats.videoCount)} videos</h2>
+    <h2>{displayStats.subs} subscribers</h2>
+    <h2>{displayStats.views} views</h2>
+    <h2>{displayStats.vids} videos</h2>
   </div>
   <div
     class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'

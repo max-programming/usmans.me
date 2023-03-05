@@ -1,5 +1,4 @@
 ---
-import millify from 'millify';
 import { ArrowUpRight } from 'phosphor-react';
 import type { ChannelStats, Video } from '../../types';
 import Link from '../Link.astro';
@@ -13,10 +12,13 @@ interface Props {
 }
 
 const { videos, channelStats } = Astro.props;
+
+const formatter = Intl.NumberFormat('en', { notation: 'compact' });
+
 const displayStats = {
-  subs: millify(+channelStats.subscriberCount),
-  views: millify(+channelStats.viewCount),
-  vids: millify(+channelStats.videoCount),
+  subs: formatter.format(+channelStats.subscriberCount),
+  views: formatter.format(+channelStats.viewCount),
+  vids: formatter.format(+channelStats.videoCount),
 };
 ---
 

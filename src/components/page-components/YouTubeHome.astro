@@ -29,6 +29,6 @@ const { videos } = Astro.props;
   <div
     class='mt-4 mb-10 grid grid-cols-1 place-items-center gap-6 md:grid-cols-3'
   >
-    <YouTubeCards videos={videos} client:only='react' />
+    <YouTubeCards videos={videos} client:visible />
   </div>
 </div>

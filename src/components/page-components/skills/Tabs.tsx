@@ -1,7 +1,7 @@
 import { atom } from 'jotai';
 import { useAtom } from 'jotai/react';
-import { useRef } from 'react';
-import { useHover } from 'usehooks-ts';
+// import { useRef } from 'react';
+// import { useHover } from 'usehooks-ts';
 import { SkillItem, skills } from './skillIcons';
 
 const currentTabAtom = atom('all');
@@ -99,17 +99,18 @@ export default function Tabs() {
 }
 
 export function Skill({ name, color, icon, url }: SkillItem) {
-  const hoverRef = useRef<HTMLImageElement>(null);
-  const isHover = useHover(hoverRef);
+  // const hoverRef = useRef<HTMLImageElement>(null);
+  // const isHover = useHover(hoverRef);
 
   return (
     <a href={url} target='_blank'>
       <img
-        ref={hoverRef}
+        // ref={hoverRef}
         src={icon}
         title={name}
         className={`md:w-28 md:h-28 select-none h-10 w-10 md:m-2 transition-all`}
-        style={{ filter: isHover ? `drop-shadow(0 0 2em ${color})` : 'none' }}
+        style={{ filter: `drop-shadow(0 0 2em ${color})` }}
+        // style={{ filter: isHover ? `drop-shadow(0 0 2em ${color})` : 'none' }}
       />
     </a>
   );

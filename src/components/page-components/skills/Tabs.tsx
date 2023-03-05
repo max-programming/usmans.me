@@ -19,7 +19,6 @@ export default function Tabs() {
       <ul className='flex justify-center flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400'>
         <li onClick={() => setCurrentTab('all')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'all' ? classes.active : classes.inactive
             }`}
@@ -30,7 +29,6 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('languages')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'languages' ? classes.active : classes.inactive
             }`}
@@ -40,7 +38,6 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('frontend')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'frontend' ? classes.active : classes.inactive
             }`}
@@ -50,7 +47,6 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('backend')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'backend' ? classes.active : classes.inactive
             }`}
@@ -60,7 +56,6 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('databases')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'databases' ? classes.active : classes.inactive
             }`}
@@ -70,7 +65,6 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('mobile')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'mobile' ? classes.active : classes.inactive
             }`}
@@ -80,7 +74,6 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('others')} className='mr-2'>
           <a
-            href='#'
             className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'others' ? classes.active : classes.inactive
             }`}

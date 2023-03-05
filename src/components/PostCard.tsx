@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
 import { sendMessage } from '../utils/sendMessage';
+import millify from 'millify';
 
 const cld = new Cloudinary({
   cloud: {
@@ -55,8 +56,8 @@ function PostCard({ post }: { post: Post }) {
 
             <p className='flex items-center gap-2 text-gray-300'>
               <ThumbsUp weight='duotone' />
-              {/* {millify(post.totalReactions)} Likes */}
-              {post.totalReactions} Likes
+              {millify(post.totalReactions)} Likes
+              {/* {post.totalReactions} Likes */}
             </p>
           </div>
         </div>

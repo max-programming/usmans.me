@@ -4,13 +4,14 @@ import { useMemo } from 'react';
 import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
 import { sendMessage } from '../utils/sendMessage';
-import millify from 'millify';
 
 const cld = new Cloudinary({
   cloud: {
     cloudName: 'demo',
   },
 });
+
+const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 export default function PostCards({ posts }: { posts: Post[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');
@@ -56,7 +57,7 @@ function PostCard({ post }: { post: Post }) {
 
             <p className='flex items-center gap-2 text-gray-300'>
               <ThumbsUp weight='duotone' />
-              {millify(post.totalReactions)} Likes
+              {formatter.format(post.totalReactions)} Likes
               {/* {post.totalReactions} Likes */}
             </p>
           </div>

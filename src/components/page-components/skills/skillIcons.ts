@@ -1,18 +1,30 @@
 const languages: SkillItem[] = [
   {
-    name: 'javascript',
+    name: 'HTML',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+    color: '#E34F26',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+  },
+  {
+    name: 'CSS',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    color: '#1572B6',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+  },
+  {
+    name: 'JavaScript',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     color: '#F7DF1E',
     url: 'https://developer.mozilla.org/en-US/docs/Web/javascript',
   },
   {
-    name: 'typescript',
+    name: 'TypeScript',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
     color: '#3178C6',
     url: 'https://www.typescriptlang.org/',
   },
   {
-    name: 'dart',
+    name: 'Dart',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg',
     color: '#0175C2',
     url: 'https://dart.dev',
@@ -20,13 +32,13 @@ const languages: SkillItem[] = [
 ];
 const backend: SkillItem[] = [
   {
-    name: 'express',
+    name: 'Express',
     icon: '/icons/express.svg',
     color: '#fff',
     url: 'https://expressjs.com/',
   },
   {
-    name: 'nodejs',
+    name: 'Node.js',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     color: '#339933',
     url: 'https://nodejs.org/en/',
@@ -34,47 +46,59 @@ const backend: SkillItem[] = [
 ];
 const frontend: SkillItem[] = [
   {
-    name: 'react',
+    name: 'React',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
     color: '#61DAFB',
     url: 'https://reactjs.org/',
   },
   {
-    name: 'nextjs',
+    name: 'Next.js',
     icon: '/icons/nextjs.svg',
     color: '#fff',
     url: 'https://nextjs.org/',
   },
   {
-    name: 'astro',
+    name: 'Astro',
     icon: '/icons/astro.svg',
     color: '#FF5D01',
     url: 'https://astro.build/',
   },
+  {
+    name: 'Tailwind CSS',
+    icon: '/icons/tailwind.svg',
+    url: 'https://tailwindcss.com',
+    color: '#06B6D4',
+  },
 ];
 const databases: SkillItem[] = [
   {
-    name: 'mongodb',
+    name: 'MongoDB',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
     color: '#47A248',
     url: 'https://mongodb.com',
   },
   {
-    name: 'supabase',
+    name: 'Supabase',
     icon: '/icons/supabase.svg',
     color: '#3ECF8E',
     url: 'https://supabase.com',
   },
   {
-    name: 'xata',
+    name: 'Xata',
     icon: '/icons/xata.svg',
     color: '#f60071',
     url: 'https://xata.io',
   },
+  {
+    name: 'PlanetScale',
+    icon: '/icons/planetscale.svg',
+    color: '#fff',
+    url: 'https://planetscale.com/',
+  },
 ];
 const mobile: SkillItem[] = [
   {
-    name: 'flutter',
+    name: 'Flutter',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
     color: '#02569B',
     url: 'https://flutter.dev',
@@ -82,7 +106,7 @@ const mobile: SkillItem[] = [
 ];
 const others: SkillItem[] = [
   {
-    name: 'puppeteer',
+    name: 'Puppeteer',
     icon: '/icons/puppeteer.svg',
     color: '#40B5A4',
     url: 'https://pptr.dev/',

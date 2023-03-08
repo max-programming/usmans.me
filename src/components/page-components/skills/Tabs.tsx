@@ -2,6 +2,7 @@ import { atom } from 'jotai';
 import { useAtom } from 'jotai/react';
 import { useRef } from 'react';
 import { useHover } from 'usehooks-ts';
+import { motion } from 'framer-motion';
 import { SkillItem, skills } from './skillIcons';
 
 const currentTabAtom = atom('all');
@@ -82,11 +83,20 @@ export default function Tabs() {
           </a>
         </li>
       </ul>
-      <div className='flex flex-wrap justify-center gap-12 w-full my-10'>
+      <motion.div
+        key={currentTab}
+        variants={{
+          show: { opacity: 1, scale: 1 },
+          hide: { opacity: 0, scale: 0.5 },
+        }}
+        animate='show'
+        initial='hide'
+        className='flex flex-wrap justify-center gap-12 w-full my-10'
+      >
         {skills[currentTab].map(item => (
           <Skill key={item.name} {...item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

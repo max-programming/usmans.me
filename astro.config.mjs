@@ -11,4 +11,9 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   site: 'https://usmans.me',
+  vite: {
+    ssr: {
+      noExternal: ['usehooks-ts'],
+    },
+  },
 });

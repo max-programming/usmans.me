@@ -1,12 +1,10 @@
 ---
 import Hero from '../components/page-components/Hero.astro';
-import Nav from '../components/Nav.astro';
 import Separator from '../components/Separator.astro';
 import YouTubeHome from '../components/page-components/YouTubeHome.astro';
 import fetchVideos, { fetchChannelStats } from '../utils/fetchVideos';
 import fetchPosts from '../utils/fetchPosts';
 import PostsHome from '../components/page-components/PostsHome.astro';
-import { SEO } from 'astro-seo';
 import Layout from '../components/Layout.astro';
 
 Astro.response.headers.set(

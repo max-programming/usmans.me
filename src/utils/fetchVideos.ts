@@ -8,6 +8,7 @@ export async function fetchChannelStats() {
   }`;
   const res = await fetch(URL);
   const { items } = await res.json();
+  console.log(items);
   const stats: ChannelStats = items[0].statistics;
   console.log(stats);
   return stats;

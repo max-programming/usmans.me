@@ -65,7 +65,7 @@ export default function Tabs() {
         </li>
         <li onClick={() => setCurrentTab('mobile')} className='mr-2'>
           <a
-            className={`inline-block px-4 py-3 rounded-lg transition-all text-xl ${
+            className={`inline-block cursor-pointer px-4 py-3 rounded-lg transition-all text-xl ${
               currentTab === 'mobile' ? classes.active : classes.inactive
             }`}
           >
@@ -96,7 +96,11 @@ export function Skill({ name, color, icon, url }: SkillItem) {
   const isHover = useHover(hoverRef);
 
   return (
-    <a href={url} className='flex flex-col justify-center items-center gap-5' target='_blank'>
+    <a
+      href={url}
+      className='flex flex-col justify-center items-center gap-5'
+      target='_blank'
+    >
       <img
         ref={hoverRef}
         src={icon}

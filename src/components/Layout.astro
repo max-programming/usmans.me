@@ -14,6 +14,7 @@ const { title } = Astro.props;
       title={title ||
         'Home - Usman Sabuwala - Full Stack Web Developer in India.'}
       description='🌐 my online home'
+      canonical='https://usmans.me'
       openGraph={{
         image: { url: '/profilePic.jpg' },
         basic: {
@@ -26,6 +27,7 @@ const { title } = Astro.props;
       twitter={{
         creator: '@MaxProgramming1',
         card: 'summary',
+        site: 'https://usmans.me',
       }}
       extend={{
         link: [{ rel: 'icon', href: '/profilePic.jpg' }],

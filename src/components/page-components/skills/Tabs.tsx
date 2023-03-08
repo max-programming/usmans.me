@@ -96,7 +96,7 @@ export function Skill({ name, color, icon, url }: SkillItem) {
   const isHover = useHover(hoverRef);
 
   return (
-    <a href={url} target='_blank'>
+    <a href={url} className='flex flex-col justify-center items-center gap-5' target='_blank'>
       <img
         ref={hoverRef}
         src={icon}
@@ -104,7 +104,7 @@ export function Skill({ name, color, icon, url }: SkillItem) {
         className={`md:w-28 md:h-28 select-none h-10 w-10 md:m-2 transition-all`}
         style={{ filter: isHover ? `drop-shadow(0 0 2em ${color})` : 'none' }}
       />
-      <p className='text-white text-sm text-center mt-5'>{name}</p>
+      <p className='text-white text-sm text-center'>{name}</p>
     </a>
   );
 }

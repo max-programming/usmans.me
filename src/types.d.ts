@@ -1,3 +1,5 @@
+import type { youtube_v3 } from '@googleapis/youtube/build/v3';
+
 interface Thumbnail {
   url: string;
   width: number;
@@ -21,7 +23,7 @@ export interface Video {
   id: string;
   title: string;
   description: string;
-  stats: Stats;
+  stats: youtube_v3.Schema$VideoStatistics;
   duration: string;
   isPremiere: boolean;
   thumbnailUrl: string;

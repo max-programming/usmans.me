@@ -17,6 +17,7 @@
     "@astrojs/vercel": "^3.1.4",
     "@cloudinary/url-gen": "^1.9.1",
     "@fontsource/sen": "^4.5.9",
+    "@googleapis/youtube": "^8.0.2",
     "@lottiefiles/react-lottie-player": "^3.5.2",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",

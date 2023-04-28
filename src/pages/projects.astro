@@ -8,7 +8,23 @@ import Project from '../components/page-components/projects/Project.astro';
   <div class='container flex items-center flex-col gap-5 mt-10 max-w-screen-lg'>
     <SectionHeading>My Projects</SectionHeading>
     <div class='mt-2 flex justify-center items-center'>
-      <Project title='Prompt - Issue Management Web App' />
+      <!-- prettier-ignore -->
+      <Project title='Prompt - Issue Management Web App' skills={['Microsoft SQL Server', 'Next.js', 'React', 'Express', 'Chakra UI', 'TypeScript', 'Node.js']}>
+        An issue management web application with which the employees can:
+      
+        - Search tasks by customer
+        - Create tasks
+        - View and add comments to a task
+        - View and share the feedback page
+        - View the separate ongoing "Work In Progress" tasks
+      
+        Tech Stack:
+        - MS SQL Server
+        - Next.js (React.js + Express.js)
+        - Chakra UI
+        - TypeScript
+        - Vercel
+      </Project>
     </div>
   </div>
 </Layout>

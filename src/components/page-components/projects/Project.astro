@@ -1,0 +1,51 @@
+---
+import Carousel from './Carousel.astro';
+import Tag from './Tag.astro';
+
+interface Props {
+  title: string;
+}
+const props = Astro.props;
+---
+
+<div class='border border-gray-400 p-5 text-white rounded'>
+  <h2 class='text-3xl font-bold text-center'>{props.title}</h2>
+
+  <hr class='h-px my-5 bg-gray-200 border-0' />
+  <Carousel />
+  <hr class='h-px my-5 bg-gray-200 border-0' />
+
+  <div id='description'>
+    <h3 class='text-2xl font-semibold'>Description</h3>
+    <pre
+      class='whitespace-pre-line font-sans mt-3'>
+      An issue management web application with which the employees can:
+      
+      - Search tasks by customer
+      - Create tasks
+      - View and add comments to a task
+      - View and share the feedback page
+      - View the separate ongoing "Work In Progress" tasks
+      
+      Tech Stack:
+      - MS SQL Server
+      - Next.js (React.js + Express.js)
+      - Chakra UI
+      - TypeScript
+      - Vercel
+    </pre>
+  </div>
+  <hr class='h-px my-5 bg-gray-200 border-0' />
+  <div id='skills'>
+    <h3 class='text-2xl font-semibold'>Skills</h3>
+    <div class='mt-3'>
+      <Tag name='Microsoft SQL Server' />
+      <Tag name='Next.js' />
+      <Tag name='React' />
+      <Tag name='Express' />
+      <Tag name='Chakra UI' />
+      <Tag name='TypeScript' />
+      <Tag name='Node.js' />
+    </div>
+  </div>
+</div>

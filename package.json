@@ -23,6 +23,7 @@
     "@types/react-dom": "^18.2.1",
     "astro": "^2.3.2",
     "astro-seo": "^0.7.2",
+    "flowbite": "^1.6.5",
     "framer-motion": "^10.12.4",
     "jotai": "^2.0.4",
     "phosphor-react": "^1.4.1",

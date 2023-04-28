@@ -3,17 +3,46 @@ import Carousel from './Carousel.astro';
 import Tag from './Tag.astro';
 
 interface Props {
+  name: string;
+  amount: number;
+  link?: string;
   title: string;
   skills: string[];
 }
 const props = Astro.props;
 ---
 
-<div class='border border-gray-400 p-5 text-white rounded max-w-2xl'>
-  <h2 class='text-3xl font-bold text-center'>{props.title}</h2>
+<div class='border border-gray-500 p-5 text-white rounded max-w-2xl'>
+  {
+    props.link ? (
+      <a
+        href={props.link}
+        target='_blank'
+        class='hover:underline-offset-4 hover:underline'
+      >
+        <h2 class='text-3xl font-bold text-center'>{props.title}</h2>
+      </a>
+    ) : (
+      <h2 class='text-3xl font-bold text-center'>{props.title}</h2>
+    )
+  }
 
   <hr class='h-px my-5 bg-gray-200 border-0' />
-  <Carousel />
+  {
+    props.amount > 2 ? (
+      <Carousel name={props.name} amount={props.amount} />
+    ) : (
+      <div class='flex justify-center h-56 overflow-hidden rounded-lg md:h-96'>
+        <a
+          href={`/projects/${props.name}/s${props.amount}.png`}
+          target='_blank'
+          class='flex justify-center'
+        >
+          <img src={`/projects/${props.name}/s${props.amount}.png`} />
+        </a>
+      </div>
+    )
+  }
   <hr class='h-px my-5 bg-gray-200 border-0' />
 
   <div id='description'>

@@ -5,11 +5,11 @@ import Project from '../components/page-components/projects/Project.astro';
 ---
 
 <Layout title='Projects | Usman Sabuwala'>
-  <div class='container flex items-center flex-col gap-5 mt-10 max-w-screen-lg'>
-    <SectionHeading>My Projects</SectionHeading>
-    <div class='mt-2 flex justify-center items-center'>
+  <div class='container px-0 w-full flex flex-col gap-5 mt-10'>
+    <SectionHeading className='mx-auto'>My Projects</SectionHeading>
+    <div class='mt-2 flex justify-between gap-5'>
       <!-- prettier-ignore -->
-      <Project title='Prompt - Issue Management Web App' skills={['Microsoft SQL Server', 'Next.js', 'React', 'Express', 'Chakra UI', 'TypeScript', 'Node.js']}>
+      <Project name="prompt" amount={5} title='Prompt - Issue Management Web App' skills={['Microsoft SQL Server', 'Next.js', 'React', 'Express', 'Chakra UI', 'TypeScript', 'Node.js']}>
         An issue management web application with which the employees can:
       
         - Search tasks by customer
@@ -24,6 +24,10 @@ import Project from '../components/page-components/projects/Project.astro';
         - Chakra UI
         - TypeScript
         - Vercel
+      </Project>
+      <!-- prettier-ignore -->
+      <Project name="card" amount={1} link='https://card.usmans.me' title='DMT Card Generator' skills={['React', 'TypeScript', 'Vite', 'JavaScript']}>
+        A simple webapp that lets users generate a poster with their name and image to share a campaign they are joining.
       </Project>
     </div>
   </div>

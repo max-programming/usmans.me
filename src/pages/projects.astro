@@ -2,12 +2,14 @@
 import Layout from '../components/Layout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Project from '../components/page-components/projects/Project.astro';
+
+export const prerender = true;
 ---
 
 <Layout title='Projects | Usman Sabuwala'>
   <div class='container px-0 w-full flex flex-col gap-5 mt-10'>
     <SectionHeading className='mx-auto'>My Projects</SectionHeading>
-    <div class='mt-2 flex justify-between gap-5'>
+    <div class='mt-2 md:m-0 m-5 flex flex-wrap justify-between gap-5'>
       <!-- prettier-ignore -->
       <Project name="prompt" amount={5} title='Prompt - Issue Management Web App' skills={['Microsoft SQL Server', 'Next.js', 'React', 'Express', 'Chakra UI', 'TypeScript', 'Node.js']}>
         An issue management web application with which the employees can:

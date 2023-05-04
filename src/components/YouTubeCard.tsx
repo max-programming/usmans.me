@@ -66,14 +66,14 @@ function YouTubeCard(props: YouTubeCardProps) {
             <div className='mt-2 text-lg text-gray-300'>
               <p className='flex items-center gap-2'>
                 <Activity weight='duotone' />
-                {formatter.format(+props.stats.viewCount)}{' '}
+                {formatter.format(+props.stats.viewCount!)}{' '}
                 {/* {props.stats.viewCount}  */}
                 Views
               </p>
 
               <p className='flex items-center gap-2'>
                 <ThumbsUp weight='duotone' />
-                {formatter.format(+props.stats.likeCount)} Likes
+                {formatter.format(+props.stats.likeCount!)} Likes
               </p>
             </div>
           )}

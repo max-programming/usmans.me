@@ -6,11 +6,5 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
-  output: 'server',
   site: 'https://usmans.me',
-  vite: {
-    ssr: {
-      noExternal: ['usehooks-ts'],
-    },
-  },
 });

@@ -14,7 +14,7 @@ export async function fetchChannelStats() {
     part: ['statistics'],
   });
   const stats = res.data.items?.at(0)?.statistics;
-  return stats;
+  return stats as ChannelStats;
 }
 
 export default async function fetchVideos() {

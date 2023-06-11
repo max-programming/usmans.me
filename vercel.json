@@ -36,6 +36,11 @@
       "source": "/gists/mi",
       "destination": "https://gist.github.com/max-programming/f30691fe784542ebad4f7eaf47cfa78d",
       "permanent": true
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/max-programming",
+      "permanent": true
     }
   ]
 }

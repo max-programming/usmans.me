@@ -5,12 +5,6 @@ import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
 import { sendMessage } from '../utils/sendMessage';
 
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: 'demo',
-  },
-});
-
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 export default function PostCards({ posts }: { posts: Post[] }) {
@@ -24,9 +18,6 @@ export default function PostCards({ posts }: { posts: Post[] }) {
 }
 
 function PostCard({ post }: { post: Post }) {
-  // @ts-ignore
-  const cldSrc = cld.image(post.coverImage).format('auto').delivery('q_auto');
-  cldSrc.setDeliveryType('fetch');
   async function sendBlogClickMessage() {
     await sendMessage(post.title);
   }
@@ -42,7 +33,7 @@ function PostCard({ post }: { post: Post }) {
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <img
           loading='lazy'
-          src={cldSrc.toURL()}
+          src={post.coverImage}
           alt={post.title}
           title={post.title}
           className='w-full'

@@ -2,9 +2,11 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import type { Post } from '../types';
 
 interface Data {
-  user: {
-    publication: {
-      posts: Post[];
+  publication: {
+    posts: {
+      edges: Array<{
+        node: Post;
+      }>;
     };
   };
 }
@@ -23,28 +25,32 @@ export default async function fetchPosts() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `
-      query GetPosts {
-        user(username: "usmanwrites") {
-          publication {
-            posts {
-              slug
-              title
-              cuid
-              totalReactions
-              coverImage
-              dateAdded
-              responseCount
-              replyCount
+        query GetPosts {
+          publication(host: "blog.usmans.me") {
+            posts(first: 6) {
+              edges {
+                node {
+                  slug
+                  title
+                  cuid
+                  reactionCount
+                  publishedAt
+                  responseCount
+                  replyCount
+                  coverImage {
+                    url
+                  }
+                }
+              }
             }
           }
         }
-      }
       `,
     }),
   });
 
   const { data }: { data: Data } = await response.json();
-  let { posts } = data.user.publication;
+  let { posts } = data.publication;
 
   // posts = posts.map(post => {
   //   return { ...post, coverImage: getCloudinaryUrl(post) };
@@ -55,7 +61,7 @@ export default async function fetchPosts() {
 
 function getCloudinaryUrl(post: Post): string {
   const cldSrc = cloudinary
-    .image(post.coverImage)
+    .image(post.coverImage.url)
     .format('auto')
     .quality('auto')
     .setDeliveryType('fetch');

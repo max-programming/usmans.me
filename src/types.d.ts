@@ -30,10 +30,12 @@ export interface Video {
 }
 
 export interface Post {
-  totalReactions: number;
-  coverImage: string;
+  reactionCount: number;
+  coverImage: {
+    url: string;
+  };
   cuid: string;
-  dateAdded: string;
+  publishedAt: string;
   slug: string;
   title: string;
   responseCount: number;

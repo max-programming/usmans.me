@@ -19,7 +19,7 @@ const cloudinary = new Cloudinary({
   },
 });
 
-export default async function fetchPosts() {
+export default async function fetchPosts(): Promise<Array<Post>> {
   const response = await fetch('https://gql.hashnode.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

@@ -20,7 +20,6 @@ const cloudinary = new Cloudinary({
 });
 
 export default async function fetchPosts() {
-  try {
   const response = await fetch('https://gql.hashnode.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -57,12 +56,7 @@ export default async function fetchPosts() {
   //   return { ...post, coverImage: getCloudinaryUrl(post) };
   // });
 
-  return posts;
-  }
-  catch (err) {
-    console.error(err);
-    return [];
-  }
+  return posts.edges.map(e => e.node);
 }
 
 function getCloudinaryUrl(post: Post): string {

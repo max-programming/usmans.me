@@ -7,9 +7,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   site: 'https://usmans.me',
-  experimental: {
-    viewTransitions: true,
-  },
   vite: {
     ssr: {
       noExternal: ['usehooks-ts'],

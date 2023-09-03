@@ -33,7 +33,7 @@ function PostCard({ post }: { post: Post }) {
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <img
           loading='lazy'
-          src={post.coverImage}
+          src={post.coverImage.url}
           alt={post.title}
           title={post.title}
           className='w-full'
@@ -48,7 +48,7 @@ function PostCard({ post }: { post: Post }) {
 
             <p className='flex items-center gap-2 text-gray-300'>
               <ThumbsUp weight='duotone' />
-              {formatter.format(post.totalReactions)} Likes
+              {formatter.format(post.reactionCount)} Likes
               {/* {post.totalReactions} Likes */}
             </p>
           </div>

@@ -1,4 +1,4 @@
-import { motion, TargetAndTransition } from 'framer-motion';
+import { motion, type TargetAndTransition } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { sendMessage } from '../utils/sendMessage';
 import { socialLinks } from '../utils/socialLinks';
@@ -36,7 +36,6 @@ const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
       rel='noreferrer'
       className='text-4xl'
     >
-      {/* <img src={'/icons/' + props.name.toLowerCase() + '.svg'} alt='' /> */}
       {props.icon}
     </motion.a>
   );

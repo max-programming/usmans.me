@@ -3,7 +3,7 @@ import { useAtom } from 'jotai/react';
 import { useRef } from 'react';
 import { useHover } from 'usehooks-ts';
 import { motion } from 'framer-motion';
-import { SkillItem, skills } from './skillIcons';
+import { type SkillItem, skills } from './skillIcons';
 
 const currentTabAtom = atom('all');
 

@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
 import { sendMessage } from '../utils/sendMessage';
+import CldImage from './CldImage';
 
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
@@ -31,13 +32,7 @@ function PostCard({ post }: { post: Post }) {
       className='h-full'
     >
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
-        <img
-          loading='lazy'
-          src={post.coverImage.url}
-          alt={post.title}
-          title={post.title}
-          className='w-full'
-        />
+        <CldImage src={post.coverImage.url} title={post.title} />
         <div className='h-full p-6 '>
           <h4 className='text-xl font-semibold text-white'>{post.title}</h4>
           <div className='mt-2 text-lg '>

@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Sen', 'sans-serif'],
+      mono: ['Geist Mono', 'serif'],
     },
     container: {
       center: true,

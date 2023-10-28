@@ -1,9 +1,10 @@
 import { atom } from 'jotai';
 import { useAtom } from 'jotai/react';
-import { useRef } from 'react';
-import { useHover } from 'usehooks-ts';
+import { useEffect, useRef, type RefObject, useState } from 'react';
+// import { useHover } from 'usehooks-ts';
 import { motion } from 'framer-motion';
 import { type SkillItem, skills } from './skillIcons';
+import { useEventListener } from 'usehooks-ts';
 
 const currentTabAtom = atom('all');
 
@@ -102,23 +103,28 @@ export default function Tabs() {
 }
 
 export function Skill({ name, color, icon, url }: SkillItem) {
-  const hoverRef = useRef<HTMLImageElement>(null);
-  const isHover = useHover(hoverRef);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <a
       href={url}
-      className='flex flex-col justify-center items-center gap-5'
+      className='flex flex-col justify-center items-center gap-5 relative'
       target='_blank'
+      onMouseOver={() => setIsHovered(true)}
+      onMouseOut={() => setIsHovered(false)}
     >
       <img
-        ref={hoverRef}
         src={icon}
         title={name}
-        className={`md:w-28 md:h-28 select-none h-10 w-10 md:m-2 transition-all`}
-        style={{ filter: isHover ? `drop-shadow(0 0 2em ${color})` : 'none' }}
+        className={`md:w-28 md:h-28 select-none h-10 w-10 md:m-2`}
+        style={{
+          filter: isHovered ? `drop-shadow(0 0 2em ${color})` : 'none',
+          transition: 'all 0.3s ease',
+        }}
       />
-      <p className='text-white text-sm text-center'>{name}</p>
+      <p className='text-white text-sm text-center font-mono tracking-widest'>
+        {name}
+      </p>
     </a>
   );
 }

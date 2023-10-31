@@ -1,10 +1,8 @@
 import { atom } from 'jotai';
 import { useAtom } from 'jotai/react';
-import { useEffect, useRef, type RefObject, useState } from 'react';
-// import { useHover } from 'usehooks-ts';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { type SkillItem, skills } from './skillIcons';
-import { useEventListener } from 'usehooks-ts';
 
 const currentTabAtom = atom('all');
 

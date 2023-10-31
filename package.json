@@ -23,6 +23,7 @@
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "astro": "^3.4.0",
+    "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
     "flowbite": "^2.0.0",
     "framer-motion": "^10.16.4",

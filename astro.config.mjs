@@ -4,14 +4,20 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import million from 'million/compiler';
 
+import robotsTxt from "astro-robots-txt";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), sitemap()],
+  integrations: [tailwind(), react(), sitemap(), robotsTxt()],
   site: 'https://usmans.me',
   vite: {
-    plugins: [million.vite({ mode: 'react', server: true, auto: true })],
+    plugins: [million.vite({
+      mode: 'react',
+      server: true,
+      auto: true
+    })],
     ssr: {
-      noExternal: ['usehooks-ts'],
-    },
-  },
+      noExternal: ['usehooks-ts']
+    }
+  }
 });

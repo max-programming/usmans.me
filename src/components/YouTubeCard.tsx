@@ -4,20 +4,24 @@ import { Activity, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
 import { sendMessage } from '../utils/sendMessage';
 import CldImage from './CldImage';
+import { For, block } from 'million/react';
+import unescapeHTML from '../utils/unescapeHTML';
 
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
-export default function YouTubeCards({ videos }: { videos: Video[] }) {
+const YouTubeCards = block(({ videos }: { videos: Video[] }) => {
   const showAllContent = useMediaQuery('(min-width: 768px)');
   const filteredContent = useMemo(() => {
     if (showAllContent) return videos;
     else return videos.slice(0, 3);
   }, [showAllContent, videos]);
 
-  return filteredContent.map(video => (
-    <YouTubeCard {...video} key={video.id} thumbnail={video.thumbnailUrl} />
-  ));
-}
+  return (
+    <For each={filteredContent}>
+      {video => <YouTubeCard {...video} thumbnail={video.thumbnailUrl} />}
+    </For>
+  );
+});
 
 interface YouTubeCardProps {
   thumbnail: string;
@@ -28,7 +32,7 @@ interface YouTubeCardProps {
   isPremiere: boolean;
 }
 
-function YouTubeCard(props: YouTubeCardProps) {
+const YouTubeCard = block((props: YouTubeCardProps) => {
   async function sendYouTubeClickMessage() {
     await sendMessage(props.title);
   }
@@ -52,11 +56,10 @@ function YouTubeCard(props: YouTubeCardProps) {
 
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <CldImage src={props.thumbnail} title={props.title} />
-        <div className='h-full p-6'>
-          <h4
-            dangerouslySetInnerHTML={{ __html: props.title }}
-            className='text-xl font-semibold text-white'
-          />
+        <div className='h-full p-6 pt-1'>
+          <h4 className='text-xl font-semibold text-white'>
+            {unescapeHTML(props.title)}
+          </h4>
           {!props.isPremiere && (
             <div className='mt-2 text-lg text-gray-300'>
               <p className='flex items-center gap-2'>
@@ -76,4 +79,6 @@ function YouTubeCard(props: YouTubeCardProps) {
       </div>
     </a>
   );
-}
+});
+
+export default YouTubeCards;

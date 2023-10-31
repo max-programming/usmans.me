@@ -1,24 +1,25 @@
-import { Cloudinary } from '@cloudinary/url-gen';
 import { Chat, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
 import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
 import { sendMessage } from '../utils/sendMessage';
 import CldImage from './CldImage';
+import { For, block } from 'million/react';
 
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
-export default function PostCards({ posts }: { posts: Post[] }) {
+const PostCards = block(({ posts }: { posts: Post[] }) => {
   const showAllContent = useMediaQuery('(min-width: 768px)');
+
   const filteredContent = useMemo(
     () => (showAllContent ? posts : posts.slice(0, 3)),
     [showAllContent, posts]
   );
 
-  return filteredContent.map(post => <PostCard key={post.cuid} post={post} />);
-}
+  return <For each={filteredContent}>{post => <PostCard post={post} />}</For>;
+});
 
-function PostCard({ post }: { post: Post }) {
+const PostCard = block(({ post }: { post: Post }) => {
   async function sendBlogClickMessage() {
     await sendMessage(post.title);
   }
@@ -33,7 +34,7 @@ function PostCard({ post }: { post: Post }) {
     >
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <CldImage src={post.coverImage.url} title={post.title} />
-        <div className='h-full p-6 '>
+        <div className='h-full p-6 pt-1'>
           <h4 className='text-xl font-semibold text-white'>{post.title}</h4>
           <div className='mt-2 text-lg '>
             <p className='flex items-center gap-2 text-gray-300'>
@@ -51,4 +52,6 @@ function PostCard({ post }: { post: Post }) {
       </div>
     </a>
   );
-}
+});
+
+export default PostCards;

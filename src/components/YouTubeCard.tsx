@@ -33,8 +33,9 @@ interface YouTubeCardProps {
 }
 
 const YouTubeCard = block((props: YouTubeCardProps) => {
+  const title = unescapeHTML(props.title);
   async function sendYouTubeClickMessage() {
-    await sendMessage(props.title);
+    await sendMessage(title);
   }
   return (
     <a
@@ -55,10 +56,10 @@ const YouTubeCard = block((props: YouTubeCardProps) => {
       )}
 
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
-        <CldImage src={props.thumbnail} title={props.title} />
+        <CldImage src={props.thumbnail} title={title} />
         <div className='h-full p-6 pt-1'>
           <h4 className='text-xl font-semibold text-white'>
-            {unescapeHTML(props.title)}
+            {unescapeHTML(title)}
           </h4>
           {!props.isPremiere && (
             <div className='mt-2 text-lg text-gray-300'>

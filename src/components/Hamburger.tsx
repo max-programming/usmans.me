@@ -50,10 +50,10 @@ export default function Hamburger() {
             </li>
             <li>
               <a
-                href='/gists'
+                href='/resume.pdf'
                 className='block py-2 pl-3 pr-4 text-white rounded active:text-primary-light active:bg-primary-darker'
               >
-                Gists
+                Resume
               </a>
             </li>
           </ul>

@@ -31,6 +31,7 @@ npm install
 ```
 
 4. Start the dev server
+
 ```
 npm run dev
 ```

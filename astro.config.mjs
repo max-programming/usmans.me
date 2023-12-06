@@ -16,6 +16,7 @@ export default defineConfig({
         mode: 'react',
         server: true,
         auto: true,
+        mute: true,
       }),
     ],
     ssr: {

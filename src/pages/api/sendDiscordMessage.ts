@@ -1,6 +1,6 @@
-import type { APIRoute } from 'astro';
+import type { APIContext, Props } from 'astro';
 
-export const post: APIRoute = async ({ params, request }) => {
+export async function post({ request }: APIContext<Props>) {
   try {
     const body = await request.json();
     const name = body.name;
@@ -20,4 +20,4 @@ export const post: APIRoute = async ({ params, request }) => {
     console.log({ error: e });
     return new Response(null, { status: 500 });
   }
-};
+}

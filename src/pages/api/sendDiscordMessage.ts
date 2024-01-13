@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const post: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ params, request }) => {
   try {
     const body = await request.json();
     const name = body.name;

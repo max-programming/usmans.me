@@ -13,7 +13,7 @@ const PostCards = block(({ posts }: { posts: Post[] }) => {
 
   const filteredContent = useMemo(
     () => (showAllContent ? posts : posts.slice(0, 3)),
-    [showAllContent, posts]
+    [showAllContent, posts],
   );
 
   return <For each={filteredContent}>{post => <PostCard post={post} />}</For>;

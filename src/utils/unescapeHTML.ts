@@ -8,6 +8,6 @@ export default function unescapeHTML(str: string): string {
         '&gt;': '>',
         '&#39;': "'",
         '&quot;': '"',
-      }[tag] || tag)
+      })[tag] || tag,
   );
 }

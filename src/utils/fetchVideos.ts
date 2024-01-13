@@ -34,7 +34,7 @@ export default async function fetchVideos() {
         thumbnailUrl: `https://i.ytimg.com/vi/${id!.videoId}/mqdefault.jpg`,
         isPremiere: snippet!.liveBroadcastContent === 'upcoming',
       } as Video;
-    }
+    },
   );
 
   const finalVideos: Array<Video> = await Promise.all(
@@ -49,7 +49,7 @@ export default async function fetchVideos() {
         stats: items![0].statistics!,
         duration: items![0].contentDetails!.duration!.slice(2),
       };
-    })
+    }),
   );
   return finalVideos;
 }

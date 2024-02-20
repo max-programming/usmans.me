@@ -10,6 +10,9 @@ import robotsTxt from 'astro-robots-txt';
 export default defineConfig({
   integrations: [tailwind(), react(), sitemap(), robotsTxt()],
   site: 'https://usmans.me',
+  devToolbar: {
+    enabled: true,
+  },
   vite: {
     plugins: [
       million.vite({

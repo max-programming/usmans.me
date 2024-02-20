@@ -15,12 +15,12 @@ export default defineConfig({
   },
   vite: {
     plugins: [
-      million.vite({
-        mode: 'react',
-        server: true,
-        auto: true,
-        mute: true,
-      }),
+      // million.vite({
+      //   mode: 'react',
+      //   server: true,
+      //   auto: true,
+      //   mute: true,
+      // }),
     ],
     ssr: {
       noExternal: ['usehooks-ts'],

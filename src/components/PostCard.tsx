@@ -4,22 +4,22 @@ import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
 import { sendMessage } from '../utils/sendMessage';
 import CldImage from './CldImage';
-import { For, block } from 'million/react';
+// import { For, block } from 'million/react';
 
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
-const PostCards = block(({ posts }: { posts: Post[] }) => {
+function PostCards({ posts }: { posts: Post[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');
 
   const filteredContent = useMemo(
     () => (showAllContent ? posts : posts.slice(0, 3)),
-    [showAllContent, posts],
+    [showAllContent, posts]
   );
 
-  return <For each={filteredContent}>{post => <PostCard post={post} />}</For>;
-});
+  return filteredContent.map(post => <PostCard post={post} />);
+}
 
-const PostCard = block(({ post }: { post: Post }) => {
+function PostCard({ post }: { post: Post }) {
   async function sendBlogClickMessage() {
     await sendMessage(post.title);
   }
@@ -52,6 +52,6 @@ const PostCard = block(({ post }: { post: Post }) => {
       </div>
     </a>
   );
-});
+}
 
 export default PostCards;

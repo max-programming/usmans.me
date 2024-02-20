@@ -4,24 +4,22 @@ import { Activity, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
 import { sendMessage } from '../utils/sendMessage';
 import CldImage from './CldImage';
-import { For, block } from 'million/react';
+// import { For, block } from 'million/react';
 import unescapeHTML from '../utils/unescapeHTML';
 
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
-const YouTubeCards = block(({ videos }: { videos: Video[] }) => {
+function YouTubeCards({ videos }: { videos: Video[] }) {
   const showAllContent = useMediaQuery('(min-width: 768px)');
   const filteredContent = useMemo(() => {
     if (showAllContent) return videos;
     else return videos.slice(0, 3);
   }, [showAllContent, videos]);
 
-  return (
-    <For each={filteredContent}>
-      {video => <YouTubeCard {...video} thumbnail={video.thumbnailUrl} />}
-    </For>
-  );
-});
+  return filteredContent.map(video => (
+    <YouTubeCard {...video} thumbnail={video.thumbnailUrl} />
+  ));
+}
 
 interface YouTubeCardProps {
   thumbnail: string;
@@ -32,7 +30,7 @@ interface YouTubeCardProps {
   isPremiere: boolean;
 }
 
-const YouTubeCard = block((props: YouTubeCardProps) => {
+function YouTubeCard(props: YouTubeCardProps) {
   const title = unescapeHTML(props.title);
   async function sendYouTubeClickMessage() {
     await sendMessage(title);
@@ -80,6 +78,6 @@ const YouTubeCard = block((props: YouTubeCardProps) => {
       </div>
     </a>
   );
-});
+}
 
 export default YouTubeCards;

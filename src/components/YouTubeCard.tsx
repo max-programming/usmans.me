@@ -2,7 +2,6 @@ import type { Video } from '../types';
 import useMediaQuery from '../utils/useMediaQuery';
 import { Activity, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
-import { sendMessage } from '../utils/sendMessage';
 import CldImage from './CldImage';
 // import { For, block } from 'million/react';
 import unescapeHTML from '../utils/unescapeHTML';
@@ -32,12 +31,9 @@ interface YouTubeCardProps {
 
 function YouTubeCard(props: YouTubeCardProps) {
   const title = unescapeHTML(props.title);
-  async function sendYouTubeClickMessage() {
-    await sendMessage(title);
-  }
+
   return (
     <a
-      onClick={sendYouTubeClickMessage}
       href={
         props.duration.length < 4
           ? `https://youtube.com/shorts/${props.id}`

@@ -9,17 +9,12 @@ import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    react(),
-    sitemap(),
-    robotsTxt(),
-    vercel({
-      isr: {
-        expiration: 60 * 60 * 24,
-      },
-    }),
-  ],
+  adapter: vercel({
+    isr: {
+      expiration: 60 * 60 * 24,
+    },
+  }),
+  integrations: [tailwind(), react(), sitemap(), robotsTxt()],
   site: 'https://usmans.me',
   output: 'hybrid',
   devToolbar: {

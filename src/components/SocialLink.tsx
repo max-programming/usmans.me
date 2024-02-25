@@ -1,6 +1,5 @@
 import { motion, type TargetAndTransition } from 'framer-motion';
 import type { ReactNode } from 'react';
-import { sendMessage } from '../utils/sendMessage';
 import { socialLinks } from '../utils/socialLinks';
 
 function SocialLinks() {
@@ -19,10 +18,6 @@ function SocialLinks() {
 }
 
 const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
-  const sendSocialLinkMessage = async () => {
-    await sendMessage(props.name);
-  };
-
   const linkHover: TargetAndTransition = {
     scale: 1.2,
   };
@@ -32,7 +27,6 @@ const SocialLink = (props: { link: string; icon: ReactNode; name: string }) => {
       whileHover={linkHover}
       href={props.link}
       target='_blank'
-      onClick={sendSocialLinkMessage}
       rel='noreferrer'
       className='text-4xl'
     >

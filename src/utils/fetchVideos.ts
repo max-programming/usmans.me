@@ -2,6 +2,7 @@ import type { ChannelStats, Video } from '../types';
 import { youtube } from '@googleapis/youtube';
 
 const CHANNEL_ID = 'UC7LE4pbfb4e2voEASj3RscA';
+const UPLOADS_PLAYLIST_ID = 'UU7LE4pbfb4e2voEASj3RscA';
 
 const ytClient = youtube({
   version: 'v3',
@@ -18,38 +19,34 @@ export async function fetchChannelStats() {
 }
 
 export default async function fetchVideos() {
-  const res = await ytClient.search.list({
-    channelId: CHANNEL_ID,
+  const playlistItemsResponse = await ytClient.playlistItems.list({
+    playlistId: UPLOADS_PLAYLIST_ID,
     part: ['snippet', 'id'],
-    order: 'date',
     maxResults: 6,
   });
+  const videoListResponse = await ytClient.videos.list({
+    id: playlistItemsResponse.data.items!.map(
+      video => video.snippet?.resourceId?.videoId!
+    ),
+    part: ['statistics', 'contentDetails', 'id', 'snippet'],
+  });
+  const items = videoListResponse.data.items;
 
-  const videos: Array<Omit<Video, 'stats'>> = res.data.items!.map(
-    ({ id, snippet }) => {
+  if (!items) return [];
+
+  const videos: Array<Video> = items.map(
+    ({ snippet, id, statistics, contentDetails }) => {
       return {
-        id: id!.videoId,
-        title: snippet!.title,
-        description: snippet!.description,
-        thumbnailUrl: `https://i.ytimg.com/vi/${id!.videoId}/mqdefault.jpg`,
+        id: id!,
+        title: snippet!.title!,
+        description: snippet!.description!,
+        thumbnailUrl: `https://i.ytimg.com/vi/${id}/mqdefault.jpg`,
+        stats: statistics!,
+        duration: contentDetails!.duration!.slice(2),
         isPremiere: snippet!.liveBroadcastContent === 'upcoming',
-      } as Video;
-    },
+      } satisfies Video;
+    }
   );
 
-  const finalVideos: Array<Video> = await Promise.all(
-    videos.map(async video => {
-      const res = await ytClient.videos.list({
-        id: [video.id],
-        part: ['statistics', 'contentDetails'],
-      });
-      const items = res.data.items;
-      return {
-        ...video,
-        stats: items![0].statistics!,
-        duration: items![0].contentDetails!.duration!.slice(2),
-      };
-    }),
-  );
-  return finalVideos;
+  return videos;
 }

@@ -9,7 +9,7 @@ import Layout from '../components/Layout.astro';
 
 Astro.response.headers.set(
   'Cache-Control',
-  'public, max-age=120, s-maxage=120, stale-while-revalidate=120'
+  'public, max-age=120, s-maxage=120, stale-while-revalidate=120',
 );
 
 export const prerender = true;

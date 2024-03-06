@@ -36,8 +36,8 @@ function YouTubeCard(props: YouTubeCardProps) {
     <a
       href={
         props.duration.length < 4
-          ? `https://youtube.com/shorts/${props.id}`
-          : `https://youtu.be/${props.id}`
+          ? `https://youtube.com/shorts/${props.id}?ref=usmans.me`
+          : `https://youtu.be/${props.id}?ref=usmans.me`
       }
       target='_blank'
       rel='noreferrer'

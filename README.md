@@ -1,16 +1,16 @@
 # Usman's Portfolio
 
-This is a personal portfolio website created by Usman using Astro, React, Tailwind CSS & TypeScript.
+[![StandWithPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg)](https://github.com/Safouene1/support-palestine-banner)
+
+
+This is a personal portfolio website created by Usman using [Astro](https://astro.build), [React](https://react.dev), [Tailwind CSS](https://tailwindcss.com) & [TypeScript](https://typescriptlang.org).
 
 ## Table of Contents
 
-- [Description](#description)
-- [Installation](#installation)
-- [Contributing](#contributing)
-
-## Description
-
-This is my portfolio website built with Astro, React and Tailwind CSS.
+- [Usman's Portfolio](#usmans-portfolio)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Contributing](#contributing)
 
 ## Installation
 
@@ -27,13 +27,13 @@ git clone https://github.com/max-programming/usmans.me.git
 3. Install dependencies
 
 ```
-npm install
+pnpm install
 ```
 
 4. Start the dev server
 
 ```
-npm run dev
+pnpm dev
 ```
 
 ## Contributing

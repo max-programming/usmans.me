@@ -15,7 +15,7 @@ function PostCards({ posts }: { posts: Post[] }) {
     [showAllContent, posts]
   );
 
-  return filteredContent.map(post => <PostCard post={post} />);
+  return filteredContent.map(post => <PostCard key={post.cuid} post={post} />);
 }
 
 function PostCard({ post }: { post: Post }) {

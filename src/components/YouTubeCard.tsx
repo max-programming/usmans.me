@@ -16,7 +16,7 @@ function YouTubeCards({ videos }: { videos: Video[] }) {
   }, [showAllContent, videos]);
 
   return filteredContent.map(video => (
-    <YouTubeCard {...video} thumbnail={video.thumbnailUrl} />
+    <YouTubeCard key={video.id} {...video} thumbnail={video.thumbnailUrl} />
   ));
 }
 

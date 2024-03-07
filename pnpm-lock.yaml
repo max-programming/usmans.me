@@ -29,9 +29,6 @@ dependencies:
   '@googleapis/youtube':
     specifier: ^13.1.0
     version: 13.1.0
-  '@lottiefiles/react-lottie-player':
-    specifier: ^3.5.3
-    version: 3.5.3(react@18.2.0)
   '@types/react':
     specifier: ^18.2.57
     version: 18.2.57
@@ -41,6 +38,9 @@ dependencies:
   astro:
     specifier: ^4.4.0
     version: 4.4.0(typescript@5.3.3)
+  astro-integration-lottie:
+    specifier: ^0.2.3
+    version: 0.2.3(lottie-web@5.12.2)
   astro-robots-txt:
     specifier: ^1.0.0
     version: 1.0.0
@@ -56,6 +56,9 @@ dependencies:
   jotai:
     specifier: ^2.6.4
     version: 2.6.4(@types/react@18.2.57)(react@18.2.0)
+  lottie-web:
+    specifier: ^5.12.2
+    version: 5.12.2
   million:
     specifier: ^3.0.3
     version: 3.0.3
@@ -832,15 +835,6 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: false
 
-  /@lottiefiles/react-lottie-player@3.5.3(react@18.2.0):
-    resolution: {integrity: sha512-6pGbiTMjGnPddR1ur8M/TIDCiogZMc1aKIUbMEKXKAuNeYwZ2hvqwBJ+w5KRm88ccdcU88C2cGyLVsboFlSdVQ==}
-    peerDependencies:
-      react: 16 - 18
-    dependencies:
-      lottie-web: 5.12.2
-      react: 18.2.0
-    dev: false
-
   /@mapbox/node-pre-gyp@1.0.11:
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
@@ -1389,6 +1383,14 @@ packages:
 
   /array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
+    dev: false
+
+  /astro-integration-lottie@0.2.3(lottie-web@5.12.2):
+    resolution: {integrity: sha512-9foOU6B4nv9EAzFnsxAT6LxAu2Q14nntgKhLNrhDGj6Ob3SrdxNv6rTj9YFXTfv0p1UORwNYth2fMhO8+vRvpQ==}
+    peerDependencies:
+      lottie-web: ^5.10.0
+    dependencies:
+      lottie-web: 5.12.2
     dev: false
 
   /astro-robots-txt@1.0.0:

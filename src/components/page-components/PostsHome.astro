@@ -2,7 +2,7 @@
 import { ArrowUpRight } from 'phosphor-react';
 import type { Post } from '../../types';
 import Link from '../Link.astro';
-import { PostsPlayer } from '../Players';
+import LottieAnimation from 'astro-integration-lottie/Lottie.astro';
 import PostCards from '../PostCard';
 
 interface Props {
@@ -15,7 +15,9 @@ const { posts } = Astro.props;
 <div>
   <div class='flex items-center gap-2'>
     <div class='mt-5 flex items-center gap-2 umami--click--blog-cards-link'>
-      <PostsPlayer client:visible />
+      <a href='https://blog.usmans.me' class='h-16 w-16' target='_blank'>
+        <LottieAnimation src='/lotties/posts.json' autoplay='visible' loop />
+      </a>
       <Link href='https://blog.usmans.me' className='flex items-center gap-2'>
         My Blog Articles
         <ArrowUpRight />

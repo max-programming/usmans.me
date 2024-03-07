@@ -2,9 +2,9 @@
 import { ArrowUpRight } from 'phosphor-react';
 import type { ChannelStats, Video } from '../../types';
 import Link from '../Link.astro';
-import { YouTubePlayer } from '../Players';
 import SectionHeading from '../SectionHeading.astro';
 import YouTubeCards from '../YouTubeCard';
+import LottieAnimation from 'astro-integration-lottie/Lottie.astro';
 
 interface Props {
   videos: Video[];
@@ -25,7 +25,13 @@ const displayStats = {
 <div>
   <SectionHeading>What do I do?</SectionHeading>
   <div class='mt-5 flex items-center gap-2 umami--click--youtube-cards-link'>
-    <YouTubePlayer client:visible />
+    <a
+      href='https://youtube.com/@MaxProgramming'
+      target='_blank'
+      class='h-16 w-16'
+    >
+      <LottieAnimation src='/lotties/youtube.json' autoplay='visible' loop />
+    </a>
 
     <Link
       href='https://youtube.com/@MaxProgramming'

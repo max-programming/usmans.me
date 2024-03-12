@@ -3,6 +3,14 @@ import BlurDiv from './BlurDiv.astro';
 import Circle from './Circle.astro';
 import Flag from './Flag.astro';
 
+interface Prefs {
+  banner: 'hidden' | undefined;
+}
+let hideBanner = false;
+if (Astro.cookies.has('banner')) {
+  hideBanner = Astro.cookies.get('banner')?.value === 'hidden';
+}
+
 const title = 'Free Palestine';
 const description = `Stand for humanity! Innocent people and children are being murdered in Palestine. Together, we can put an end to the Gaza genocide`;
 const linkTo =
@@ -10,7 +18,7 @@ const linkTo =
 ---
 
 <div
-  class='sticky top-0 isolate z-50 flex items-center overflow-hidden bg-gray-600/70 px-3 py-2.5 backdrop-blur-sm sm:px-6'
+  class={`sticky top-0 isolate z-50 flex items-center overflow-hidden bg-gray-600/70 px-3 py-2.5 backdrop-blur-sm sm:px-6 ${hideBanner ? 'hidden' : 'flex'}`}
   id='banner'
 >
   <div

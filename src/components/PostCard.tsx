@@ -1,7 +1,7 @@
 import { Chat, ThumbsUp } from 'phosphor-react';
 import { useMemo } from 'react';
-import useMediaQuery from '../utils/useMediaQuery';
 import type { Post } from '../types';
+import useMediaQuery from '../utils/useMediaQuery';
 import CldImage from './CldImage';
 // import { For, block } from 'million/react';
 
@@ -20,7 +20,12 @@ function PostCards({ posts }: { posts: Post[] }) {
 
 function PostCard({ post }: { post: Post }) {
   return (
-    <a target='_blank' rel='noreferrer' className='h-full'>
+    <a
+      href={`https://blog.usmans.me/${post.slug}`}
+      target='_blank'
+      rel='noreferrer'
+      className='h-full'
+    >
       <div className='h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50'>
         <CldImage src={post.coverImage.url} title={post.title} />
         <div className='h-full p-6 pt-1'>

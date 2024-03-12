@@ -1,24 +1,24 @@
 ---
-import { ArrowUpRight } from 'phosphor-react';
-import type { ChannelStats, Video } from '../../types';
-import Link from '../Link.astro';
-import SectionHeading from '../SectionHeading.astro';
-import YouTubeCards from '../YouTubeCard';
-import LottieAnimation from 'astro-integration-lottie/Lottie.astro';
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import { ArrowUpRight } from "phosphor-react";
+import type { ChannelStats, Video } from "../../types";
+import Link from "../Link.astro";
+import SectionHeading from "../SectionHeading.astro";
+import YouTubeCards from "../YouTubeCard";
 
 interface Props {
-  videos: Video[];
-  channelStats: ChannelStats;
+	videos: Video[];
+	channelStats: ChannelStats;
 }
 
 const { videos, channelStats } = Astro.props;
 
-const formatter = Intl.NumberFormat('en', { notation: 'compact' });
+const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
 const displayStats = {
-  subs: formatter.format(+channelStats.subscriberCount),
-  views: formatter.format(+channelStats.viewCount),
-  vids: formatter.format(+channelStats.videoCount),
+	subs: formatter.format(+channelStats.subscriberCount),
+	views: formatter.format(+channelStats.viewCount),
+	vids: formatter.format(+channelStats.videoCount),
 };
 ---
 

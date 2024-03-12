@@ -1,12 +1,12 @@
 ---
-import { ArrowUpRight } from 'phosphor-react';
-import type { Post } from '../../types';
-import Link from '../Link.astro';
-import LottieAnimation from 'astro-integration-lottie/Lottie.astro';
-import PostCards from '../PostCard';
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import { ArrowUpRight } from "phosphor-react";
+import type { Post } from "../../types";
+import Link from "../Link.astro";
+import PostCards from "../PostCard";
 
 interface Props {
-  posts: Post[];
+	posts: Post[];
 }
 
 const { posts } = Astro.props;

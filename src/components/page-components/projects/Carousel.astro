@@ -1,12 +1,12 @@
 ---
 interface Props {
-  name: string;
-  amount: number;
+	name: string;
+	amount: number;
 }
 const { name, amount } = Astro.props;
 const arr = Array(amount)
-  .fill('')
-  .map((_, i) => i + 1);
+	.fill("")
+	.map((_, i) => i + 1);
 ---
 
 <div>

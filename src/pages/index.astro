@@ -1,22 +1,22 @@
 ---
-import Hero from '../components/page-components/Hero.astro';
-import Separator from '../components/Separator.astro';
-import YouTubeHome from '../components/page-components/YouTubeHome.astro';
-import fetchVideos, { fetchChannelStats } from '../utils/fetchVideos';
-import fetchPosts from '../utils/fetchPosts';
-import PostsHome from '../components/page-components/PostsHome.astro';
-import Layout from '../components/Layout.astro';
+import Layout from "../components/Layout.astro";
+import Separator from "../components/Separator.astro";
+import Hero from "../components/page-components/Hero.astro";
+import PostsHome from "../components/page-components/PostsHome.astro";
+import YouTubeHome from "../components/page-components/YouTubeHome.astro";
+import fetchPosts from "../utils/fetchPosts";
+import fetchVideos, { fetchChannelStats } from "../utils/fetchVideos";
 
 Astro.response.headers.set(
-  'Cache-Control',
-  'public, max-age=120, s-maxage=120, stale-while-revalidate=120',
+	"Cache-Control",
+	"public, max-age=120, s-maxage=120, stale-while-revalidate=120",
 );
 
 export const prerender = true;
 const [videos, posts, channelStats] = await Promise.all([
-  fetchVideos(),
-  fetchPosts(),
-  fetchChannelStats(),
+	fetchVideos(),
+	fetchPosts(),
+	fetchChannelStats(),
 ]);
 ---
 

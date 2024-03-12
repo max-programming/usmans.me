@@ -1,21 +1,21 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "astro",
-  "redirects": [
-    {
-      "source": "/youtube",
-      "destination": "https://youtube.com/MaxProgramming",
-      "permanent": true
-    },
-    {
-      "source": "/discord",
-      "destination": "https://discord.com/users/691360911440609290",
-      "permanent": true
-    },
-    {
-      "source": "/github",
-      "destination": "https://github.com/max-programming",
-      "permanent": true
-    }
-  ]
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"framework": "astro",
+	"redirects": [
+		{
+			"source": "/youtube",
+			"destination": "https://youtube.com/MaxProgramming",
+			"permanent": true
+		},
+		{
+			"source": "/discord",
+			"destination": "https://discord.com/users/691360911440609290",
+			"permanent": true
+		},
+		{
+			"source": "/github",
+			"destination": "https://github.com/max-programming",
+			"permanent": true
+		}
+	]
 }

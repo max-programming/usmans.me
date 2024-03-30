@@ -1,12 +1,12 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import "@fontsource/sen";
-import { SEO } from "astro-seo";
-import "../globals.css";
-import Banner from "./Banner/Banner.astro";
-import Nav from "./Nav.astro";
+import { ViewTransitions } from 'astro:transitions';
+import '@fontsource/sen';
+import { SEO } from 'astro-seo';
+import '../globals.css';
+import Banner from './Banner/Banner.astro';
+import Nav from './Nav.astro';
 interface Props {
-	title?: string;
+  title?: string;
 }
 const { title } = Astro.props;
 ---
@@ -76,7 +76,7 @@ const { title } = Astro.props;
   </head>
   <body class='bg-primary-darker'>
     <div class='flex flex-col overflow-hidden font-sans mb-5'>
-      <Banner />
+      <!-- <Banner /> -->
       <Nav />
       <main>
         <slot />

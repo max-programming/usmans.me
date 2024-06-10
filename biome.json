@@ -4,10 +4,18 @@
 		"enabled": true
 	},
 	"javascript": {
-		"globals": ["Astro"]
+		"globals": ["Astro"],
+		"formatter": {
+			"quoteStyle": "double",
+			"jsxQuoteStyle": "double"
+		}
+	},
+	"formatter": {
+		"ignore": [".vercel/**", ".astro/**", "dist/**"]
 	},
 	"linter": {
 		"enabled": true,
+		"ignore": [".vercel/**", ".astro/**", "dist/**"],
 		"rules": {
 			"recommended": true,
 			"a11y": {

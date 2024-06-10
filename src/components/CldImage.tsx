@@ -12,7 +12,7 @@ export default function CldImage(props: { src: string; title: string }) {
 
 	return (
 		<div title={props.title}>
-			<AdvancedImage cldImg={cldSrc} />;
+			<AdvancedImage cldImg={cldSrc} />
 		</div>
 	);
 }

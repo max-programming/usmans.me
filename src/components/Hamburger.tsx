@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useMediaQuery from "../utils/useMediaQuery";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Hamburger() {
 	const isMobile = useMediaQuery("(max-width: 768px)");

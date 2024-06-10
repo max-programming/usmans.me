@@ -1,8 +1,8 @@
 import { Chat, ThumbsUp } from "phosphor-react";
 import { useMemo } from "react";
 import type { Post } from "../types";
-import useMediaQuery from "../utils/useMediaQuery";
 import CldImage from "./CldImage";
+import { useMediaQuery } from "usehooks-ts";
 // import { For, block } from 'million/react';
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });

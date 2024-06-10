@@ -4,10 +4,11 @@ import Tag from "./Tag.astro";
 
 interface Props {
 	name: string;
-	amount: number;
-	link?: string;
+	totalImages: number;
+	link?: string | null;
 	title: string;
 	skills: string[];
+	description: string;
 }
 const props = Astro.props;
 ---
@@ -29,16 +30,16 @@ const props = Astro.props;
 
   <hr class='h-px my-5 bg-gray-200 border-0' />
   {
-    props.amount > 2 ? (
-      <Carousel name={props.name} amount={props.amount} />
+    props.totalImages > 2 ? (
+      <Carousel name={props.name} amount={props.totalImages} />
     ) : (
       <div class='flex justify-center h-56 overflow-hidden rounded-lg md:h-96'>
         <a
-          href={`/projects/${props.name}/s${props.amount}.png`}
+          href={`/projects/${props.name}/s${props.totalImages}.png`}
           target='_blank'
           class='flex justify-center'
         >
-          <img src={`/projects/${props.name}/s${props.amount}.png`} />
+          <img src={`/projects/${props.name}/s${props.totalImages}.png`} />
         </a>
       </div>
     )
@@ -47,9 +48,10 @@ const props = Astro.props;
 
   <div id='description'>
     <h3 class='text-2xl font-semibold'>Description</h3>
-    <pre class='whitespace-pre-line font-sans mt-3'>
-      <slot />
-    </pre>
+    <pre
+      class='whitespace-pre-line font-sans mt-3'
+      set:html={props.description}
+    />
   </div>
   <hr class='h-px my-5 bg-gray-200 border-0' />
   <div id='skills'>

@@ -2,35 +2,29 @@
 import Layout from "../components/Layout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import Project from "../components/page-components/projects/Project.astro";
+import { db, Project as ProjectTable } from "astro:db";
 
 export const prerender = true;
+
+const projects = await db.select().from(ProjectTable).all();
 ---
 
 <Layout title='Projects | Usman Sabuwala'>
   <div class='container px-0 w-full flex flex-col gap-5 mt-10'>
     <SectionHeading className='mx-auto'>My Projects</SectionHeading>
     <div class='mt-2 md:m-0 m-5 flex flex-wrap justify-between gap-5'>
-      <!-- prettier-ignore -->
-      <Project name="prompt" amount={5} title='Prompt - Issue Management Web App' skills={['Microsoft SQL Server', 'Next.js', 'React', 'Express', 'Chakra UI', 'TypeScript', 'Node.js']}>
-        An issue management web application with which the employees can:
-      
-        - Search tasks by customer
-        - Create tasks
-        - View and add comments to a task
-        - View and share the feedback page
-        - View the separate ongoing "Work In Progress" tasks
-      
-        Tech Stack:
-        - MS SQL Server
-        - Next.js (React.js + Express.js)
-        - Chakra UI
-        - TypeScript
-        - Vercel
-      </Project>
-      <!-- prettier-ignore -->
-      <Project name="card" amount={1} link='https://card.usmans.me' title='DMT Card Generator' skills={['React', 'TypeScript', 'Vite', 'JavaScript']}>
-        A simple webapp that lets users generate a poster with their name and image to share a campaign they are joining.
-      </Project>
+      {
+        projects.map(project => (
+          <Project
+            name={project.name}
+            title={project.title}
+            skills={project.skills as string[]}
+            link={project.link}
+            totalImages={project.totalImages}
+            description={project.description.replaceAll(/\\n/g, '<br />')}
+          />
+        ))
+      }
     </div>
   </div>
 </Layout>

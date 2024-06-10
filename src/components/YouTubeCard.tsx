@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import type { Video } from "../types";
 // import { For, block } from 'million/react';
 import unescapeHTML from "../utils/unescapeHTML";
-import useMediaQuery from "../utils/useMediaQuery";
+import { useMediaQuery } from "usehooks-ts";
 import CldImage from "./CldImage";
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });

@@ -29,6 +29,12 @@ const languages: SkillItem[] = [
 		color: "#0175C2",
 		url: "https://dart.dev",
 	},
+	{
+		name: "C#",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+		color: "#974d94",
+		url: "https://dotnet.microsoft.com/en-us/languages/csharp",
+	},
 ];
 const backend: SkillItem[] = [
 	{
@@ -62,6 +68,12 @@ const frontend: SkillItem[] = [
 		icon: "/icons/astro.svg",
 		color: "#FF5D01",
 		url: "https://astro.build/",
+	},
+	{
+		name: "Blazor",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blazor/blazor-original.svg",
+		color: "#5b2a90",
+		url: "https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor/",
 	},
 	{
 		name: "Tailwind CSS",

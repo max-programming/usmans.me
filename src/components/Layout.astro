@@ -1,13 +1,14 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import "@fontsource/sen";
-import { SEO } from "astro-seo";
-import "../globals.css";
-import Banner from "./Banner/Banner.astro";
-import Nav from "./Nav.astro";
+import { ViewTransitions } from 'astro:transitions';
+import '@fontsource/sen';
+import { SEO } from 'astro-seo';
+import '../globals.css';
+import Nav from './Nav.astro';
+
 interface Props {
-	title?: string;
+  title?: string;
 }
+
 const { title } = Astro.props;
 ---
 
@@ -60,7 +61,6 @@ const { title } = Astro.props;
         ],
       }}
     />
-    <ViewTransitions />
     <link rel='sitemap' href='/sitemap-index.xml' />
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width' />
@@ -75,6 +75,7 @@ const { title } = Astro.props;
     ></script>
   </head>
   <body class='bg-primary-darker'>
+    <ViewTransitions />
     <div class='flex flex-col overflow-hidden font-sans mb-5'>
       <!-- <Banner /> -->
       <Nav />

@@ -30,7 +30,7 @@ function PostCard({ post }: { post: Post }) {
 		>
 			<div className="h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50">
 				<CldImage src={post.coverImage.url} title={post.title} />
-				<div className="h-full p-6 pt-1">
+				<div className="h-full p-6 pt-4">
 					<h4 className="text-xl font-semibold text-white">{post.title}</h4>
 					<div className="mt-2 text-lg ">
 						<p className="flex items-center gap-2 text-gray-300">

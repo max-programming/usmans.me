@@ -51,7 +51,7 @@ function YouTubeCard(props: YouTubeCardProps) {
 
 			<div className="h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50">
 				<CldImage src={props.thumbnail} title={title} />
-				<div className="h-full p-6 pt-1">
+				<div className="h-full p-6 pt-4">
 					<h4 className="text-xl font-semibold text-white">
 						{unescapeHTML(title)}
 					</h4>

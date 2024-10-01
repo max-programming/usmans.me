@@ -4,7 +4,6 @@ import type { Video } from "../types";
 // import { For, block } from 'million/react';
 import unescapeHTML from "../utils/unescapeHTML";
 import { useMediaQuery } from "usehooks-ts";
-import CldImage from "./CldImage";
 
 const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
@@ -50,7 +49,7 @@ function YouTubeCard(props: YouTubeCardProps) {
 			)}
 
 			<div className="h-full max-w-sm cursor-pointer overflow-hidden rounded-lg bg-card-bg transition-colors hover:bg-opacity-50">
-				<CldImage src={props.thumbnail} title={title} />
+				<img src={props.thumbnail} alt={title} title={title} />
 				<div className="h-full p-6 pt-4">
 					<h4 className="text-xl font-semibold text-white">
 						{unescapeHTML(title)}

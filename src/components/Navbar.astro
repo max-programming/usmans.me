@@ -1,30 +1,137 @@
 ---
-
+import { Menu } from "@lucide/astro";
 ---
 
 <nav
-  class="flex flex-col md:flex-row justify-between items-center w-full py-4 px-8 bg-transparent text-white"
+  class="flex flex-col md:flex-row justify-between items-center w-full py-4 px-4 md:px-8 bg-transparent text-white relative z-50"
 >
-  <div class="mb-4 md:mb-0">
+  <div class="flex justify-between items-center w-full md:w-auto">
     <a href="/" class="text-2xl font-bold no-underline text-white">Usman S.</a>
+    <button
+      id="mobile-menu-button"
+      class="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors z-[60] relative"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <Menu class="w-6 h-6 transition-transform duration-300" />
+    </button>
   </div>
-  <div class="flex gap-4 md:gap-8">
-    <a
-      href="/skills"
-      class="font-medium no-underline hover:opacity-70 transition-opacity text-white"
-      >Skills</a
+  <div
+    id="mobile-menu"
+    class="md:flex flex-col md:flex-row gap-4 md:gap-8 fixed md:relative inset-0 md:inset-auto top-0 md:top-auto left-0 right-0 bg-primary-background/95 md:bg-transparent shadow-lg md:shadow-none transform transition-all duration-300 ease-in-out opacity-0 -translate-y-2 pointer-events-none md:opacity-100 md:translate-y-0 md:pointer-events-auto z-50 md:z-auto"
+  >
+    <div
+      class="flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-center h-full md:h-auto pt-24 md:pt-0"
     >
-    <a
-      href="/resume"
-      class="font-medium no-underline hover:opacity-70 transition-opacity text-white"
-      >Resume</a
-    >
-    <a
-      href="https://blog.usmans.me"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="font-medium no-underline hover:opacity-70 transition-opacity text-white"
-      >Blog</a
-    >
+      <a
+        href="/skills"
+        class="font-medium no-underline hover:opacity-70 transition-all duration-300 text-white py-3 md:py-0 text-xl md:text-base transform translate-x-[-100%] md:translate-x-0 opacity-0 md:opacity-100"
+        >Skills</a
+      >
+      <a
+        href="/resume"
+        class="font-medium no-underline hover:opacity-70 transition-all duration-300 text-white py-3 md:py-0 text-xl md:text-base transform translate-x-[-100%] md:translate-x-0 opacity-0 md:opacity-100"
+        >Resume</a
+      >
+      <a
+        href="https://blog.usmans.me"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-medium no-underline hover:opacity-70 transition-all duration-300 text-white py-3 md:py-0 text-xl md:text-base transform translate-x-[-100%] md:translate-x-0 opacity-0 md:opacity-100"
+        >Blog</a
+      >
+    </div>
   </div>
 </nav>
+
+<script>
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuItems = mobileMenu?.querySelectorAll("a");
+  let isMenuOpen = false;
+
+  function toggleMenu(open: boolean) {
+    if (!mobileMenu || !mobileMenuButton || !menuItems) return;
+
+    isMenuOpen = open;
+    mobileMenuButton.setAttribute("aria-expanded", open.toString());
+
+    mobileMenu.classList.toggle("opacity-0", !open);
+    mobileMenu.classList.toggle("-translate-y-2", !open);
+    mobileMenu.classList.toggle("pointer-events-none", !open);
+
+    document.body.classList.toggle("overflow-hidden", open);
+
+    menuItems.forEach((item, index) => {
+      const delay = index * 100;
+      if (open) {
+        setTimeout(() => {
+          item.classList.remove("translate-x-[-100%]", "opacity-0");
+        }, delay);
+      } else {
+        item.classList.add("translate-x-[-100%]", "opacity-0");
+      }
+    });
+
+    const icon = mobileMenuButton.querySelector("svg");
+    if (icon) {
+      icon.style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+      if (open) {
+        icon.outerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 transition-transform duration-300"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+      } else {
+        icon.outerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 transition-transform duration-300"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>`;
+      }
+    }
+  }
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", e => {
+      e.stopPropagation();
+      toggleMenu(!isMenuOpen);
+    });
+
+    document.addEventListener("click", event => {
+      if (
+        isMenuOpen &&
+        !mobileMenu.contains(event.target as Node) &&
+        !mobileMenuButton.contains(event.target as Node)
+      ) {
+        toggleMenu(false);
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && isMenuOpen) {
+        toggleMenu(false);
+      }
+    });
+
+    if (menuItems) {
+      menuItems.forEach(item => {
+        item.addEventListener("click", () => {
+          if (window.innerWidth < 768) {
+            toggleMenu(false);
+          }
+        });
+      });
+    }
+  }
+</script>
+
+<style>
+  a,
+  button {
+    transition: all 0.3s ease-in-out;
+  }
+
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    #mobile-menu {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  }
+</style>

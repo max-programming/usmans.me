@@ -2,8 +2,9 @@
 import BackgroundGradient from "./BackgroundGradient.astro";
 import Navbar from "./Navbar.astro";
 
-const dotColumns = Array.from({ length: 30 });
-const dotRows = Array.from({ length: 45 });
+// Adjust number of dots based on screen size
+const dotColumns = Array.from({ length: 8 }); // Reduced for better mobile spacing
+const dotRows = Array.from({ length: 15 }); // Reduced for better mobile spacing
 ---
 
 <div>
@@ -14,12 +15,14 @@ const dotRows = Array.from({ length: 45 });
   </div>
   <Navbar />
   <div class="relative">
-    <div class="absolute inset-0 flex flex-col items-center gap-5">
+    <div
+      class="absolute inset-0 flex flex-col items-center gap-4 sm:gap-6 md:gap-8 pl-4 sm:pl-6 md:pl-8"
+    >
       {
         dotRows.map(() => (
-          <div class="flex gap-5">
+          <div class="flex gap-8 sm:gap-10 md:gap-12">
             {dotColumns.map(() => (
-              <div class="bg-white/25 size-0.5 rounded-full" />
+              <div class="bg-white/25 size-1 rounded-full" />
             ))}
           </div>
         ))
@@ -28,3 +31,27 @@ const dotRows = Array.from({ length: 45 });
     <slot />
   </div>
 </div>
+
+<style>
+  @media (min-width: 768px) {
+    .dot-grid {
+      --dot-columns: 30;
+      --dot-rows: 45;
+    }
+  }
+
+  /* Adjust dot grid for different screen sizes */
+  @media (min-width: 640px) {
+    .dot-grid {
+      --dot-columns: 15;
+      --dot-rows: 25;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dot-grid {
+      --dot-columns: 30;
+      --dot-rows: 45;
+    }
+  }
+</style>

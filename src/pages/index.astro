@@ -1,33 +1,20 @@
 ---
+import "../styles/global.css";
 import Layout from "../components/Layout.astro";
-import Separator from "../components/Separator.astro";
-import Hero from "../components/page-components/Hero.astro";
-import PostsHome from "../components/page-components/PostsHome.astro";
-import YouTubeHome from "../components/page-components/YouTubeHome.astro";
-import fetchPosts from "../utils/fetchPosts";
-import fetchVideos, { fetchChannelStats } from "../utils/fetchVideos";
-
-Astro.response.headers.set(
-	"Cache-Control",
-	"public, max-age=120, s-maxage=120, stale-while-revalidate=120",
-);
-
-export const prerender = true;
-const [videos, posts, channelStats] = await Promise.all([
-	fetchVideos(),
-	fetchPosts(),
-	fetchChannelStats(),
-]);
+import Hero from "../components/Hero.astro";
 ---
 
-<Layout>
-  <div class='flex-1 px-5'>
-    <div class='container max-w-screen-lg'>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="bg-primary-background">
+    <Layout>
       <Hero />
-      <Separator />
-      <YouTubeHome channelStats={channelStats} videos={videos} />
-      <Separator />
-      <PostsHome posts={posts} />
-    </div>
-  </div>
-</Layout>
+    </Layout>
+  </body>
+</html>

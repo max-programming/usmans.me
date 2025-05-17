@@ -1,0 +1,72 @@
+---
+import { Phone } from "@lucide/astro";
+import heroImage from "../assets/hero_image.png";
+import tsLogo from "../assets/logos/ts.png";
+import jsLogo from "../assets/logos/js.png";
+import reactLogo from "../assets/logos/react.png";
+import tailwindLogo from "../assets/logos/tailwind.png";
+import nodeLogo from "../assets/logos/node.png";
+import goLogo from "../assets/logos/go.png";
+---
+
+<div
+  class="flex flex-col items-center justify-center gap-6 text-white translate-y-12"
+>
+  <h3 class="font-normal text-xl">My name is Usman</h3>
+  <h1 class="text-7xl font-bold">I&apos;m a Full Stack <br /> Web Developer</h1>
+  <p class="text-center text-2xl">
+    An expert web developer with 5+ years of experience, programming enthusiast <br
+    /> and with a solid skill set in <b>JavaScript</b>, <b>TypeScript</b> and
+    <b>React</b>.
+  </p>
+
+  <button
+    class="mt-4 px-12 py-4 text-black bg-white border-2 border-gray-border rounded-full transition-all duration-300 font-medium text-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-border active:translate-y-0.5 shadow-[0px_14.8px_36.5px_0px_#002B2530_inset] cursor-pointer flex items-center gap-2"
+  >
+    <Phone />
+    Schedule a call
+  </button>
+  <div
+    class="flex items-center justify-center relative w-[400px] h-[500px] md:w-[500px] md:h-[600px] mt-8"
+  >
+    <div
+      class="absolute w-[587px] h-[660px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/70 blur-[235px] rotate-[0.87deg] -z-10"
+    >
+    </div>
+    <img
+      src={tsLogo.src}
+      alt="TypeScript"
+      class="absolute -left-28 top-8 w-24 md:w-28 drop-shadow-[0_0_40px_#3178c6] -rotate-[20deg]"
+    />
+    <img
+      src={reactLogo.src}
+      alt="React"
+      class="absolute -left-32 top-1/2 -translate-y-1/2 w-24 md:w-28 drop-shadow-[0_0_40px_#61dafb] -rotate-[8deg]"
+    />
+    <img
+      src={nodeLogo.src}
+      alt="Node.js"
+      class="absolute -left-28 bottom-8 w-24 md:w-28 drop-shadow-[0_0_40px_#559f43] -rotate-[30deg]"
+    />
+    <img
+      src={jsLogo.src}
+      alt="JavaScript"
+      class="absolute -right-32 top-8 w-24 md:w-28 drop-shadow-[0_0_40px_#f7e018] rotate-[20deg]"
+    />
+    <img
+      src={goLogo.src}
+      alt="Go"
+      class="absolute -right-36 top-1/2 -translate-y-1/2 w-24 md:w-28 drop-shadow-[0_0_40px_#00ADD8] rotate-[8deg]"
+    />
+    <img
+      src={tailwindLogo.src}
+      alt="Tailwind CSS"
+      class="absolute -right-32 bottom-8 w-24 md:w-28 drop-shadow-[0_0_40px_#54b6ab] rotate-[30deg]"
+    />
+    <img
+      src={heroImage.src}
+      alt="Hero Image"
+      class="relative z-50 w-2xl rounded-xl"
+    />
+  </div>
+</div>

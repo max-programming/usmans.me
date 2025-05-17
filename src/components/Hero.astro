@@ -1,5 +1,5 @@
 ---
-import { Phone } from "@lucide/astro";
+import { Phone, Sparkle } from "@lucide/astro";
 import heroImage from "../assets/hero_image.png";
 import tsLogo from "../assets/logos/ts.png";
 import jsLogo from "../assets/logos/js.png";
@@ -7,6 +7,7 @@ import reactLogo from "../assets/logos/react.png";
 import tailwindLogo from "../assets/logos/tailwind.png";
 import nodeLogo from "../assets/logos/node.png";
 import goLogo from "../assets/logos/go.png";
+import Marquee from "./Marquee.astro";
 ---
 
 <div
@@ -65,4 +66,28 @@ import goLogo from "../assets/logos/go.png";
       class="z-50 w-[450px] md:w-[600px] rounded-xl drop-shadow-[0_0_100px_#fff]"
     />
   </div>
+  <Marquee
+    class="relative w-full flex items-center gap-2"
+    repeat={2}
+    pauseOnHover
+  >
+    <span
+      class="uppercase font-[900] text-9xl leading-40 text-center bg-radial from-white from-[-9.99%] to-[#131243] to-[98.14%] bg-clip-text text-transparent"
+    >
+      Developer
+    </span>
+    <Sparkle fill="yellow" stroke="0" class="size-40" />
+    <span
+      class="uppercase font-[900] text-9xl leading-40 text-center bg-radial from-white from-[-9.99%] to-[#131243] to-[98.14%] bg-clip-text text-transparent"
+    >
+      Content Creator
+    </span>
+    <Sparkle fill="yellow" stroke="0" class="size-40" />
+    <span
+      class="uppercase font-[900] text-9xl leading-40 text-center bg-radial from-white from-[-9.99%] to-[#131243] to-[98.14%] bg-clip-text text-transparent"
+    >
+      Educator
+    </span>
+    <Sparkle fill="yellow" stroke="0" class="size-40" />
+  </Marquee>
 </div>

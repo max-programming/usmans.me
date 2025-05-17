@@ -3,7 +3,7 @@ import BackgroundGradient from "./BackgroundGradient.astro";
 import Navbar from "./Navbar.astro";
 
 const dotColumns = Array.from({ length: 30 });
-const dotRows = Array.from({ length: 30 });
+const dotRows = Array.from({ length: 50 });
 ---
 
 <div>
@@ -16,9 +16,9 @@ const dotRows = Array.from({ length: 30 });
   <div class="relative">
     <div class="absolute inset-0 flex flex-col items-center gap-5">
       {
-        dotColumns.map(() => (
+        dotRows.map(() => (
           <div class="flex gap-5">
-            {dotRows.map(() => (
+            {dotColumns.map(() => (
               <div class="bg-white/25 size-0.5 rounded-full" />
             ))}
           </div>

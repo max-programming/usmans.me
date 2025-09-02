@@ -1,3 +1,19 @@
+@import 'tailwindcss';
+@import 'flowbite/src/themes/default';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+@theme {
+  --font-sans: 'Sen', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --container-padding: 10px;
+  --color-primary-dark: '#564D80';
+  --color-primary-darker: '#271533';
+  --color-primary-light: '#D3FCD5';
+  --color-separator: '#98A6D4';
+  --color-card-bg: '#160b1f';
+}
+
 @font-face {
   font-family: 'Geist Mono';
   src: url('/fonts/GeistMono-Regular.otf') format('opentype');

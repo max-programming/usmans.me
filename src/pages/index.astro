@@ -22,7 +22,7 @@ const [videos, posts, channelStats] = await Promise.all([
 
 <Layout>
   <div class='flex-1 px-5'>
-    <div class='container max-w-screen-lg'>
+    <div class='container max-w-(--breakpoint-lg)'>
       <Hero />
       <Separator />
       <YouTubeHome channelStats={channelStats} videos={videos} />

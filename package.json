@@ -4,9 +4,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev --remote",
+    "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build --remote",
+    "build": "astro build",
     "preview": "astro preview",
     "lint": "biome lint .",
     "format": "biome format . --write",

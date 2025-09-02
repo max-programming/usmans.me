@@ -7,12 +7,10 @@ import { defineConfig } from 'astro/config';
 import million from 'million/compiler';
 import robotsTxt from 'astro-robots-txt';
 
-import db from '@astrojs/db';
-
 // https://astro.build/config
 export default defineConfig({
   adapter: vercel(),
-  integrations: [react(), sitemap(), robotsTxt(), lottie(), db()],
+  integrations: [react(), sitemap(), robotsTxt(), lottie()],
   site: 'https://usmans.me',
   output: 'static',
   devToolbar: {

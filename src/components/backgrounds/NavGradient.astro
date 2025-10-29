@@ -1,35 +1,37 @@
-<div
-  class="fixed inset-0 -top-2/3 pointer-events-none z-30 animate-gradient-slide"
->
-  <!-- Left Ellipse (Blue) -->
+<div class="relative">
   <div
-    class="absolute left-[10%] -top-[10%] w-[35%] h-[800px] rounded-full blur-[100px] opacity-70"
-    style="background-color: var(--color-nav-grad-1);"
+    class="absolute top-0 left-0 w-full h-[900px] -translate-y-[66.666%] pointer-events-none z-30 animate-gradient-slide"
   >
+    <!-- Left Ellipse (Blue) -->
+    <div
+      class="absolute left-[10%] -top-[10%] w-[35%] h-[800px] rounded-full blur-[100px] opacity-70"
+      style="background-color: var(--color-nav-grad-1);"
+    >
+    </div>
+
+    <!-- Middle Ellipse (Red) - Bigger -->
+    <div
+      class="absolute left-1/2 -translate-x-1/2 -top-[10%] w-[45%] h-[900px] rounded-full blur-[100px] opacity-70"
+      style="background-color: var(--color-nav-grad-2);"
+    >
+    </div>
+
+    <!-- Right Ellipse (Orange/Yellow) -->
+    <div
+      class="absolute right-[10%] -top-[10%] w-[35%] h-[800px] rounded-full blur-[100px] opacity-70"
+      style="background-color: var(--color-nav-grad-3);"
+    >
+    </div>
   </div>
 
-  <!-- Middle Ellipse (Red) - Bigger -->
-  <div
-    class="absolute left-1/2 -translate-x-1/2 -top-[10%] w-[45%] h-[900px] rounded-full blur-[100px] opacity-70"
-    style="background-color: var(--color-nav-grad-2);"
-  >
-  </div>
-
-  <!-- Right Ellipse (Orange/Yellow) -->
-  <div
-    class="absolute right-[10%] -top-[10%] w-[35%] h-[800px] rounded-full blur-[100px] opacity-70"
-    style="background-color: var(--color-nav-grad-3);"
-  >
-  </div>
-</div>
-
-<!-- <style>
+  <!-- <style>
   /* Scroll-driven animation for when gradient comes back into view */
   @supports (animation-timeline: view()) {
     .animate-gradient-slide {
       animation: gradient-slide 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
       animation-timeline: view();
       animation-range: entry 0% cover 30%;
-    }
-  }
-</style> -->
+      }
+      }
+      </style> -->
+</div>

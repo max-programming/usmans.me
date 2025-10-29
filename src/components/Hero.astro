@@ -1,5 +1,47 @@
 ---
+import { Image } from "astro:assets";
+
 import DottedGrid from "./backgrounds/DottedGrid.astro";
+import HeroImage from "@/assets/hero-image.png";
+
+import JavaScriptLogo from "@/assets/logos/javascript.svg";
+import TypeScriptLogo from "@/assets/logos/typescript.svg";
+import ReactLogo from "@/assets/logos/react.svg";
+import NextDotJsLogo from "@/assets/logos/nextdotjs.svg";
+import NodeDotJsLogo from "@/assets/logos/nodedotjs.svg";
+import TailwindCssLogo from "@/assets/logos/tailwindcss.svg";
+
+const leftSideLogos = [
+  { Logo: TypeScriptLogo, color: "#3178C6" },
+  { Logo: ReactLogo, color: "#61DAFB" },
+  { Logo: NodeDotJsLogo, color: "#5FA04E" },
+];
+
+const rightSideLogos = [
+  { Logo: JavaScriptLogo, color: "#F7DF1E" },
+  { Logo: NextDotJsLogo, color: "#ffffff" },
+  { Logo: TailwindCssLogo, color: "#06B6D4" },
+];
+
+const leftSidePositions = [
+  { y: "top-[10%]", x: "left-0 sm:left-4", rotate: -20 },
+  {
+    y: "top-[calc(50%-35px)] -translate-y-1/2",
+    x: "left-2 sm:left-6",
+    rotate: -20,
+  },
+  { y: "bottom-[20%]", x: "left-0 sm:left-4", rotate: -37 },
+];
+
+const rightSidePositions = [
+  { y: "top-[10%]", x: "right-0 sm:right-4", rotate: -20 },
+  {
+    y: "top-[calc(50%-35px)] -translate-y-1/2",
+    x: "right-2 sm:right-6",
+    rotate: -20,
+  },
+  { y: "bottom-[20%]", x: "right-0 sm:right-4", rotate: -20 },
+];
 ---
 
 <DottedGrid />
@@ -41,6 +83,65 @@ import DottedGrid from "./backgrounds/DottedGrid.astro";
       <p class="text-gray-300 text-xs sm:text-sm opacity-80 italic">
         15 mins strategy call
       </p>
+    </div>
+
+    <!-- Hero Image with Glow and Tech Logos -->
+    <div
+      class="w-full mt-10 flex justify-center relative min-h-[600px] px-8 sm:px-4"
+    >
+      <!-- Glowing background behind hero image -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          class="w-[650px] h-[650px] bg-white rounded-full opacity-20 blur-[90px]"
+        >
+        </div>
+      </div>
+
+      <!-- Hero Image Container -->
+      <div class="relative z-10">
+        <Image src={HeroImage} alt="An image about me" width={300} />
+      </div>
+
+      <!-- Tech Logos positioned around the image -->
+      <!-- Left side logos (3) -->
+      {
+        leftSideLogos.map((logo, index) => {
+          const pos = leftSidePositions[index];
+          return (
+            <div class={`absolute ${pos.y} ${pos.x} z-10`}>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div class="w-24 h-24 bg-white rounded-full opacity-30 blur-2xl" />
+              </div>
+              <div
+                class="relative z-10"
+                style={`transform: rotate(${pos.rotate}deg);`}
+              >
+                <logo.Logo fill={logo.color} class="w-20 h-20" />
+              </div>
+            </div>
+          );
+        })
+      }
+
+      <!-- Right side logos (3) -->
+      {
+        rightSideLogos.map((logo, index) => {
+          const pos = rightSidePositions[index];
+          return (
+            <div class={`absolute ${pos.y} ${pos.x} z-10`}>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div class="w-24 h-24 bg-white rounded-full opacity-30 blur-2xl" />
+              </div>
+              <div
+                class="relative z-10"
+                style={`transform: rotate(${-pos.rotate}deg);`}
+              >
+                <logo.Logo fill={logo.color} class="w-20 h-20" />
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>

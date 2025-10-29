@@ -2,4 +2,8 @@
 
 @theme {
   --color-dark-blue: #010035;
+
+  --color-nav-grad-1: #697eca6e;
+  --color-nav-grad-2: #e93f3f6e;
+  --color-nav-grad-3: #ffb8006e;
 }

@@ -1,6 +1,7 @@
 ---
 import "../styles/globals.css";
 import Navbar from "./Navbar.astro";
+import NavGradient from "./NavGradient.astro";
 ---
 
 <html lang="en" class="dark">
@@ -11,8 +12,14 @@ import Navbar from "./Navbar.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Usman Sabuwala - Personal Site</title>
   </head>
-  <body class="bg-dark-blue">
-    <Navbar />
-    <slot />
+  <body class="bg-dark-blue relative">
+    <!-- Gradient Background Ellipses -->
+    <NavGradient />
+
+    <!-- Content -->
+    <div class="relative z-10">
+      <Navbar />
+      <slot />
+    </div>
   </body>
 </html>

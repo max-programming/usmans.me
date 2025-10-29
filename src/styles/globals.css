@@ -6,4 +6,18 @@
   --color-nav-grad-1: #697eca6e;
   --color-nav-grad-2: #e93f3f6e;
   --color-nav-grad-3: #ffb8006e;
+
+  --animate-gradient-slide: gradient-slide 0.8s cubic-bezier(0.4, 0, 0.2, 1)
+    forwards;
+
+  @keyframes gradient-slide {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }

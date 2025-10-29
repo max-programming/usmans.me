@@ -1,4 +1,6 @@
-<div class="fixed inset-0 -top-1/2 pointer-events-none z-0">
+<div
+  class="fixed inset-0 -top-1/2 pointer-events-none z-0 animate-gradient-slide"
+>
   <!-- Left Ellipse (Blue) -->
   <div
     class="absolute left-[10%] -top-[10%] w-[35%] h-[800px] rounded-full blur-[100px] opacity-70"
@@ -20,3 +22,14 @@
   >
   </div>
 </div>
+
+<!-- <style>
+  /* Scroll-driven animation for when gradient comes back into view */
+  @supports (animation-timeline: view()) {
+    .animate-gradient-slide {
+      animation: gradient-slide 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+</style> -->

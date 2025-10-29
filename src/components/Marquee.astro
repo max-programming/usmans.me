@@ -1,0 +1,71 @@
+---
+import StarIcon from "@/assets/star.svg";
+
+const texts = ["Developer", "Educator", "Content Creator"];
+---
+
+<section class="relative overflow-hidden py-8">
+  <style>
+    .marquee-text {
+      background: radial-gradient(circle, #ffffff 0%, #131243 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+  <div class="flex w-full group">
+    <!-- Wrapper container that animates both sets together -->
+    <div
+      class="flex items-center shrink-0 animate-marquee group-hover:[animation-play-state:paused]"
+    >
+      <!-- First set of content -->
+      <div class="flex items-center shrink-0">
+        <div class="shrink-0 w-20 h-20 mx-12 flex items-center justify-center">
+          <StarIcon class="w-full h-full" />
+        </div>
+        <span
+          class="text-[128px] font-bold uppercase marquee-text whitespace-nowrap"
+          >{texts[0]}</span
+        >
+        <div class="shrink-0 w-20 h-20 mx-12 flex items-center justify-center">
+          <StarIcon class="w-full h-full" />
+        </div>
+        <span
+          class="text-[128px] font-bold uppercase marquee-text whitespace-nowrap"
+          >{texts[1]}</span
+        >
+        <div class="shrink-0 w-20 h-20 mx-12 flex items-center justify-center">
+          <StarIcon class="w-full h-full" />
+        </div>
+        <span
+          class="text-[128px] font-bold uppercase marquee-text whitespace-nowrap"
+          >{texts[2]}</span
+        >
+      </div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="flex items-center shrink-0">
+        <div class="shrink-0 w-20 h-20 mx-12 flex items-center justify-center">
+          <StarIcon class="w-full h-full" />
+        </div>
+        <span
+          class="text-[128px] font-bold uppercase marquee-text whitespace-nowrap"
+          >{texts[0]}</span
+        >
+        <div class="shrink-0 w-20 h-20 mx-12 flex items-center justify-center">
+          <StarIcon class="w-full h-full" />
+        </div>
+        <span
+          class="text-[128px] font-bold uppercase marquee-text whitespace-nowrap"
+          >{texts[1]}</span
+        >
+        <div class="shrink-0 w-20 h-20 mx-12 flex items-center justify-center">
+          <StarIcon class="w-full h-full" />
+        </div>
+        <span
+          class="text-[128px] font-bold uppercase marquee-text whitespace-nowrap"
+          >{texts[2]}</span
+        >
+      </div>
+    </div>
+  </div>
+</section>

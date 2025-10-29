@@ -1,8 +1,9 @@
 ---
-import "./styles/globals.css";
+import "../styles/globals.css";
+import Navbar from "./Navbar.astro";
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,7 +11,8 @@ import "./styles/globals.css";
     <meta name="generator" content={Astro.generator} />
     <title>Usman Sabuwala - Personal Site</title>
   </head>
-  <body>
+  <body class="bg-dark-blue">
+    <Navbar />
     <slot />
   </body>
 </html>

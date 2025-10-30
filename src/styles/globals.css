@@ -8,6 +8,10 @@
   --color-nav-grad-2: #e93f3f6e;
   --color-nav-grad-3: #ffb8006e;
 
+  --color-project-grad-1: #697eca6e;
+  --color-project-grad-2: #289f1b66;
+  --color-project-grad-3: #697eca6e;
+
   --animate-gradient-slide: gradient-slide 0.8s cubic-bezier(0.4, 0, 0.2, 1)
     forwards;
 

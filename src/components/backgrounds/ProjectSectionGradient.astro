@@ -1,0 +1,28 @@
+<div class="relative w-full h-[500px] pointer-events-none overflow-hidden">
+  <!-- Gradient container - positioned below the diagonal lines -->
+  <div
+    class="absolute inset-0"
+    style="clip-path: polygon(0 100%, 50% 30%, 100% 100%);"
+  >
+    <!-- Left side gradient - starting from edge, converging inward -->
+    <div
+      class="absolute left-[-5%] bottom-[10%] w-[45%] h-[500px] rounded-full blur-[120px] opacity-70"
+      style="background-color: var(--color-project-grad-1);"
+    >
+    </div>
+
+    <!-- Middle/center gradient - where they converge -->
+    <div
+      class="absolute left-1/2 -translate-x-1/2 bottom-[5%] w-[55%] h-[600px] rounded-full blur-[120px] opacity-70"
+      style="background-color: var(--color-project-grad-2);"
+    >
+    </div>
+
+    <!-- Right side gradient - starting from edge, converging inward -->
+    <div
+      class="absolute right-[-5%] bottom-[10%] w-[45%] h-[500px] rounded-full blur-[120px] opacity-70"
+      style="background-color: var(--color-project-grad-3);"
+    >
+    </div>
+  </div>
+</div>

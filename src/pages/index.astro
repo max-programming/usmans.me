@@ -2,9 +2,16 @@
 import Layout from "@/components/Layout.astro";
 import Hero from "@/components/Hero.astro";
 import Marquee from "@/components/Marquee.astro";
+import ProjectSectionGradient from "@/components/backgrounds/ProjectSectionGradient.astro";
 ---
 
 <Layout>
   <Hero />
   <Marquee />
+  <section class="relative">
+    <ProjectSectionGradient />
+    <h2 class="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 text-white text-center font-bold text-[64px] pb-8">
+      I Build Projects
+    </h2>
+  </section>
 </Layout>
